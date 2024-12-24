@@ -25,6 +25,6 @@ author:
   name: "Brandon Syiem"
   avatar: "assets/images/brandon.jpg"
   location: "Sydney, New South Wales"
-#  links:
-#    - label: "HCC group"
-#      url: "https://www.sydney.edu.au/engineering/our-research/data-science-and-computer-engineering/human-centred-computing-hcc.html"
+  links:
+    - label: "contact: brandon.syiem@sydney.edu.au"
+      url: "mailto:brandon.syiem@sydney.edu.au"
