@@ -1,0 +1,28 @@
+name: brandon-syiem
+remote_theme: mmistakes/minimal-mistakes
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+  - jekyll-target-blank
+
+
+#defaults:
+#  -
+#    scope:
+#      path: ""
+#      type: "pages"
+#    values:
+#      author_profile: true
+
+#author:
+#  name: "Brandon Syiem"
+#  avatar: ""
+#  location: "Sydney, New South Wales"
+#  links:
+#    - label: "HCC group"
+#      url: "https://www.sydney.edu.au/engineering/our-research/data-science-and-computer-engineering/human-centred-computing-hcc.html"
