@@ -12,6 +12,8 @@ plugins:
   - jekyll-include-cache
   - jekyll-target-blank
 
+atom_feed:
+  hide: true
 
 defaults:
   -
