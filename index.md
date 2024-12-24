@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: "Sydney XR Research Methods Summer School"
+title: "Brandon Syiem"
 excerpt: ""
 header:
   overlay_image: /assets/hero_image/4.jpeg
