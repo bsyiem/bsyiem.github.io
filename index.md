@@ -4,7 +4,7 @@ classes: wide
 title: "Brandon Syiem"
 excerpt: ""
 header:
-   image: /assets/images/hero_img.jpg
+   image: /assets/images/hero_img.JPG
 #  overlay_image: /assets/hero_image/4.jpeg
 #  overlay_filter: 0.5
 ---
