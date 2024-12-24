@@ -7,6 +7,8 @@ header:
 #  image: /assets/images/hero_img.JPG
   overlay_image: /assets/images/hero_img.JPG
   overlay_filter: 0.5
+
+author_profile: true
 ---
 
 # About Me
