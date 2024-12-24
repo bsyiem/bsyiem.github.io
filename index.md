@@ -11,6 +11,6 @@ header:
 
 # About Me
 
-I am a Postdoctoral Research Fellow working with Prof. Eduardo Velloso at the University of Sydney. My research investigates novel implementations, design and use of eXtended Reality (XR) technologies to enhance individual and collaborative efforts. 
+I am a Postdoctoral Research Fellow working with Prof. Eduardo Velloso at the University of Sydney. My research investigates novel implementations, design and use of eXtended Reality (XR) technologies to enhance individual, social & collaborative experiences. 
 
 This site is currently under construction. 
