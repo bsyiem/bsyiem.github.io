@@ -26,5 +26,5 @@ author:
   avatar: "assets/images/brandon.jpg"
   location: "Sydney, New South Wales"
   links:
-    - label: "contact-email"
+    - label: "Email"
       url: "mailto:brandon.syiem@sydney.edu.au"
