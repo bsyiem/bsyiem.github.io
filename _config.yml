@@ -13,18 +13,18 @@ plugins:
   - jekyll-target-blank
 
 
-#defaults:
-#  -
-#    scope:
-#      path: ""
-#      type: "pages"
-#    values:
-#      author_profile: true
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      author_profile: true
 
-#author:
-#  name: "Brandon Syiem"
-#  avatar: ""
-#  location: "Sydney, New South Wales"
+author:
+  name: "Brandon Syiem"
+  avatar: "assets/images/brandon.jpg"
+  location: "Sydney, New South Wales"
 #  links:
 #    - label: "HCC group"
 #      url: "https://www.sydney.edu.au/engineering/our-research/data-science-and-computer-engineering/human-centred-computing-hcc.html"
