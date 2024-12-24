@@ -15,13 +15,13 @@ plugins:
 atom_feed:
   hide: true
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      author_profile: true
+#defaults:
+#  -
+#    scope:
+#      path: ""
+#      type: "pages"
+#    values:
+#      author_profile: true
 
 author:
   name: "Brandon Syiem"
