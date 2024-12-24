@@ -6,8 +6,6 @@ excerpt: ""
 header:
   overlay_image: /assets/hero_image/4.jpeg
   overlay_filter: 0.5
-
-author_profile: true
 ---
 
 # About Me
