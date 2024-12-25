@@ -13,7 +13,6 @@ header:
 
 author_profile: true
 ---
-@import "custom.scss"
 
 # About Me
 
