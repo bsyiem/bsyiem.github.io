@@ -1,5 +1,5 @@
 main:
   - title: "Home"
-    url: {{site.baseurl}}
+    url: "/"
   - title "Photograpghy"
     url: /photography/
