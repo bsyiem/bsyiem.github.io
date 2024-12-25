@@ -7,7 +7,7 @@ header:
 #  image: /assets/images/hero_img.JPG
   overlay_image: /assets/images/hero_img.JPG
   overlay_filter: 0.5
-   actions:
+  actions:
     - label: "Photography"
       url: "/assets/pages/photography.md"
 
