@@ -1,4 +1,4 @@
- ---
+---
 layout: splash
 title: phone-photography
 permalink: /photography/
