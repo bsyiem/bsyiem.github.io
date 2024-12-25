@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 title: "Brandon Syiem"
-permalink: "/home/"
+permalink: /home/
 excerpt: "HCI x XR"
 header:
 #  image: /assets/images/hero_img.JPG
