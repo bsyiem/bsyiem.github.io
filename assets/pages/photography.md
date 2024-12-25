@@ -1,9 +1,15 @@
 ---
 layout: splash
-title: phone-photography
+#title: phone-photography
+excerpt: "A collection of random images that I took and edited on my IPhone. These images reflect the various visual scenes that have captured my attention over the years."
 permalink: /photography/
 header:
-  image: /assets/images/hero_img.JPG
+  #image: /assets/images/hero_img.JPG
+  overlay_image: /assets/images/hero_img.JPG
+  overlay_filter: 0.5
+  actions:
+    - label: "Home"
+      url: {{ site.baseurl}}
 
 intro:
   - excerpt: "A collection of random images that I took and edited on my IPhone. These images reflect the various visual scenes that have captured my attention over the years."
@@ -57,6 +63,6 @@ gallery_images:
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 
 
-{% include feature_row id="intro" type="justified" %}
+// {% include feature_row id="intro" type="justified" %}
 
 {% include gallery id = "gallery_images" layout = "third" class = "custom_size"%}
