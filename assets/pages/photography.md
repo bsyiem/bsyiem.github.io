@@ -2,6 +2,7 @@
 layout: splash
 title: phone-photography
 permalink: /photography/
+
 # header:
 #  image: /assets/images/hero_img.JPG
 #  overlay_image: /assets/hero_image/4.jpeg
