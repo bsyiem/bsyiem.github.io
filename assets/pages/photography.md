@@ -2,8 +2,8 @@
 layout: splash
 title: phone-photography
 permalink: /photography/
-header:
-  image: /assets/images/hero_img.JPG
+#header:
+  #image: /assets/images/hero_img.JPG
   #overlay_image: /assets/images/hero_img.JPG
   #overlay_filter: 0.5
 
