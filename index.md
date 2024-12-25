@@ -18,6 +18,8 @@ author_profile: true
 
 # About Me
 
-I am a Postdoctoral Research Fellow working with <a href="https://www.eduardovelloso.com/">Prof. Eduardo Velloso</a> at the University of Sydney. My research investigates novel implementations, design and use of eXtended Reality (XR) technologies to enhance individual, social & collaborative experiences.{: .test}
+I am a Postdoctoral Research Fellow working with <a href="https://www.eduardovelloso.com/">Prof. Eduardo Velloso</a> at the University of Sydney. My research investigates novel implementations, design and use of eXtended Reality (XR) technologies to enhance individual, social & collaborative experiences.
 
+<div class = "test">
 This site is currently under construction.  {{site.url}}
+</div>
