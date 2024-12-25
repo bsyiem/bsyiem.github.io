@@ -49,12 +49,13 @@ gallery_images:
   - image_path: assets/images/photography/38.jpg
   - image_path: assets/images/photography/39.jpg
   - image_path: assets/images/photography/40.jpg
+  - image_path: assets/images/photography/41.jpg
+  - image_path: assets/images/photography/42.jpg
+  - image_path: assets/images/photography/43.jpg
   
 ---
-
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 
-<div class = "test">TEST</div>
 
 {% include feature_row id="intro" type="justified" %}
 
