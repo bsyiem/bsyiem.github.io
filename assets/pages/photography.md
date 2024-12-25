@@ -9,12 +9,8 @@ intro:
   - excerpt: "A collection of random images taken and edited on an IPhone. These images reflect the different visuals that capture my attention and continue to change over the years."
 
 feature_row:
-  - image_path: assets/images/photgraphy/1.jpg
-  - image_path: assets/images/photgraphy/2.jpg
-  - image_path: assets/images/photgraphy/3.jpg
-  - image_path: assets/images/photgraphy/4.jpg
-  - image_path: assets/images/photgraphy/5.jpg
-  - image_path: assets/images/photgraphy/6.jpg
+  - image_path: assets/images/hero_img.JPG
+  
 ---
 
 {% include feature_row id="intro" type="justified" %}
