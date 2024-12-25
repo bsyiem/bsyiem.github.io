@@ -9,7 +9,7 @@ header:
   overlay_filter: 0.5
   actions:
     - label: "Photography"
-      url: "/assets/pages/photography/"
+      url: /photography/
 
 author_profile: true
 ---
