@@ -1,9 +1,9 @@
 .custom_size img{
-  //width: 1920px;
-  //height: 1440px;
-  max-width: 301px;
-  max-height: 225px;
-  width: auto;
+  max-width: 1920px;
+  max-height: 1440px;
+  //max-width: 301px;
+  //max-height: 225px;
+  width: 100%;
   height: auto;
   object-fit: cover
 }
