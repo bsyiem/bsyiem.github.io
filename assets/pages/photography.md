@@ -56,4 +56,4 @@ gallery_images:
 
 {% include feature_row id="intro" type="justified" %}
 
-{% include gallery id = "gallery_images" layout = "third" class = "test"%}
+{% include gallery id = "gallery_images" layout = "third" class = "custom_size"%}
