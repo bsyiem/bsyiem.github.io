@@ -10,8 +10,11 @@ intro:
 
 feature_row:
   - image_path: assets/images/photography/1.jpg
+    excerpt: "Brisbane, Australia"
   - image_path: assets/images/photography/2.jpg
+    excerpt: "Brisbane, Australia"
   - image_path: assets/images/photography/3.jpg
+    excerpt: "Brisbane, Australia"
   - image_path: assets/images/photography/4.jpg
   - image_path: assets/images/photography/5.jpg
   - image_path: assets/images/photography/6.jpg
