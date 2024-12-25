@@ -1,5 +1,5 @@
 main:
   - title: "Home"
-    url: "/"
+    url: /
   - title "Photograpghy"
     url: /photography/
