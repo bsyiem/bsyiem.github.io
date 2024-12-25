@@ -1,8 +1,10 @@
 .custom_size{
   //width: 1920x;
   //height: 1440x;
-  width: 301x;
-  height: 225x;
+  max-width: 301x;
+  max-height: 225x;
+  width: auto;
+  height: auto;
   object-fit: cover
 }
 
