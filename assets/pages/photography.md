@@ -8,13 +8,10 @@ header:
 intro:
   - excerpt: "A collection of random images that I took and edited on my IPhone. These images reflect the various visual scenes that have captured my attention over the years."
 
-feature_row:
+gallery_images:
   - image_path: assets/images/photography/1.jpg
-    excerpt: "Brisbane, Australia"
   - image_path: assets/images/photography/2.jpg
-    excerpt: "Brisbane, Australia"
   - image_path: assets/images/photography/3.jpg
-    excerpt: "Brisbane, Australia"
   - image_path: assets/images/photography/4.jpg
   - image_path: assets/images/photography/5.jpg
   - image_path: assets/images/photography/6.jpg
@@ -37,4 +34,4 @@ feature_row:
 
 {% include feature_row id="intro" type="justified" %}
 
-{% include feature_row %}
+{% include gallery id = "gallery_images" layout = "third" %}
