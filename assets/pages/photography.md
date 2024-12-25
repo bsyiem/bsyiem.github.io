@@ -8,7 +8,7 @@ header:
 intro:
   - excerpt: "A collection of random images taken and edited on an IPhone. These images reflect the different visuals that capture my attention and continue to change over the years."
 
-images:
+feature_row:
   - image_path: assets/images/photgraphy/1.jpg
   - image_path: assets/images/photgraphy/2.jpg
   - image_path: assets/images/photgraphy/3.jpg
@@ -19,4 +19,4 @@ images:
 
 {% include feature_row id="intro" type="justified" %}
 
-{% include feature_row id="images" %}
+{% include feature_row %}
