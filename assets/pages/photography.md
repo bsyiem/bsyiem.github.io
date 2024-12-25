@@ -52,6 +52,8 @@ gallery_images:
   
 ---
 
+@import "custom.scss"
+
 {% include feature_row id="intro" type="justified" %}
 
 {% include gallery id = "gallery_images" layout = "third" %}
