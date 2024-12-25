@@ -29,6 +29,26 @@ gallery_images:
   - image_path: assets/images/photography/18.jpg
   - image_path: assets/images/photography/19.jpg
   - image_path: assets/images/photography/20.jpg
+  - image_path: assets/images/photography/21.jpg
+  - image_path: assets/images/photography/22.jpg
+  - image_path: assets/images/photography/23.jpg
+  - image_path: assets/images/photography/24.jpg
+  - image_path: assets/images/photography/25.jpg
+  - image_path: assets/images/photography/26.jpg
+  - image_path: assets/images/photography/27.jpg
+  - image_path: assets/images/photography/28.jpg
+  - image_path: assets/images/photography/29.jpg
+  - image_path: assets/images/photography/30.jpg
+  - image_path: assets/images/photography/31.jpg
+  - image_path: assets/images/photography/32.jpg
+  - image_path: assets/images/photography/33.jpg
+  - image_path: assets/images/photography/34.jpg
+  - image_path: assets/images/photography/35.jpg
+  - image_path: assets/images/photography/36.jpg
+  - image_path: assets/images/photography/37.jpg
+  - image_path: assets/images/photography/38.jpg
+  - image_path: assets/images/photography/39.jpg
+  - image_path: assets/images/photography/40.jpg
   
 ---
 
