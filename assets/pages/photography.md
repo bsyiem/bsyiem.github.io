@@ -52,6 +52,8 @@ gallery_images:
   
 ---
 
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+
 {% include feature_row id="intro" type="justified" %}
 
-{% include gallery id = "gallery_images" layout = "third" %}
+{% include gallery id = "gallery_images" layout = "third" class = "test"%}
