@@ -1,3 +1,5 @@
 main:
-  - title "Home"
-    url: "bsyiem.github.io"
+  - title: "Home"
+    url: ./
+  - title: "Photography"
+    url: /photography/
