@@ -107,6 +107,12 @@ gallery_images:
     url: assets/images/photography/47.jpg
   - image_path: assets/images/photography/48.jpg
     url: assets/images/photography/48.jpg
+  - image_path: assets/images/photography/49.jpg
+    url: assets/images/photography/49.jpg
+  - image_path: assets/images/photography/50.jpg
+    url: assets/images/photography/50.jpg
+  - image_path: assets/images/photography/51.jpg
+    url: assets/images/photography/51.jpg
   
 ---
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">  
