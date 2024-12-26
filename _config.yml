@@ -1,5 +1,6 @@
-ultname: brandon-syiem
+name: brandon-syiem
 remote_theme: mmistakes/minimal-mistakes
+masthead_title: "Brandon's Home"
 minimal_mistakes_skin: "contrast" # "default" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 
