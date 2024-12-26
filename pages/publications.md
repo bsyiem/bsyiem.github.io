@@ -20,7 +20,7 @@ publication_list:
 
 ---
 
-[BIT 2024](https://doi.org/10.1080/0144929X.2024.2441963){: style}
+[BIT 2024](https://doi.org/10.1080/0144929X.2024.2441963){: style = "font-style: italic;"}
 # A Systematic Exploration of Collaborative Immersive Systems for Sense-making in STEM
 Brandon V. Syiem, Selen Türkay
 
