@@ -35,7 +35,7 @@ Recent work on augmented reality (AR) has explored the use of adaptive agents to
 **Augmented Reality at Zoo Exhibits: A Design Framework for Enhancing the Zoo Experience**{: style="font-size: larger"}  
 ***Brandon V. Syiem**, Sarah Webber, Ryan M. Kelly, Qiushi Zhou, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
-{% include figure popup=true image_path= "/assets/images/publications/syiem2024systematic.jpg" %}
+{% include figure popup=true image_path= "/assets/images/publications/syiem2024augmented.jpg" %}
 
 Augmented Reality (AR) offers unique opportunities for contributing to zoos’ objectives of public engagement and education about animal and conservation issues. However, the diversity of animal exhibits pose challenges in designing AR applications that are not encountered in more controlled environments, such as museums. To support the design of AR applications that meaningfully engage the public with zoo objectives, we first conducted two scoping reviews to interrogate previous work on AR and broader technology use at zoos. We then conducted a workshop with zoo representatives to understand the challenges and opportunities in using AR to achieve zoo objectives. Additionally, we conducted a field trip to a public zoo to identify exhibit characteristics that impacts AR application design. We synthesise the findings from these studies into a framework that enables the design of diverse AR experiences. We illustrate the utility of the framework by presenting two concepts for feasible AR applications.
 {: .text-justify}  
