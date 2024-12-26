@@ -111,6 +111,8 @@ gallery_images:
 ---
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 
+</br>
+</br>
 
 {% include feature_row id="intro" type="center" %}
 
