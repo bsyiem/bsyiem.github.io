@@ -8,7 +8,7 @@ permalink: /photography/
   #overlay_filter: 0.5
 
 intro:
-  - excerpt: "A collection of images taken and edited on my IPhone. These images reflect the various visual scenes that have captured my attention over the years."
+  - excerpt: "***A collection of images taken and edited on my IPhone. These images reflect the various visual scenes that have captured my attention over the years.***"
 
 gallery_images:
   - image_path: assets/images/photography/1.jpg
