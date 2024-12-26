@@ -123,5 +123,5 @@ gallery_images:
 
 ---
 
-[Top](#){: .btn .btn--info}
+[Top](#){: .btn .btn--inverse}
 {: .text-right}
