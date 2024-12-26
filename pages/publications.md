@@ -43,7 +43,7 @@ Augmented Reality (AR) offers unique opportunities for contributing to zoos’ o
 
 [CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info}   [PDF](https://dl.acm.org/doi/pdf/10.1145/3613904.3642814){: .btn .btn--info}  
 **Volumetric Hybrid Workspaces: Interactions with Objects in Remote and Co-located Telepresence**{: style="font-size: larger"}  
-*Andrew Irlitti, Mesut Latifoglu, Thuong Hoang, **Brandon V. Syiem**, Frank Vetere*{: style="font-size: small"}
+*Andrew Irlitti, Mesut Latifoglu, Thuong Hoang, **Brandon Victor Syiem**, Frank Vetere*{: style="font-size: small"}
 
 {% include figure popup=true image_path= "/assets/images/publications/irlitti2024volumetric.jpg" %}
 
