@@ -121,4 +121,5 @@ gallery_images:
 
 {% include gallery id = "gallery_images" layout = "third" class = "custom_size"%}
 
-[Top](#){: .btn .btn--info .text-right}
+[Top](#){: .btn .btn--info}
+{: .text-right}
