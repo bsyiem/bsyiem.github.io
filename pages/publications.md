@@ -30,3 +30,13 @@ Scientific sense-making in STEM fields is a complex, yet essential activity, tha
 Recent work on augmented reality (AR) has explored the use of adaptive agents to overcome attentional issues that negatively impact task performance. However, despite positive technical evaluations, adaptive agents have shown no significant improvements to user task performance in AR. Furthermore, previous works have primarily evaluated such agents using abstract tasks. In this paper, we develop an agent that observes user behaviour and performs appropriate actions to mitigate attentional issues in a realistic sense-making task in AR. We employ mixed methods to evaluate our agent in a between-subject experiment (N=60) to understand the agent’s effect on user task performance and behaviour. While we find no significant improvements in task performance, our analysis revealed that users’ preferences and trust in the agent affected their receptiveness of the agent’s recommendations. We discuss the pitfalls of autonomous agents and highlight the need to shift from designing better Human–AI interactions to better Human–AI collaborations.
 {: .text-justify}  
 ---
+
+[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info}   [PDF](#){: .btn .btn--info}  
+**Augmented Reality at Zoo Exhibits: A Design Framework for Enhancing the Zoo Experience**{: style="font-size: larger"}  
+***Brandon V. Syiem**, Sarah Webber, Ryan M. Kelly, Qiushi Zhou, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
+
+{% include figure popup=true image_path= "/assets/images/publications/syiem2024systematic.jpg" %}
+
+Augmented Reality (AR) offers unique opportunities for contributing to zoos’ objectives of public engagement and education about animal and conservation issues. However, the diversity of animal exhibits pose challenges in designing AR applications that are not encountered in more controlled environments, such as museums. To support the design of AR applications that meaningfully engage the public with zoo objectives, we first conducted two scoping reviews to interrogate previous work on AR and broader technology use at zoos. We then conducted a workshop with zoo representatives to understand the challenges and opportunities in using AR to achieve zoo objectives. Additionally, we conducted a field trip to a public zoo to identify exhibit characteristics that impacts AR application design. We synthesise the findings from these studies into a framework that enables the design of diverse AR experiences. We illustrate the utility of the framework by presenting two concepts for feasible AR applications.
+{: .text-justify}  
+---
