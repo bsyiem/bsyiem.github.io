@@ -20,4 +20,4 @@ publication_list:
 
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 
-{% include feature_row id = "publication_list" type = "left" class = "custom_size"%}
+{% include feature_row id = "publication_list" type = "center"%}
