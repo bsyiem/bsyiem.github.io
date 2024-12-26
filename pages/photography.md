@@ -109,11 +109,11 @@ gallery_images:
     url: assets/images/photography/48.jpg
   
 ---
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">  
 
-</br>
-</br>
 
+
+      
 {% include feature_row id="intro" type="center" %}
 
 {% include gallery id = "gallery_images" layout = "third" class = "custom_size"%}
