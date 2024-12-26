@@ -1,5 +1,7 @@
 main:
   - title: "Home"
-    url: ./
+    url: /
+  - title: "Publications"
+    url: /publications/
   - title: "Photography"
     url: /photography/
