@@ -117,9 +117,8 @@ gallery_images:
 ---
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">  
 
-
-
-      
 {% include feature_row id="intro" type="center" %}
 
 {% include gallery id = "gallery_images" layout = "third" class = "custom_size"%}
+
+[Top](#){: .btn .btn--info .text-right}
