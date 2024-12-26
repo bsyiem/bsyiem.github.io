@@ -7,9 +7,6 @@ header:
 #  image: /assets/images/hero_img.JPG
   overlay_image: /assets/images/hero_img.JPG
   overlay_filter: 0.5
-  # actions:
-  #  - label: "Photography"
-  #    url: /photography/
 
 author_profile: true
 ---
