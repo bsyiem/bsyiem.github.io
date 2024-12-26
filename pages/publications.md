@@ -31,7 +31,7 @@ Recent work on augmented reality (AR) has explored the use of adaptive agents to
 {: .text-justify}  
 ---
 
-[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info}   [PDF](#){: .btn .btn--info}  
+[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info}   [PDF](https://dl.acm.org/doi/pdf/10.1145/3613904.3642015){: .btn .btn--info}  
 **Augmented Reality at Zoo Exhibits: A Design Framework for Enhancing the Zoo Experience**{: style="font-size: larger"}  
 ***Brandon V. Syiem**, Sarah Webber, Ryan M. Kelly, Qiushi Zhou, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
@@ -41,7 +41,7 @@ Augmented Reality (AR) offers unique opportunities for contributing to zoos’ o
 {: .text-justify}  
 ---
 
-[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info}   [PDF](#){: .btn .btn--info}  
+[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info}   [PDF](https://dl.acm.org/doi/pdf/10.1145/3613904.3642814){: .btn .btn--info}  
 **Volumetric Hybrid Workspaces: Interactions with Objects in Remote and Co-located Telepresence**{: style="font-size: larger"}  
 *Andrew Irlitti, Mesut Latifoglu, Thuong Hoang, **Brandon V. Syiem**, Frank Vetere*{: style="font-size: small"}
 
