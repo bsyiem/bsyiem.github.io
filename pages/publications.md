@@ -40,3 +40,13 @@ Recent work on augmented reality (AR) has explored the use of adaptive agents to
 Augmented Reality (AR) offers unique opportunities for contributing to zoos’ objectives of public engagement and education about animal and conservation issues. However, the diversity of animal exhibits pose challenges in designing AR applications that are not encountered in more controlled environments, such as museums. To support the design of AR applications that meaningfully engage the public with zoo objectives, we first conducted two scoping reviews to interrogate previous work on AR and broader technology use at zoos. We then conducted a workshop with zoo representatives to understand the challenges and opportunities in using AR to achieve zoo objectives. Additionally, we conducted a field trip to a public zoo to identify exhibit characteristics that impacts AR application design. We synthesise the findings from these studies into a framework that enables the design of diverse AR experiences. We illustrate the utility of the framework by presenting two concepts for feasible AR applications.
 {: .text-justify}  
 ---
+
+[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info}   [PDF](#){: .btn .btn--info}  
+**Volumetric Hybrid Workspaces: Interactions with Objects in Remote and Co-located Telepresence**{: style="font-size: larger"}  
+*Andrew Irlitti, Mesut Latifoglu, Thuong Hoang, **Brandon V. Syiem**, Frank Vetere*{: style="font-size: small"}
+
+{% include figure popup=true image_path= "/assets/images/publications/irlitti2024volumetric.jpg" %}
+
+Volumetric telepresence aims to create a shared space, allowing people in local and remote settings to collaborate seamlessly. Prior telepresence examples typically have asymmetrical designs, with volumetric capture in one location and objects in one format. In this paper, we present a volumetric telepresence mixed reality system that supports real-time, symmetrical, multi-user, partially distributed interactions, using objects in multiple formats, across multiple locations. We align two volumetric environments around a common spatial feature to create a shared workspace for remote and co-located people using objects in three formats: physical, virtual, and volumetric. We conducted a study with 18 participants over 6 sessions, evaluating how telepresence workspaces support spatial coordination and hybrid communication for co-located and remote users undertaking collaborative tasks. Our findings demonstrate the successful integration of remote spaces, effective use of proxemics and deixis to support negotiation, and strategies to manage interactivity in hybrid workspaces.
+{: .text-justify}  
+---
