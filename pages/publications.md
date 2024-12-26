@@ -8,6 +8,8 @@ header:
   overlay_image: /assets/images/hero_img.JPG
   overlay_filter: 0.5
 
+author_profile: true
+
 publication_list:
   - url: "https://doi.org/10.1080/0144929X.2024.2441963"
     image_path: /assets/images/publications/systematic2024syiem.jpg
