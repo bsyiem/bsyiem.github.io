@@ -1,0 +1,2 @@
+For integrating custom css for a "remote-theme" and not a "theme" (in _config.yml) -- the following cite was extremely useful
+https://stackoverflow.com/questions/49116592/customize-jekyll-remote-theme-for-github-pages
