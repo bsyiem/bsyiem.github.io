@@ -11,7 +11,7 @@ header:
 author_profile: true
 ---
 
-<a href="https://doi.org/10.1080/0144929X.2024.2441963" class="btn btn--info">BIT 2024</a>   <a href="https://doi.org/10.1080/0144929X.2024.2441963" class="btn info">PDF</a>  
+[BIT 2024](https://doi.org/10.1080/0144929X.2024.2441963){: .btn .btn--info}   [PDF](#){: .btn .btn--info}  
 **A Systematic Exploration of Collaborative Immersive Systems for Sense-making in STEM**{: style="font-size: larger"}  
 *Brandon V. Syiem, Selen Türkay*{: style="font-size: small"}
 
