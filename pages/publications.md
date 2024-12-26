@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: "Publications"
+title: "Select Publications"
 permalink: /publications/
 header:
 #  image: /assets/images/hero_img.JPG
