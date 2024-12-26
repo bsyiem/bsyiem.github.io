@@ -2,6 +2,7 @@
 layout: single
 classes: wide
 title: "Publications"
+permalink: /publications/
 header:
 #  image: /assets/images/hero_img.JPG
   overlay_image: /assets/images/hero_img.JPG
