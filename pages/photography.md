@@ -115,7 +115,6 @@ gallery_images:
     url: assets/images/photography/51.jpg
   
 ---
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">  
 
 {% include feature_row id="intro" type="center" %}
 
