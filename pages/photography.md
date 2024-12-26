@@ -54,6 +54,11 @@ gallery_images:
   - image_path: assets/images/photography/41.jpg
   - image_path: assets/images/photography/42.jpg
   - image_path: assets/images/photography/43.jpg
+  - image_path: assets/images/photography/44.jpg
+  - image_path: assets/images/photography/45.jpg
+  - image_path: assets/images/photography/46.jpg
+  - image_path: assets/images/photography/47.jpg
+  - image_path: assets/images/photography/48.jpg
   
 ---
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
