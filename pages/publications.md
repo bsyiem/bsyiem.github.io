@@ -15,7 +15,7 @@ author_profile: true
 
 A Systematic Exploration of Collaborative Immersive Systems for Sense-making in STEM{: style = "font-size: large; font-style: bold;"}
 
-*Brandon V. Syiem, Selen Türkay*{: style = "font-size: small;"}
+*Brandon V. Syiem, Selen Türkay*{: style="font-size: small"}
 
 {% include figure popup=true image_path= "/assets/images/publications/systematic2024syiem.jpg" %}
 
