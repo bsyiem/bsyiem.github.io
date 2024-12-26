@@ -12,6 +12,7 @@ intro:
 
 gallery_images:
   - image_path: assets/images/photography/1.jpg
+    url: assets/images/photography/1.jpg
   - image_path: assets/images/photography/2.jpg
   - image_path: assets/images/photography/3.jpg
   - image_path: assets/images/photography/4.jpg
