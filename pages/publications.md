@@ -51,7 +51,7 @@ Volumetric telepresence aims to create a shared space, allowing people in local 
 {: .text-justify}  
 ---
 
-[IMWUT 2024](https://doi.org/10.1145/3631431){: .btn .btn--info}   [PDF](#){: .btn .btn--info}  
+[IMWUT 2024](https://doi.org/10.1145/3631431){: .btn .btn--info}  [PDF](#){: .btn .btn--info}  
 **Reflected Reality: Augmented Reality through the Mirror**{: style="font-size: larger"}  
 *Qiushi Zhou, **Brandon Victor Syiem**, Beier Li, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
