@@ -24,7 +24,7 @@ author_profile: true
 #### 2025
 ---
 - [CHI2025 Workshop - Scaling Distributed Collaboration in Mixed Reality](https://blendedrealities.jensemil.dk/scaling-distributed-collaboration-in-mixed-reality/)
-- [USyd XR Summer School] (https://bsyiem.github.io/xr_summer_school/)
+- [USyd XR Summer School](https://bsyiem.github.io/xr_summer_school/)
 
 #### 2024
 ---
