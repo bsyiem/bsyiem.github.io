@@ -24,6 +24,7 @@ author_profile: true
 #### 2025
 ---
 - [CHI2025 Workshop - Scaling Distributed Collaboration in Mixed Reality](https://blendedrealities.jensemil.dk/scaling-distributed-collaboration-in-mixed-reality/)
+- [USyd XR Summer School] (https://bsyiem.github.io/xr_summer_school/)
 
 #### 2024
 ---
@@ -31,4 +32,4 @@ author_profile: true
 
 #### 2023
 ---
-- [Enabling effective novice-expert interactions: co-designing immersive systems for complex remote data analysis](https://www.qut.edu.au/research/study-with-us/student-topics/topics/enabling-effective-novice-expert-interactions-co-designing-immersive-systems-for-complex-remote-data-analysis){: style="font-size: medium"}
+- [Enabling effective novice-expert interactions: co-designing immersive systems for complex remote data analysis](https://www.qut.edu.au/research/study-with-us/student-topics/topics/enabling-effective-novice-expert-interactions-co-designing-immersive-systems-for-complex-remote-data-analysis)
