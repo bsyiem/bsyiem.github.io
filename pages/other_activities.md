@@ -18,7 +18,7 @@ author_profile: true
 
 #### Ongoing
 ---
-[The Blended Realities Collective](https://blendedrealities.jensemil.dk/)
+[The Blended Realities Collective](https://blendedrealities.jensemil.dk/)  
 [Eco-Explorations Queensland: Engaging Youth and Public in Conservation](https://research.qut.edu.au/ecoexplorations/)
 
 #### 2025
