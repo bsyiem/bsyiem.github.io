@@ -3,6 +3,5 @@ main:
     url: /publications/
   - title: "Download CV"
     url: "https://drive.google.com/file/d/1Qn7mJv0-s2w1q3R5-imwbxl_METqFdAh/view?usp=drive_link"
-    target = "_blank"
   - title: "Photography"
     url: /photography/
