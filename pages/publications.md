@@ -91,5 +91,15 @@ Temporal target selection requires users to wait and trigger the selection input
 {: .text-justify}  
 ---
 
+[CHI 2021](https://doi.org/10.1145/3411764.3445580){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/syiem2021impact.pdf){: .btn .btn--info target="_blank"}  
+**Impact of task on attentional tunneling in handheld augmented reality**{: style="font-size: larger"}  
+***Brandon Victor Syiem**, Ryan M. Kelly, Jorge Goncalves, Eduardo Velloso, Tilman Dingler*{: style="font-size: small"}
+
+{% include video id="SurgIJUxxjs" provider="youtube" %}
+
+Attentional tunneling describes a phenomenon in Augmented Reality (AR) where users excessively focus on virtual content while neglecting their physical surroundings. This leads to the concern that users could neglect hazardous situations when using AR applications. However, studies have often confounded the role of the virtual content with the role of the associated task in inducing attentional tunneling. In this paper, we disentangle the impact of the associated task and of the virtual content on the attentional tunneling effect by measuring reaction times to events in two user studies. We found that presenting virtual content did not significantly increase user reaction times to events, but adding a task to the content did. This work contributes towards our understanding of the attentional tunneling effect on handheld AR devices, and highlights the need to consider both task and context when evaluating AR application usage.
+{: .text-justify}  
+---
+
 [Top](#){: .btn .btn--inverse}
 {: .text-right}
