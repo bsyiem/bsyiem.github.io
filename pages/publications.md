@@ -101,5 +101,15 @@ Attentional tunneling describes a phenomenon in Augmented Reality (AR) where use
 {: .text-justify}  
 ---
 
+[ISMAR 2020](https://doi.org/10.1109/ISMAR50242.2020.00053){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/syiem2020Enhancing.pdf){: .btn .btn--info target="_blank"}  
+**Enhancing Visitor Experience or Hindering Docent Roles: Attentional Issues in Augmented Reality Supported Installations**{: style="font-size: larger"}  
+***Brandon Victor Syiem**, Ryan M. Kelly, Eduardo Velloso, Jorge Goncalves, Tilman Dingler*{: style="font-size: small"}
+
+{% include video id="McdegMpBT1w" provider="youtube" %}
+
+Studies using augmented reality (AR) technology have suggested that users focus excessively on the virtual content in the AR environment at the expense of the physical world around them. This has implications related to the design of installations that aim to incorporate the user's physical environment as part of the AR experience. To better understand how user attention is managed in an AR environment, we present an observational study of Rewild Our Planet, a multi-modal installation that combined video, audio, a human docent and mobile AR to promote awareness about environmental issues. We found that, while AR was successful in engaging visitors, it drew attention away from other modalities within the installation. This impacts the work of the human docent and affects how visitors absorb information presented in the installation. Based on these observations, we present guidelines to inform the design of future AR-supported installations with the aim of minimizing or taking advantage of the observed attentional issues.
+{: .text-justify}  
+---
+
 [Top](#){: .btn .btn--inverse}
 {: .text-right}
