@@ -6,3 +6,9 @@ main:
     target: _blank
   - title: "Photography"
     url: /photography/
+
+external_links:
+  - title: "More Activities"
+    children:
+      - title: "CHI2025 Workshop"
+        url: /
