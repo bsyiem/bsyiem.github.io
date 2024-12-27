@@ -33,3 +33,8 @@ author_profile: true
 #### 2023
 ---
 - [Enabling effective novice-expert interactions: co-designing immersive systems for complex remote data analysis](https://www.qut.edu.au/research/study-with-us/student-topics/topics/enabling-effective-novice-expert-interactions-co-designing-immersive-systems-for-complex-remote-data-analysis){: style="font-size: medium"}
+
+---
+
+[Top](#){: .btn .btn--inverse}
+{: .text-right}
