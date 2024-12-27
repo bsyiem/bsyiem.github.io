@@ -91,7 +91,7 @@ Temporal target selection requires users to wait and trigger the selection input
 {: .text-justify}  
 ---
 
-[CHI 2021](https://doi.org/10.1145/3411764.3445580){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2021impact.pdf){: .btn .btn--info target="_blank"}  
+<i class="fa-sharp fa-solid fa-trophy">Best Paper Award</i> [CHI 2021](https://doi.org/10.1145/3411764.3445580){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2021impact.pdf){: .btn .btn--info target="_blank"}  
 **Impact of task on attentional tunneling in handheld augmented reality**{: style="font-size: larger"}  
 ***Brandon Victor Syiem**, Ryan M. Kelly, Jorge Goncalves, Eduardo Velloso, Tilman Dingler*{: style="font-size: small"}
 
