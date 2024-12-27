@@ -75,10 +75,21 @@ Studies suggest that Sense of Embodiment (SoE) enabled by VR promotes embodied a
 **Evaluation of Optimal Stimuli for SSVEP-Based Augmented Reality Brain-Computer Interfaces**{: style="font-size: larger"}  
 *Syeda R. Zehra, Jing Mu, **Brandon V. Syiem**, Anthony N. Burkitt, David B. Grayden*{: style="font-size: small"}
 
-{% include figure popup=true image_path= "/assets/images/publications//zehra2023evaluation.jpg" %}
+{% include figure popup=true image_path= "/assets/images/publications/zehra2023evaluation.jpg" %}
 
 Steady-State Visually Evoked Potentials (SSVEPs) serve as one of the most robust Brain-Computer Interface (BCI) paradigms. Being an exogenous brain response, the properties of elicited SSVEPs are directly related to the properties of the visual stimuli. However, studies on integrating BCI and Augmented Reality (AR), aimed at realising mobile BCI systems, have mainly focused on applications of BCIs and performance comparison with screen-based BCIs. Little work has been done to study the effects of stimulus parameters on BCI performance when stimuli are presented with an AR headset. Here, we compare AR-based SSVEP with 3D and 2D stimuli using three different stimulation strategies: flickering, grow-shrink, and both. Participant feedback on level of fatigue and their subjective preference of stimuli were also collected. Our results did not show significant differences in classification accuracies between the 2D and 3D stimuli. However, for most of the participants, classification accuracy with flickering stimuli was above their average performance and stimuli that changed only in size were below average. The participants were divided in terms of which type of stimulus they felt was the most comfortable.
 {: .text-justify}  
+---
+
+[CHI 2023](https://doi.org/10.1145/3544548.3581011){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/yu2023modelling.pdf){: .btn .btn--info target="_blank"}  
+**Modeling Temporal Target Selection: A Perspective from Its Spatial Correspondence**{: style="font-size: larger"}  
+*Difeng Yu, **Brandon Victor Syiem**, Andrew Irlitti, Tilman Dingler, Eduardo Velloso, Jorge Goncalves*{: style="font-size: small"}
+
+{% include video id="pyQG36Vzqco" provider="youtube" %}
+
+Temporal target selection requires users to wait and trigger the selection input within a bounded time window, with a selection cursor that is expected to be delayed. This task conceptualizes, for example, a variety of game scenarios such as determining the timing of shooting a projectile towards a moving object. In this work, we explore models that predict “when” users typically perform a selection (i.e., user selection distribution) and their selection error rates in such tasks. We hypothesize that users react to temporal factors including “distance”, “width”, and “delay” as how they treat the corresponding variables in spatial target selection. The derived models are evaluated in a controlled experiment and an MTurk-based online study. Our research contributes new knowledge on user behavior in temporal target selection tasks and its potential connection with its spatial correspondence. Our models and conclusions can benefit both users and designers of relevant interactive applications.
+{: .text-justify}  
+---
 
 [Top](#){: .btn .btn--inverse}
 {: .text-right}
