@@ -23,6 +23,7 @@ author_profile: true
 #### 2024
 ---
 [CURRENT] [Eco-Explorations Queensland: Engaging Youth and Public in Conservation](https://research.qut.edu.au/ecoexplorations/)
+[PAST] [The Blended Realities Collective 1st Workshop at the University of Sydney](https://blendedrealities.jensemil.dk/2024/07/11/sydney-workshop/)
 
 #### 2023
 ---
