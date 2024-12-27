@@ -11,7 +11,7 @@ header:
 author_profile: true
 ---
 
-[BIT 2024](https://doi.org/10.1080/0144929X.2024.2441963){: .btn .btn--info}   [PDF](https://www.researchgate.net/profile/Brandon-Syiem/publication/387273986_A_Systematic_Exploration_of_Collaborative_Immersive_Systems_for_Sense-Making_in_STEM/links/67666762fb9aff6eaae62cb8/A-Systematic-Exploration-of-Collaborative-Immersive-Systems-for-Sense-Making-in-STEM.pdf){: .btn .btn--info}  
+[BIT 2024](https://doi.org/10.1080/0144929X.2024.2441963){: .btn .btn--info}   [PDF](/assets/pdfs/syiem2024systematic){: .btn .btn--info}  
 **A Systematic Exploration of Collaborative Immersive Systems for Sense-making in STEM**{: style="font-size: larger"}  
 ***Brandon V. Syiem**, Selen Türkay*{: style="font-size: small"}
 
@@ -21,7 +21,7 @@ Scientific sense-making in STEM fields is a complex, yet essential activity, tha
 {: .text-justify}  
 ---
 
-[IJHCS 2024](https://doi.org/10.1016/j.ijhcs.2024.103324){: .btn .btn--info}   [PDF](https://www.sciencedirect.com/science/article/pii/S1071581924001083/pdfft?md5=340b634ee8226bee5158c6450e7027cb&pid=1-s2.0-S1071581924001083-main.pdf){: .btn .btn--info}  
+[IJHCS 2024](https://doi.org/10.1016/j.ijhcs.2024.103324){: .btn .btn--info}   [PDF](/assets/pdfs/syiem2024addressing){: .btn .btn--info}  
 **Addressing Attentional Issues in Augmented Reality with Adaptive Agents: Possibilities and Challenges**{: style="font-size: larger"}  
 ***Brandon Victor Syiem**, Ryan M. Kelly, Tilman Dingler, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
@@ -31,7 +31,7 @@ Recent work on augmented reality (AR) has explored the use of adaptive agents to
 {: .text-justify}  
 ---
 
-[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info}   [PDF](https://dl.acm.org/doi/pdf/10.1145/3613904.3642015){: .btn .btn--info}  
+[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info}   [PDF](/assets/pdfs/syiem2024augmented){: .btn .btn--info}  
 **Augmented Reality at Zoo Exhibits: A Design Framework for Enhancing the Zoo Experience**{: style="font-size: larger"}  
 ***Brandon V. Syiem**, Sarah Webber, Ryan M. Kelly, Qiushi Zhou, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
@@ -41,7 +41,7 @@ Augmented Reality (AR) offers unique opportunities for contributing to zoos’ o
 {: .text-justify}  
 ---
 
-[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info}   [PDF](https://dl.acm.org/doi/pdf/10.1145/3613904.3642814){: .btn .btn--info}  
+[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info}   [PDF](/assets/pdfs/irlitti2024volumetric){: .btn .btn--info}  
 **Volumetric Hybrid Workspaces: Interactions with Objects in Remote and Co-located Telepresence**{: style="font-size: larger"}  
 *Andrew Irlitti, Mesut Latifoglu, Thuong Hoang, **Brandon Victor Syiem**, Frank Vetere*{: style="font-size: small"}
 
@@ -51,7 +51,7 @@ Volumetric telepresence aims to create a shared space, allowing people in local 
 {: .text-justify}  
 ---
 
-[IMWUT 2024](https://doi.org/10.1145/3631431){: .btn .btn--info}  [PDF](https://www.researchgate.net/publication/377378156_Reflected_Reality_Augmented_Reality_through_the_Mirror.pdf){: .btn .btn--info}  
+[IMWUT 2024](https://doi.org/10.1145/3631431){: .btn .btn--info}  [PDF](/assets/pdfs/zhou2024reflected){: .btn .btn--info}  
 **Reflected Reality: Augmented Reality through the Mirror**{: style="font-size: larger"}  
 *Qiushi Zhou, **Brandon Victor Syiem**, Beier Li, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
