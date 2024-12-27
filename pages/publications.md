@@ -71,5 +71,14 @@ Studies suggest that Sense of Embodiment (SoE) enabled by VR promotes embodied a
 {: .text-justify}  
 ---
 
+[IEEE ACCESS 2023](https://doi.org/10.1109/ACCESS.2023.3297882){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/zehra2023evaluation.pdf){: .btn .btn--info target="_blank"}  
+**Evaluation of Optimal Stimuli for SSVEP-Based Augmented Reality Brain-Computer Interfaces**{: style="font-size: larger"}  
+*Syeda R. Zehra, Jing Mu, **Brandon V. Syiem**, Anthony N. Burkitt, David B. Grayden*{: style="font-size: small"}
+
+{% include figure popup=true image_path= "/assets/images/publications//zehra2023evaluation.jpg" %}
+
+Steady-State Visually Evoked Potentials (SSVEPs) serve as one of the most robust Brain-Computer Interface (BCI) paradigms. Being an exogenous brain response, the properties of elicited SSVEPs are directly related to the properties of the visual stimuli. However, studies on integrating BCI and Augmented Reality (AR), aimed at realising mobile BCI systems, have mainly focused on applications of BCIs and performance comparison with screen-based BCIs. Little work has been done to study the effects of stimulus parameters on BCI performance when stimuli are presented with an AR headset. Here, we compare AR-based SSVEP with 3D and 2D stimuli using three different stimulation strategies: flickering, grow-shrink, and both. Participant feedback on level of fatigue and their subjective preference of stimuli were also collected. Our results did not show significant differences in classification accuracies between the 2D and 3D stimuli. However, for most of the participants, classification accuracy with flickering stimuli was above their average performance and stimuli that changed only in size were below average. The participants were divided in terms of which type of stimulus they felt was the most comfortable.
+{: .text-justify}  
+
 [Top](#){: .btn .btn--inverse}
 {: .text-right}
