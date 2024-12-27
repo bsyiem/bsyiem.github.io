@@ -6,3 +6,5 @@ main:
     target: _blank
   - title: "Photography"
     url: /photography/
+  - title: "Other Activities"
+    url: /other_activities/
