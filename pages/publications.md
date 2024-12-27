@@ -21,7 +21,7 @@ Scientific sense-making in STEM fields is a complex, yet essential activity, tha
 {: .text-justify}  
 ---
 
-[IJHCS 2024](https://doi.org/10.1016/j.ijhcs.2024.103324){: .btn .btn--info}   [PDF](/assets/pdfs/syiem2024addressing.pdf){: .btn .btn--info}  
+[IJHCS 2024](https://doi.org/10.1016/j.ijhcs.2024.103324){: .btn .btn--info}   [PDF](/assets/pdfs/syiem2024addressing.pdf){: .btn .btn--info target="_blank"}  
 **Addressing Attentional Issues in Augmented Reality with Adaptive Agents: Possibilities and Challenges**{: style="font-size: larger"}  
 ***Brandon Victor Syiem**, Ryan M. Kelly, Tilman Dingler, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
@@ -31,7 +31,7 @@ Recent work on augmented reality (AR) has explored the use of adaptive agents to
 {: .text-justify}  
 ---
 
-[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info}   [PDF](/assets/pdfs/syiem2024augmented.pdf){: .btn .btn--info}  
+[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info}   [PDF](/assets/pdfs/syiem2024augmented.pdf){: .btn .btn--info target="_blank"}  
 **Augmented Reality at Zoo Exhibits: A Design Framework for Enhancing the Zoo Experience**{: style="font-size: larger"}  
 ***Brandon V. Syiem**, Sarah Webber, Ryan M. Kelly, Qiushi Zhou, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
@@ -41,7 +41,7 @@ Augmented Reality (AR) offers unique opportunities for contributing to zoos’ o
 {: .text-justify}  
 ---
 
-[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info}   [PDF](/assets/pdfs/irlitti2024volumetric.pdf){: .btn .btn--info}  
+[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info}   [PDF](/assets/pdfs/irlitti2024volumetric.pdf){: .btn .btn--info target="_blank"}  
 **Volumetric Hybrid Workspaces: Interactions with Objects in Remote and Co-located Telepresence**{: style="font-size: larger"}  
 *Andrew Irlitti, Mesut Latifoglu, Thuong Hoang, **Brandon Victor Syiem**, Frank Vetere*{: style="font-size: small"}
 
@@ -51,7 +51,7 @@ Volumetric telepresence aims to create a shared space, allowing people in local 
 {: .text-justify}  
 ---
 
-[IMWUT 2024](https://doi.org/10.1145/3631431){: .btn .btn--info}  [PDF](/assets/pdfs/zhou2024reflected.pdf){: .btn .btn--info}  
+[IMWUT 2024](https://doi.org/10.1145/3631431){: .btn .btn--info}  [PDF](/assets/pdfs/zhou2024reflected.pdf){: .btn .btn--info target="_blank"}  
 **Reflected Reality: Augmented Reality through the Mirror**{: style="font-size: larger"}  
 *Qiushi Zhou, **Brandon Victor Syiem**, Beier Li, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
