@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: "Brandon Syiem"
+title: "Brandon Victor Syiem"
 excerpt: "HCI x XR"
 header:
 #  image: /assets/images/hero_img.JPG
