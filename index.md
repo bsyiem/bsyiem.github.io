@@ -9,7 +9,12 @@ header:
   overlay_filter: 0.5
 
 author_profile: true
+
+intro:
+  - excerpt: "***My vision is to design technology that leverages nuanced understanding of user physiology and psychology***"
 ---
+
+{% include feature_row id="intro" type="center" %}
 
 # About Me
 
