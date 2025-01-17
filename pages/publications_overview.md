@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 title: "Publications"
-excerpt: "To see more details on select publications, please navigate to the ***highlights*** via the button below"
+excerpt: "Navigate to *Highlights* to see details on select publications."
 permalink: /publications_overview/
 header:
 #  image: /assets/images/hero_img.JPG
