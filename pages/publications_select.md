@@ -7,6 +7,11 @@ header:
 #  image: /assets/images/hero_img.JPG
   overlay_image: /assets/images/hero_img.JPG
   overlay_filter: 0.5
+    actions:
+    - label: "Overview"
+      url: /publications_overview/
+    - label: "Select Publications"
+      url: "#"
 
 author_profile: true
 ---
