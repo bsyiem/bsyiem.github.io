@@ -2,13 +2,14 @@
 layout: single
 classes: wide
 title: "Publications"
+excerpt: "To see more details on select publications, please navigate to the ***highlights*** via the button below"
 permalink: /publications_overview/
 header:
 #  image: /assets/images/hero_img.JPG
   overlay_image: /assets/images/hero_img.JPG
   overlay_filter: 0.5
   actions:
-    - label: "Select Publications"
+    - label: "Highlights"
       url: /publications_highlight/
 
 author_profile: true
