@@ -8,10 +8,8 @@ header:
   overlay_image: /assets/images/hero_img.JPG
   overlay_filter: 0.5
   actions:
-    - label: "Overview"
-      url: "#"
     - label: "Select Publications"
-      url: /publications_select/
+      url: /publications_highlight/
 
 author_profile: true
 ---
