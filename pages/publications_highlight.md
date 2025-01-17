@@ -10,8 +10,6 @@ header:
   actions:
     - label: "Overview"
       url: /publications_overview/
-    - label: "Select Publications"
-      url: "#"
 
 author_profile: true
 ---
