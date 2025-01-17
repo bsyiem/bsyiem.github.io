@@ -1,6 +1,6 @@
 main:
   - title: "Publications"
-    url: /publications/
+    url: /publications_overview/
   - title: "Download CV"
     url: /assets/pdfs/resume/current_cv.pdf
     target: _blank
