@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 title: "Select Publications"
-permalink: /publications/
+permalink: /publications_select/
 header:
 #  image: /assets/images/hero_img.JPG
   overlay_image: /assets/images/hero_img.JPG
