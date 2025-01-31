@@ -113,6 +113,19 @@ gallery_images:
     url: assets/images/photography/50.jpg
   - image_path: assets/images/photography/51.jpg
     url: assets/images/photography/51.jpg
+  - image_path: assets/images/photography/52.jpg
+    url: assets/images/photography/52.jpg
+  - image_path: assets/images/photography/53.jpg
+    url: assets/images/photography/53.jpg
+  - image_path: assets/images/photography/54.jpg
+    url: assets/images/photography/54.jpg
+  - image_path: assets/images/photography/55.jpg
+    url: assets/images/photography/55.jpg
+  - image_path: assets/images/photography/56.jpg
+    url: assets/images/photography/56.jpg
+  - image_path: assets/images/photography/57.jpg
+    url: assets/images/photography/57.jpg
+  
   
 ---
 
