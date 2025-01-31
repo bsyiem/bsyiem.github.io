@@ -2,16 +2,20 @@
 layout: single
 classes: wide
 title: "Select Publications"
-permalink: /publications/
+excerpt: "Navigate to *Overview* to see all publications."
+permalink: /publications_highlight/
 header:
 #  image: /assets/images/hero_img.JPG
   overlay_image: /assets/images/hero_img.JPG
   overlay_filter: 0.5
+  actions:
+    - label: "Overview"
+      url: /publications_overview/
 
 author_profile: true
 ---
 
-[BIT 2024](https://doi.org/10.1080/0144929X.2024.2441963){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/syiem2024systematic.pdf){: .btn .btn--info target="_blank"}  
+[BIT 2024](https://doi.org/10.1080/0144929X.2024.2441963){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2024systematic.pdf){: .btn .btn--info target="_blank"}  
 **A Systematic Exploration of Collaborative Immersive Systems for Sense-making in STEM**{: style="font-size: larger"}  
 ***Brandon V. Syiem**, Selen Türkay*{: style="font-size: small"}
 
@@ -21,7 +25,7 @@ Scientific sense-making in STEM fields is a complex, yet essential activity, tha
 {: .text-justify}  
 ---
 
-[IJHCS 2024](https://doi.org/10.1016/j.ijhcs.2024.103324){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/syiem2024addressing.pdf){: .btn .btn--info target="_blank"}  
+[IJHCS 2024](https://doi.org/10.1016/j.ijhcs.2024.103324){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2024addressing.pdf){: .btn .btn--info target="_blank"}  
 **Addressing Attentional Issues in Augmented Reality with Adaptive Agents: Possibilities and Challenges**{: style="font-size: larger"}  
 ***Brandon Victor Syiem**, Ryan M. Kelly, Tilman Dingler, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
@@ -31,7 +35,7 @@ Recent work on augmented reality (AR) has explored the use of adaptive agents to
 {: .text-justify}  
 ---
 
-[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/syiem2024augmented.pdf){: .btn .btn--info target="_blank"}  
+[CHI 2024](https://doi.org/10.1145/3613904.3642015){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2024augmented.pdf){: .btn .btn--info target="_blank"}  
 **Augmented Reality at Zoo Exhibits: A Design Framework for Enhancing the Zoo Experience**{: style="font-size: larger"}  
 ***Brandon V. Syiem**, Sarah Webber, Ryan M. Kelly, Qiushi Zhou, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
@@ -41,7 +45,7 @@ Augmented Reality (AR) offers unique opportunities for contributing to zoos’ o
 {: .text-justify}  
 ---
 
-[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/irlitti2024volumetric.pdf){: .btn .btn--info target="_blank"}  
+[CHI 2024](https://doi.org/10.1145/3613904.3642814){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/irlitti2024volumetric.pdf){: .btn .btn--info target="_blank"}  
 **Volumetric Hybrid Workspaces: Interactions with Objects in Remote and Co-located Telepresence**{: style="font-size: larger"}  
 *Andrew Irlitti, Mesut Latifoglu, Thuong Hoang, **Brandon Victor Syiem**, Frank Vetere*{: style="font-size: small"}
 
@@ -51,7 +55,7 @@ Volumetric telepresence aims to create a shared space, allowing people in local 
 {: .text-justify}  
 ---
 
-[IMWUT 2024](https://doi.org/10.1145/3631431){: .btn .btn--info target="_blank"}  [PDF](/assets/pdfs/zhou2024reflected.pdf){: .btn .btn--info target="_blank"}  
+[IMWUT 2024](https://doi.org/10.1145/3631431){: .btn .btn--info target="_blank"}  [PDF](/assets/pdfs/papers/zhou2024reflected.pdf){: .btn .btn--info target="_blank"}  
 **Reflected Reality: Augmented Reality through the Mirror**{: style="font-size: larger"}  
 *Qiushi Zhou, **Brandon Victor Syiem**, Beier Li, Jorge Goncalves, Eduardo Velloso*{: style="font-size: small"}
 
@@ -61,7 +65,7 @@ We propose Reflected Reality: a new dimension for augmented reality that expands
 {: .text-justify}  
 ---
 
-[CEXR 2023](https://doi.org/10.1016/j.cexr.2023.100037){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/khorasani2023hands.pdf){: .btn .btn--info target="_blank"}  
+[CEXR 2023](https://doi.org/10.1016/j.cexr.2023.100037){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/khorasani2023hands.pdf){: .btn .btn--info target="_blank"}  
 **Hands-on or Hands-off: Deciphering the Impact of Interactivity on Embodied Learning in VR**{: style="font-size: larger"}  
 *Sara Khorasani, **Brandon Victor Syiem**, Sadia Nawaz, Jarrod Knibbe, Eduardo Velloso*{: style="font-size: small"}
 
@@ -71,7 +75,7 @@ Studies suggest that Sense of Embodiment (SoE) enabled by VR promotes embodied a
 {: .text-justify}  
 ---
 
-[IEEE ACCESS 2023](https://doi.org/10.1109/ACCESS.2023.3297882){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/zehra2023evaluation.pdf){: .btn .btn--info target="_blank"}  
+[IEEE ACCESS 2023](https://doi.org/10.1109/ACCESS.2023.3297882){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/zehra2023evaluation.pdf){: .btn .btn--info target="_blank"}  
 **Evaluation of Optimal Stimuli for SSVEP-Based Augmented Reality Brain-Computer Interfaces**{: style="font-size: larger"}  
 *Syeda R. Zehra, Jing Mu, **Brandon V. Syiem**, Anthony N. Burkitt, David B. Grayden*{: style="font-size: small"}
 
@@ -81,7 +85,7 @@ Steady-State Visually Evoked Potentials (SSVEPs) serve as one of the most robust
 {: .text-justify}  
 ---
 
-[CHI 2023](https://doi.org/10.1145/3544548.3581011){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/yu2023modelling.pdf){: .btn .btn--info target="_blank"}  
+[CHI 2023](https://doi.org/10.1145/3544548.3581011){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/yu2023modelling.pdf){: .btn .btn--info target="_blank"}  
 **Modeling Temporal Target Selection: A Perspective from Its Spatial Correspondence**{: style="font-size: larger"}  
 *Difeng Yu, **Brandon Victor Syiem**, Andrew Irlitti, Tilman Dingler, Eduardo Velloso, Jorge Goncalves*{: style="font-size: small"}
 
@@ -91,7 +95,8 @@ Temporal target selection requires users to wait and trigger the selection input
 {: .text-justify}  
 ---
 
-[CHI 2021](https://doi.org/10.1145/3411764.3445580){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/syiem2021impact.pdf){: .btn .btn--info target="_blank"}  
+<i class="fa-sharp fa-solid fa-trophy"> Best Paper Award</i>  
+[CHI 2021](https://doi.org/10.1145/3411764.3445580){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2021impact.pdf){: .btn .btn--info target="_blank"}  
 **Impact of task on attentional tunneling in handheld augmented reality**{: style="font-size: larger"}  
 ***Brandon Victor Syiem**, Ryan M. Kelly, Jorge Goncalves, Eduardo Velloso, Tilman Dingler*{: style="font-size: small"}
 
@@ -101,7 +106,7 @@ Attentional tunneling describes a phenomenon in Augmented Reality (AR) where use
 {: .text-justify}  
 ---
 
-[ISMAR 2020](https://doi.org/10.1109/ISMAR50242.2020.00053){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/syiem2020Enhancing.pdf){: .btn .btn--info target="_blank"}  
+[ISMAR 2020](https://doi.org/10.1109/ISMAR50242.2020.00053){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2020Enhancing.pdf){: .btn .btn--info target="_blank"}  
 **Enhancing Visitor Experience or Hindering Docent Roles: Attentional Issues in Augmented Reality Supported Installations**{: style="font-size: larger"}  
 ***Brandon Victor Syiem**, Ryan M. Kelly, Eduardo Velloso, Jorge Goncalves, Tilman Dingler*{: style="font-size: small"}
 
