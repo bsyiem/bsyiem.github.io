@@ -15,8 +15,12 @@ header:
 author_profile: true
 ---
 
-- **2024**
+- **2025**
+  - ***Syiem, B. V.***, Türkay, S., Gallagher, C., & Schrank, C. (2026). An epistemic network analysis of communication strategies during drawing-supported spatial dialogue in VR. **International Journal of Human-Computer Studies**, 103725.
+  - Li, T., ***Syiem, B. V.***, Van Berkel, N., Kim, J., Withana, A., & Sarsenbayeva, Z. (2025, November). Trends and Directions of Extended Reality Research in HCI: A Co-Word Analysis. In **Proceedings of the 37th Australian Conference on Human-Computer Interaction** (pp. 720-731).
   - ***Syiem, B.V.*** and Türkay, S., 2024. A systematic exploration of collaborative immersive systems for sense-making in STEM. **Behaviour & Information Technology**, pp.1-30.
+  - Genay, A., ***Syiem, B. V.***, Wong, E., Feuchtner, T., Knibbe, J., Grønbæk, J. E. S., & Velloso, E. (2025, April). Scaling Distributed Collaboration in Mixed Reality. In **Proceedings of the Extended Abstracts of the CHI Conference on Human Factors in Computing Systems** (pp. 1-6).
+- **2024**
   - ***Syiem, B.V***., Kelly, R.M., Dingler, T., Goncalves, J. and Velloso, E., 2024. Addressing attentional issues in augmented reality with adaptive agents: Possibilities and challenges. **International Journal of Human-Computer Studies**, p.103324.
   - Irlitti, A., Latifoglu, M., Hoang, T., ***Syiem, B.V.*** and Vetere, F., 2024, May. Volumetric Hybrid Workspaces: Interactions with Objects in Remote and Co-located Telepresence. In **Proceedings of the CHI Conference on Human Factors in Computing Systems** (pp. 1-16).
   - ***Syiem, B.V.***, Webber, S., Kelly, R.M., Zhou, Q., Goncalves, J. and Velloso, E., 2024, May. Augmented Reality at Zoo Exhibits: A Design Framework for Enhancing the Zoo Experience. In **Proceedings of the CHI Conference on Human Factors in Computing Systems** (pp. 1-18).
