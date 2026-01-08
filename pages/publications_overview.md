@@ -15,8 +15,9 @@ header:
 author_profile: true
 ---
 
-- **2025**
+- **2026**
   - ***Syiem, B. V.***, Türkay, S., Gallagher, C., & Schrank, C. (2026). An epistemic network analysis of communication strategies during drawing-supported spatial dialogue in VR. **International Journal of Human-Computer Studies**, 103725.
+- **2025**
   - Li, T., ***Syiem, B. V.***, Van Berkel, N., Kim, J., Withana, A., & Sarsenbayeva, Z. (2025, November). Trends and Directions of Extended Reality Research in HCI: A Co-Word Analysis. In **Proceedings of the 37th Australian Conference on Human-Computer Interaction** (pp. 720-731).
   - ***Syiem, B.V.*** and Türkay, S., 2024. A systematic exploration of collaborative immersive systems for sense-making in STEM. **Behaviour & Information Technology**, pp.1-30.
   - Genay, A., ***Syiem, B. V.***, Wong, E., Feuchtner, T., Knibbe, J., Grønbæk, J. E. S., & Velloso, E. (2025, April). Scaling Distributed Collaboration in Mixed Reality. In **Proceedings of the Extended Abstracts of the CHI Conference on Human Factors in Computing Systems** (pp. 1-6).
