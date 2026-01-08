@@ -15,6 +15,17 @@ header:
 author_profile: true
 ---
 
+[IJHCS 2026](https://doi.org/10.1016/j.ijhcs.2025.103725){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2026epistemic.pdf){: .btn .btn--info target="_blank"}  
+**An Epistemic Network Analysis of Communication Strategies during Drawing-supported Spatial Dialogue in VR**{: style="font-size: larger"}  
+***Brandon Victor Syiem**, Selen Türkay, Cael Gallagher, Christoph Schrank*{: style="font-size: small"}
+
+{% include video id="iV9pwDFQSg8" provider="youtube" %}
+
+Communicating spatial information is challenging using solely verbal or written language, and is often supported by non-verbal gestures and illustrative drawings. However, the growing need for communicating increasingly complex spatial information, coupled with the rise of remote collaboration, presents challenges that current screen-based solutions are ill-equipped to address. Virtual Reality (VR) offers capabilities to support both non-verbal gestures and complex visual aids, through embodied avatars and 3D virtual representations. However, the novelty of creating, referencing, and viewing 3D drawings in VR may influence the interlocutors’ actions, speech and communication performance. We conducted a mixed-methods within-subject study with dyads to investigate the effects of drawing dimension (2D or 3D drawings) on spatial dialogue behaviours in VR. We found no significant effects of drawing dimension on communication performance and workload, but found significantly different interlocutor actions and speech. We discuss relevant implications and highlight considerations unique to the different communication strategies observed during 2D and 3D drawing use for supporting spatial dialogue in VR.
+{: .text-justify}  
+---
+
+
 [BIT 2024](https://doi.org/10.1080/0144929X.2024.2441963){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/syiem2024systematic.pdf){: .btn .btn--info target="_blank"}  
 **A Systematic Exploration of Collaborative Immersive Systems for Sense-making in STEM**{: style="font-size: larger"}  
 ***Brandon V. Syiem**, Selen Türkay*{: style="font-size: small"}
@@ -72,16 +83,6 @@ We propose Reflected Reality: a new dimension for augmented reality that expands
 {% include figure popup=true image_path= "/assets/images/publications//khorasani2023hands.jpg" %}
 
 Studies suggest that Sense of Embodiment (SoE) enabled by VR promotes embodied and active learning. However, it is unclear what features of VR learning environments tap into the concept of embodied learning. For example, interaction techniques, movement and purely observational scenarios in VR can all play a role in facilitating embodied learning. To understand how these mechanisms impact learning, we conducted 2 studies with a total of 64 participants who had no prior experience in the training task. Participants were taught how to use a table saw in 4 conditions and were tested on their task performance in a fully interactive VR assessment. The conditions were analyzed in pairs; 2 conditions with different interaction techniques, 2 conditions with differing ability to move and a cross-study analysis comparing conditions with purely observational learning to interactive learning. We used a mixed methods approach; Analysis of Variance (ANOVA), pairwise comparison of the learning outcomes in each condition as well as thematic analysis of the interview results. We found that some types of “hands-on” interactions can have a detrimental impact on learning and that observational learning can be as impactful as a fully interactive experience. Based on participant interviews, we explored how these mechanisms of the learning environment can impact participants’ learning ability.
-{: .text-justify}  
----
-
-[IEEE ACCESS 2023](https://doi.org/10.1109/ACCESS.2023.3297882){: .btn .btn--info target="_blank"}   [PDF](/assets/pdfs/papers/zehra2023evaluation.pdf){: .btn .btn--info target="_blank"}  
-**Evaluation of Optimal Stimuli for SSVEP-Based Augmented Reality Brain-Computer Interfaces**{: style="font-size: larger"}  
-*Syeda R. Zehra, Jing Mu, **Brandon V. Syiem**, Anthony N. Burkitt, David B. Grayden*{: style="font-size: small"}
-
-{% include figure popup=true image_path= "/assets/images/publications/zehra2023evaluation.jpg" %}
-
-Steady-State Visually Evoked Potentials (SSVEPs) serve as one of the most robust Brain-Computer Interface (BCI) paradigms. Being an exogenous brain response, the properties of elicited SSVEPs are directly related to the properties of the visual stimuli. However, studies on integrating BCI and Augmented Reality (AR), aimed at realising mobile BCI systems, have mainly focused on applications of BCIs and performance comparison with screen-based BCIs. Little work has been done to study the effects of stimulus parameters on BCI performance when stimuli are presented with an AR headset. Here, we compare AR-based SSVEP with 3D and 2D stimuli using three different stimulation strategies: flickering, grow-shrink, and both. Participant feedback on level of fatigue and their subjective preference of stimuli were also collected. Our results did not show significant differences in classification accuracies between the 2D and 3D stimuli. However, for most of the participants, classification accuracy with flickering stimuli was above their average performance and stimuli that changed only in size were below average. The participants were divided in terms of which type of stimulus they felt was the most comfortable.
 {: .text-justify}  
 ---
 
