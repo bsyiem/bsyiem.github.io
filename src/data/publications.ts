@@ -65,6 +65,7 @@ export const publications: Publication[] = [
     venue: "Proceedings of the 37th Australian Conference on Human-Computer Interaction",
     venueShort: "OzCHI 2025",
     venueType: "conference",
+    doi: "https://doi.org/10.1145/3764687.376992",
     topics: ["Extended Reality", "Literature Review"],
   },
   {
@@ -87,6 +88,7 @@ export const publications: Publication[] = [
     venue: "Extended Abstracts of the CHI Conference on Human Factors in Computing Systems",
     venueShort: "CHI EA 2025",
     venueType: "workshop",
+    doi: "https://doi.org/10.1145/3706599.370672",
     topics: ["Extended Reality", "Collaboration"],
   },
   {
@@ -152,6 +154,7 @@ export const publications: Publication[] = [
     venue: "Proceedings of the 35th Australian Computer-Human Interaction Conference",
     venueShort: "OzCHI 2023",
     venueType: "conference",
+    doi: "https://doi.org/10.1145/3638380.363838",
     topics: ["Extended Reality", "Education", "Data Mining"],
   },
   {
@@ -222,7 +225,7 @@ export const publications: Publication[] = [
   {
     year: 2014,
     title: "Popularity Analysis on Social Network: A Big Data Analysis",
-    authors: "Sanjib Das, Brandon Victor Syiem, Hemanta Kumar Kalita",
+    authors: "Sufal Das, Brandon Victor Syiem, Hemanta Kumar Kalita",
     venue: "International Journal of Computer Applications",
     venueShort: "IJCA 2014",
     venueType: "journal",
