@@ -161,6 +161,6 @@ def generate(source_path: str, out_path: str):
 if __name__ == "__main__":
     ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     generate(
-        source_path=os.path.join(ROOT, "assets", "images", "hololens_source.jpg"),
-        out_path   =os.path.join(ROOT, "assets", "images", "wordcloud_headset.png"),
+        source_path=os.path.join(ROOT, "public", "assets", "images", "hololens_source.jpg"),
+        out_path   =os.path.join(ROOT, "public", "assets", "images", "wordcloud_headset.png"),
     )

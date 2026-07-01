@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
-const photoDir = join(process.cwd(), 'assets', 'images', 'photography');
+const photoDir = join(process.cwd(), 'public', 'assets', 'images', 'photography');
 const photos = readdirSync(photoDir)
   .filter(f => /\.(jpe?g|png|webp)$/i.test(f))
   .sort((a, b) => parseInt(a) - parseInt(b))
