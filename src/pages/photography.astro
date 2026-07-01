@@ -11,21 +11,27 @@ const photos = readdirSync(photoDir)
 ---
 <BaseLayout title="Photography — Brandon Syiem">
 
-  <div class="max-w-6xl mx-auto px-8 pt-32 pb-24">
+  <div class="max-w-6xl mx-auto px-8 pt-32 pb-10">
     <header class="mb-14 border-b border-border pb-10">
       <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Visual</p>
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <h1 class="font-display text-5xl sm:text-6xl font-light">Photography</h1>
-        <p class="text-muted text-xs">{photos.length} photos</p>
+        <button id="view-toggle"
+          class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border border-border px-3 py-1.5 transition-colors self-start sm:self-auto">
+          Film View
+        </button>
       </div>
       <p class="text-muted mt-3 max-w-lg text-sm leading-relaxed">
         A collection of images taken and edited on my iPhone —
         landscapes and scenes that have captured my attention over the years.
       </p>
+      <p id="film-hint" class="text-xs tracking-widest uppercase opacity-60 mt-4 hidden">
+        Click a strip to focus · Click a frame to develop · Click again to expand
+      </p>
     </header>
   </div>
 
-  <!-- Full-width masonry grid -->
+  <!-- Grid view -->
   <div id="gallery"
     class="px-6 columns-2 md:columns-3 lg:columns-4 gap-3 max-w-screen-xl mx-auto pb-24">
     {photos.map((src, i) => (
@@ -39,6 +45,11 @@ const photos = readdirSync(photoDir)
         />
       </div>
     ))}
+  </div>
+
+  <!-- Film pile view (hidden by default) -->
+  <div id="film-view" class="hidden flex-col items-center pb-24">
+    <div id="strip-pile"></div>
   </div>
 
   <!-- Lightbox -->
@@ -62,6 +73,135 @@ const photos = readdirSync(photoDir)
 
 </BaseLayout>
 
+<style is:global>
+  /* ── Film pile ───────────────────────────────────────── */
+  #strip-pile {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 40px 24px;
+    cursor: pointer;
+  }
+
+  .strip-group {
+    width: min(1160px, 92vw);
+    background: #0a0a0a;
+    padding: 28px 6px;
+    cursor: pointer;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.4s ease,
+                box-shadow 0.4s ease;
+    user-select: none;
+  }
+
+  /* Sprocket holes — top and bottom rails */
+  .strip-group::before,
+  .strip-group::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 26px;
+    background-color: #0a0a0a;
+    background-image: url("data:image/svg+xml,%3Csvg width='28' height='26' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='6' y='5' width='16' height='16' rx='2' fill='%231e1e1e'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+  .strip-group::before { top: 0; }
+  .strip-group::after  { bottom: 0; }
+
+  .strip-group.focused {
+    width: min(98vw, 1280px);
+    cursor: default;
+    box-shadow: 0 8px 80px rgba(0,0,0,0.95);
+    z-index: 50 !important;
+  }
+
+  .strip-group:not(.focused):hover {
+    box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+  }
+
+  #strip-pile.has-focus {
+    max-width: 100%;
+  }
+
+  #strip-pile.has-focus .strip-group:not(.focused) {
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  /* Frames row */
+  .strip-frames {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+    transition: grid-template-columns 0.4s ease;
+  }
+
+  /* Focused: each frame min 220px wide — overflows + scrolls on mobile */
+  .strip-group.focused .strip-frames {
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .strip-group.focused .strip-frames::-webkit-scrollbar { display: none; }
+
+  .strip-group.focused .film-frame {
+    scroll-snap-align: start;
+  }
+
+
+  .film-frame {
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .film-frame img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+    filter: invert(1);
+    transition: filter 1.4s ease;
+  }
+
+  .film-frame.developed img {
+    filter: invert(0);
+  }
+
+  .film-frame:not(.developed):hover img {
+    filter: invert(0.8);
+  }
+
+  /* ── Dark mode when film view is active ─────────────── */
+  html.film-mode body {
+    background-color: #0a0a0a !important;
+    color: #e5e5e3 !important;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  html.film-mode body > header {
+    background-color: rgba(10,10,10,0.92) !important;
+    border-color: #1e1e1e !important;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+  }
+  html.film-mode body > header a,
+  html.film-mode body > header button,
+  html.film-mode body > header span { color: #555 !important; }
+  html.film-mode body > header a:hover,
+  html.film-mode body > header button:hover { color: #aaa !important; }
+  html.film-mode h1 { color: #e5e5e3 !important; }
+  html.film-mode p  { color: #555 !important; }
+  html.film-mode .border-border { border-color: #1e1e1e !important; }
+
+  #view-toggle { transition: color 0.3s ease, border-color 0.3s ease; }
+</style>
+
 <script define:vars={{ photos }}>
   // Fisher-Yates shuffle
   function shuffle(arr) {
@@ -72,18 +212,18 @@ const photos = readdirSync(photoDir)
     return arr;
   }
 
-  // Shuffle photos array and reorder gallery tiles to match
   const shuffled = shuffle([...photos]);
-  const gallery  = document.getElementById('gallery');
-  const tiles    = Array.from(gallery.querySelectorAll('[data-index]'));
+
+  // ── Grid view ─────────────────────────────────────────
+  const gallery = document.getElementById('gallery');
+  const tiles   = Array.from(gallery.querySelectorAll('[data-index]'));
   shuffled.forEach((src, i) => {
-    const tile = tiles[i];
-    tile.dataset.index = i;
-    tile.querySelector('img').src = src;
+    tiles[i].dataset.index = i;
+    tiles[i].querySelector('img').src = src;
   });
 
+  // ── Lightbox ──────────────────────────────────────────
   let current = 0;
-
   const lb      = document.getElementById('lightbox');
   const lbImg   = document.getElementById('lb-img');
   const lbCount = document.getElementById('lb-counter');
@@ -102,14 +242,21 @@ const photos = readdirSync(photoDir)
     document.body.style.overflow = '';
   };
   const nav = (d) => {
-    current = (current + d + photos.length) % photos.length;
+    if (inFilmView) {
+      const developedIndices = Array.from(document.querySelectorAll('.film-frame.developed'))
+        .map(f => parseInt(f.dataset.globalIdx))
+        .sort((a, b) => a - b);
+      if (developedIndices.length === 0) return;
+      const pos = developedIndices.indexOf(current);
+      current = developedIndices[(pos + d + developedIndices.length) % developedIndices.length];
+    } else {
+      current = (current + d + photos.length) % photos.length;
+    }
     lbImg.src = shuffled[current];
     lbCount.textContent = `${current + 1} / ${photos.length}`;
   };
 
-  document.querySelectorAll('#gallery [data-index]')
-    .forEach(el => el.addEventListener('click', () => open(Number(el.dataset.index))));
-
+  tiles.forEach(el => el.addEventListener('click', () => open(Number(el.dataset.index))));
   document.getElementById('lb-close').addEventListener('click', close);
   document.getElementById('lb-prev').addEventListener('click', () => nav(-1));
   document.getElementById('lb-next').addEventListener('click', () => nav(1));
@@ -119,5 +266,119 @@ const photos = readdirSync(photoDir)
     if (e.key === 'Escape')     close();
     if (e.key === 'ArrowLeft')  nav(-1);
     if (e.key === 'ArrowRight') nav(1);
+  });
+
+  // ── Film pile ─────────────────────────────────────────
+  const FRAMES = 4;
+
+  // Slight rotations for each strip — cycles through these values
+  const ROTATIONS = [-2.5, 1.8, -1.2, 3, -2, 1.5, -3, 2.2, -1.5, 2.8];
+
+  // Group photos into strips
+  const groups = [];
+  for (let i = 0; i < shuffled.length; i += FRAMES) {
+    groups.push(shuffled.slice(i, i + FRAMES));
+  }
+
+  const pile = document.getElementById('strip-pile');
+  let focusedStrip = null;
+
+  function unfocus() {
+    if (!focusedStrip) return;
+    const s = focusedStrip;
+    focusedStrip = null;
+    s.classList.remove('focused');
+    pile.classList.remove('has-focus');
+    s.style.transform = s.dataset.pileTf;
+  }
+
+  function focusStrip(strip) {
+    focusedStrip = strip;
+    strip.classList.add('focused');
+    pile.classList.add('has-focus');
+    strip.style.transform = 'rotate(0deg)';
+    setTimeout(() => strip.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+  }
+
+  groups.forEach((group, gi) => {
+    const rotation  = ROTATIONS[gi % ROTATIONS.length];
+    const transform = `rotate(${rotation}deg)`;
+
+    const strip = document.createElement('div');
+    strip.className       = 'strip-group';
+    strip.dataset.pileTf  = transform;
+    strip.style.transform = transform;
+
+    const frames = document.createElement('div');
+    frames.className = 'strip-frames';
+
+    group.forEach((src, fi) => {
+      const globalIdx = gi * FRAMES + fi;
+
+      const frame = document.createElement('div');
+      frame.className = 'film-frame';
+
+      const img   = document.createElement('img');
+      img.src     = src;
+      img.alt     = `Photo ${globalIdx + 1}`;
+      img.loading = 'lazy';
+      frame.appendChild(img);
+      frames.appendChild(frame);
+
+      frame.dataset.globalIdx = globalIdx;
+
+      frame.addEventListener('click', e => {
+        if (!strip.classList.contains('focused')) return;
+        e.stopPropagation();
+        if (!frame.classList.contains('developed')) {
+          frame.classList.add('developed');
+        } else {
+          open(globalIdx);
+        }
+      });
+    });
+
+    strip.appendChild(frames);
+    pile.appendChild(strip);
+
+    strip.addEventListener('click', e => {
+      e.stopPropagation();
+      if (strip.classList.contains('focused')) {
+        unfocus();
+      } else {
+        unfocus();
+        focusStrip(strip);
+      }
+    });
+  });
+
+  pile.addEventListener('click', () => unfocus());
+
+  // ── Toggle ────────────────────────────────────────────
+  const filmView  = document.getElementById('film-view');
+  const toggleBtn = document.getElementById('view-toggle');
+  const filmHint  = document.getElementById('film-hint');
+  let inFilmView  = false;
+
+  toggleBtn.addEventListener('click', () => {
+    inFilmView = !inFilmView;
+    if (inFilmView) {
+      gallery.classList.add('hidden');
+      filmView.classList.remove('hidden');
+      filmView.classList.add('flex');
+      toggleBtn.textContent = 'Grid View';
+      filmHint.classList.remove('hidden');
+      document.documentElement.classList.add('film-mode');
+    } else {
+      gallery.classList.remove('hidden');
+      filmView.classList.add('hidden');
+      filmView.classList.remove('flex');
+      toggleBtn.textContent = 'Film View';
+      filmHint.classList.add('hidden');
+      document.documentElement.classList.remove('film-mode');
+      unfocus();
+      document.querySelectorAll('.film-frame.developed')
+        .forEach(f => f.classList.remove('developed'));
+    }
   });
 </script>
