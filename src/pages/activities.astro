@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const activities = [
+  {
+    year: 'Ongoing',
+    items: [
+      { title: 'The Blended Realities Collective', url: 'https://blendedrealities.jensemil.dk/' },
+      { title: 'Eco-Explorations Queensland: Engaging Youth and Public in Conservation', url: 'https://research.qut.edu.au/ecoexplorations/' },
+    ],
+  },
+  {
+    year: '2025',
+    items: [
+      { title: 'CHI2025 Workshop — Scaling Distributed Collaboration in Mixed Reality', url: 'https://blendedrealities.jensemil.dk/scaling-distributed-collaboration-in-mixed-reality/' },
+      { title: 'USyd XR Summer School', url: 'https://bsyiem.github.io/xr_summer_school/' },
+    ],
+  },
+  {
+    year: '2024',
+    items: [
+      { title: 'The Blended Realities Collective 1st Workshop at the University of Sydney', url: 'https://blendedrealities.jensemil.dk/2024/07/11/sydney-workshop/' },
+    ],
+  },
+  {
+    year: '2023',
+    items: [
+      { title: 'Enabling effective novice-expert interactions: co-designing immersive systems for complex remote data analysis', url: 'https://www.qut.edu.au/research/study-with-us/student-topics/topics/enabling-effective-novice-expert-interactions-co-designing-immersive-systems-for-complex-remote-data-analysis' },
+    ],
+  },
+];
+---
+<BaseLayout title="Activities — Brandon Syiem">
+  <div class="max-w-4xl mx-auto px-8 pt-32 pb-24">
+
+    <header class="mb-14 border-b border-border pb-10">
+      <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Extra</p>
+      <h1 class="font-display text-5xl sm:text-6xl font-light">Activities</h1>
+    </header>
+
+    <div class="space-y-14">
+      {activities.map(group => (
+        <div class="grid grid-cols-12 gap-6">
+          <div class="col-span-2">
+            <p class="text-[0.65rem] tracking-widest2 uppercase text-muted pt-0.5">{group.year}</p>
+          </div>
+          <ul class="col-span-10 space-y-4">
+            {group.items.map(item => (
+              <li>
+                <a href={item.url} target="_blank"
+                  class="text-ink hover:text-accent transition-colors duration-200 leading-snug link-accent">
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</BaseLayout>

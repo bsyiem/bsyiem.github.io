@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { readdirSync } from 'fs';
+import { join } from 'path';
+
+const photoDir = join(process.cwd(), 'assets', 'images', 'photography');
+const photos = readdirSync(photoDir)
+  .filter(f => /\.(jpe?g|png|webp)$/i.test(f))
+  .sort((a, b) => parseInt(a) - parseInt(b))
+  .map(f => `/assets/images/photography/${f}`);
+---
+<BaseLayout title="Photography — Brandon Syiem">
+
+  <div class="max-w-6xl mx-auto px-8 pt-32 pb-24">
+    <header class="mb-14 border-b border-border pb-10">
+      <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Visual</p>
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <h1 class="font-display text-5xl sm:text-6xl font-light">Photography</h1>
+        <p class="text-muted text-xs">{photos.length} photos</p>
+      </div>
+      <p class="text-muted mt-3 max-w-lg text-sm leading-relaxed">
+        A collection of images taken and edited on my iPhone —
+        landscapes and scenes that have captured my attention over the years.
+      </p>
+    </header>
+  </div>
+
+  <!-- Full-width masonry grid -->
+  <div id="gallery"
+    class="px-6 columns-2 md:columns-3 lg:columns-4 gap-3 max-w-screen-xl mx-auto pb-24">
+    {photos.map((src, i) => (
+      <div class="break-inside-avoid mb-3 overflow-hidden cursor-pointer group border border-border/40 hover:border-border transition-colors"
+        data-index={i}>
+        <img
+          src={src}
+          alt={`Photo ${i + 1}`}
+          loading="lazy"
+          class="w-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+        />
+      </div>
+    ))}
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox"
+    class="fixed inset-0 z-[200] bg-bg/97 hidden flex-col items-center justify-center backdrop-blur-sm">
+    <div class="absolute top-6 right-8 flex items-center gap-6">
+      <span id="lb-counter" class="text-[0.65rem] tracking-widest uppercase text-muted"></span>
+      <button id="lb-close" class="text-muted hover:text-ink transition-colors text-xl leading-none">&times;</button>
+    </div>
+    <button id="lb-prev"
+      class="absolute left-6 top-1/2 -translate-y-1/2 text-muted hover:text-ink transition-colors text-3xl px-2 py-4">
+      &#8592;
+    </button>
+    <button id="lb-next"
+      class="absolute right-6 top-1/2 -translate-y-1/2 text-muted hover:text-ink transition-colors text-3xl px-2 py-4">
+      &#8594;
+    </button>
+    <img id="lb-img" src="" alt=""
+      class="max-h-[88vh] max-w-[88vw] object-contain border border-border shadow-lg" />
+  </div>
+
+</BaseLayout>
+
+<script define:vars={{ photos }}>
+  // Fisher-Yates shuffle
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  // Shuffle photos array and reorder gallery tiles to match
+  const shuffled = shuffle([...photos]);
+  const gallery  = document.getElementById('gallery');
+  const tiles    = Array.from(gallery.querySelectorAll('[data-index]'));
+  shuffled.forEach((src, i) => {
+    const tile = tiles[i];
+    tile.dataset.index = i;
+    tile.querySelector('img').src = src;
+  });
+
+  let current = 0;
+
+  const lb      = document.getElementById('lightbox');
+  const lbImg   = document.getElementById('lb-img');
+  const lbCount = document.getElementById('lb-counter');
+
+  const open = (i) => {
+    current = i;
+    lbImg.src = shuffled[current];
+    lbCount.textContent = `${current + 1} / ${photos.length}`;
+    lb.classList.remove('hidden');
+    lb.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    lb.classList.add('hidden');
+    lb.classList.remove('flex');
+    document.body.style.overflow = '';
+  };
+  const nav = (d) => {
+    current = (current + d + photos.length) % photos.length;
+    lbImg.src = shuffled[current];
+    lbCount.textContent = `${current + 1} / ${photos.length}`;
+  };
+
+  document.querySelectorAll('#gallery [data-index]')
+    .forEach(el => el.addEventListener('click', () => open(Number(el.dataset.index))));
+
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', () => nav(-1));
+  document.getElementById('lb-next').addEventListener('click', () => nav(1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => {
+    if (lb.classList.contains('hidden')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  nav(-1);
+    if (e.key === 'ArrowRight') nav(1);
+  });
+</script>

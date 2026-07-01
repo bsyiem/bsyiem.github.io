@@ -1,0 +1,10 @@
+main:
+  - title: "Publications"
+    url: /publications_overview/
+  - title: "Download CV"
+    url: /assets/pdfs/resume/current_cv.pdf
+    target: _blank
+  - title: "Photography"
+    url: /photography/
+  - title: "Other Activities"
+    url: /other_activities/

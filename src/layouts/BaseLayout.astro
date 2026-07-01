@@ -1,0 +1,101 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'HCI researcher — XR, AI, and human behaviour' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/assets/images/brandon_nobg.png" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-bg/90 backdrop-blur-md border-b border-border">
+      <nav class="max-w-none px-8 lg:px-12 h-14 flex items-center justify-between">
+        <a href="/" class="font-display text-base tracking-wide text-ink hover:text-accent transition-colors">
+          Brandon Syiem
+        </a>
+        <ul class="flex items-center gap-6 lg:gap-8">
+          <li><a href="/publications" class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors">Publications</a></li>
+          <li class="hidden md:block"><a href="/photography"  class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors">Photography</a></li>
+          <li class="hidden md:block"><a href="/activities"   class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors">Activities</a></li>
+          <li>
+            <a href="/assets/pdfs/resume/current_cv.pdf" target="_blank"
+              class="text-[0.65rem] tracking-widest uppercase text-ink border border-ink px-3 py-1.5 hover:bg-ink hover:text-bg transition-colors duration-200">
+              CV ↗
+            </a>
+          </li>
+          <!-- Hamburger: mobile only -->
+          <li class="md:hidden">
+            <button id="menu-btn" aria-label="Toggle menu"
+              class="w-6 h-5 flex flex-col justify-between py-[1px]">
+              <span id="menu-line1" class="block h-px bg-ink origin-center transition-transform duration-300"></span>
+              <span id="menu-line2" class="block h-px bg-ink origin-center transition-transform duration-300"></span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Mobile menu overlay (below header) -->
+    <div id="mobile-menu"
+         class="fixed inset-x-0 top-14 bottom-0 z-40 bg-bg
+                flex flex-col px-8 py-10 gap-1
+                opacity-0 pointer-events-none transition-opacity duration-300">
+      <a href="/photography"
+         class="font-display text-4xl font-light text-ink hover:text-accent transition-colors py-5 border-b border-border">
+        Photography
+      </a>
+      <a href="/activities"
+         class="font-display text-4xl font-light text-ink hover:text-accent transition-colors py-5 border-b border-border">
+        Activities
+      </a>
+    </div>
+
+    <script>
+      const btn  = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const l1   = document.getElementById('menu-line1');
+      const l2   = document.getElementById('menu-line2');
+      let open   = false;
+
+      function toggle() {
+        open = !open;
+        menu.classList.toggle('opacity-0',        !open);
+        menu.classList.toggle('pointer-events-none', !open);
+        l1.style.transform = open ? 'translateY(8px) rotate(45deg)'  : '';
+        l2.style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+      }
+
+      btn.addEventListener('click', toggle);
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggle));
+    </script>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="border-t border-border mt-32 py-14 bg-ink text-bg">
+      <div class="max-w-none px-8 lg:px-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <p class="font-display text-xl font-light mb-1">Brandon Victor Syiem</p>
+          <p class="text-bg/40 text-xs tracking-wide">Postdoctoral Research Fellow · University of Sydney</p>
+        </div>
+        <ul class="flex gap-6 text-xs tracking-wide text-bg/50">
+          <li><a href="mailto:brandon.syiem@sydney.edu.au"  class="hover:text-bg transition-colors">Email</a></li>
+          <li><a href="https://scholar.google.com/citations?user=NLv_1gMAAAAJ&hl=en" target="_blank" class="hover:text-bg transition-colors">Scholar</a></li>
+          <li><a href="https://www.linkedin.com/in/brandon-victor-syiem-605455a8/" target="_blank" class="hover:text-bg transition-colors">LinkedIn</a></li>
+          <li><a href="https://www.researchgate.net/profile/Brandon-Syiem" target="_blank" class="hover:text-bg transition-colors">ResearchGate</a></li>
+        </ul>
+      </div>
+    </footer>
+
+  </body>
+</html>

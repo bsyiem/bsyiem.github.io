@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-bg text-ink antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  /* Ensure all page content sits above the AR canvas (z-index 0) */
+  body > header,
+  body > main,
+  body > footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  ::selection { background: rgba(192, 98, 42, 0.15); }
+
+  /* Grain overlay — applied to body, stays fixed */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  /* Thin underline link style */
+  .link-accent {
+    @apply text-ink underline decoration-accent/40 underline-offset-4
+           hover:decoration-accent transition-all duration-200;
+  }
+
+  /* Ornament divider */
+  .ornament {
+    @apply text-accent/60 mx-3 select-none;
+  }
+
+  /* Pill tag */
+  .tag-journal    { @apply bg-amber-50   text-amber-800  border border-amber-200/60; }
+  .tag-conference { @apply bg-stone-100  text-stone-700  border border-stone-200; }
+  .tag-workshop   { @apply bg-rose-50    text-rose-700   border border-rose-200/60; }
+}

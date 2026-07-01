@@ -1,0 +1,18 @@
+.custom_size_static img{
+  //max-width: 1920px;
+  //max-height: 1440px;
+  max-width: 301px;
+  max-height: 225px;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.custom_size img{
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.test{
+  color: blue;
+}

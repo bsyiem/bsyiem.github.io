@@ -1,0 +1,234 @@
+---
+// Renamed file kept — now renders the AR wireframe overlay instead
+---
+<canvas
+  id="ar-canvas"
+  aria-hidden="true"
+  class="fixed inset-0 w-full h-full pointer-events-none"
+  style="z-index: 0;"
+></canvas>
+
+<script>
+const canvas = document.getElementById('ar-canvas') as HTMLCanvasElement;
+const ctx    = canvas.getContext('2d')!;
+
+// ─── Colour tokens ────────────────────────────────────────────────────────────
+const INK    = (a: number) => `rgba(17,17,16,${a})`;
+const AMBER  = (a: number) => `rgba(192,98,42,${a})`;
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let W = 0, H = 0;
+let scrollT  = 0;   // 0–1 scroll progress
+let time     = 0;   // seconds
+
+// Expand rings: each ring tracks its own radius progress
+const rings = [
+  { progress: 0.0,  speed: 0.018 },
+  { progress: 0.33, speed: 0.018 },
+  { progress: 0.66, speed: 0.018 },
+];
+
+// ─── Resize ───────────────────────────────────────────────────────────────────
+function resize() {
+  W = canvas.width  = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+
+// ─── Drawing helpers ──────────────────────────────────────────────────────────
+
+/** Reticle: circle with four gap cuts, plus a tiny centre dot */
+function drawReticle(cx: number, cy: number, r: number, alpha: number) {
+  if (alpha <= 0) return;
+  ctx.save();
+  ctx.strokeStyle = AMBER(alpha);
+  ctx.lineWidth   = 0.8;
+
+  const gap = 0.22; // gap size in radians each side
+  // 4 arcs with gaps at N/E/S/W
+  const starts = [gap, Math.PI/2 + gap, Math.PI + gap, Math.PI*1.5 + gap];
+  const ends   = [Math.PI/2 - gap, Math.PI - gap, Math.PI*1.5 - gap, Math.PI*2 - gap];
+  for (let i = 0; i < 4; i++) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, starts[i], ends[i]);
+    ctx.stroke();
+  }
+
+  // Tick marks at the gap positions
+  const tickLen = r * 0.18;
+  const dirs = [0, Math.PI/2, Math.PI, Math.PI*1.5];
+  ctx.strokeStyle = AMBER(alpha * 0.7);
+  ctx.lineWidth   = 0.7;
+  dirs.forEach(a => {
+    const ix = cx + Math.cos(a) * (r + 2);
+    const iy = cy + Math.sin(a) * (r + 2);
+    const ox = cx + Math.cos(a) * (r + 2 + tickLen);
+    const oy = cy + Math.sin(a) * (r + 2 + tickLen);
+    ctx.beginPath(); ctx.moveTo(ix, iy); ctx.lineTo(ox, oy); ctx.stroke();
+  });
+
+  // Centre dot
+  ctx.fillStyle = AMBER(alpha * 0.9);
+  ctx.beginPath(); ctx.arc(cx, cy, 1.5, 0, Math.PI * 2); ctx.fill();
+
+  ctx.restore();
+}
+
+/** Corner bracket — L-shaped, drawn at each corner of a rectangle */
+function drawBrackets(x: number, y: number, bw: number, bh: number, len: number, alpha: number) {
+  if (alpha <= 0) return;
+  ctx.save();
+  ctx.strokeStyle = INK(alpha);
+  ctx.lineWidth   = 0.9;
+  const corners = [
+    { ox: x,        oy: y,        dx:  1, dy:  1 },
+    { ox: x + bw,   oy: y,        dx: -1, dy:  1 },
+    { ox: x,        oy: y + bh,   dx:  1, dy: -1 },
+    { ox: x + bw,   oy: y + bh,   dx: -1, dy: -1 },
+  ];
+  for (const { ox, oy, dx, dy } of corners) {
+    ctx.beginPath();
+    ctx.moveTo(ox + dx * len, oy);
+    ctx.lineTo(ox, oy);
+    ctx.lineTo(ox, oy + dy * len);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+/** Expanding scan ring — fades in from 0 opacity, fades out at outer edge */
+function drawScanRing(cx: number, cy: number, progress: number, maxR: number, alpha: number) {
+  if (alpha <= 0) return;
+  const r     = progress * maxR;
+  const fade  = Math.sin(progress * Math.PI); // 0→1→0
+  ctx.save();
+  ctx.strokeStyle = AMBER(alpha * fade * 0.22);
+  ctx.lineWidth   = 0.7;
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.restore();
+}
+
+/** Thin crosshair lines extending from a point */
+function drawCrosshair(cx: number, cy: number, halfLen: number, alpha: number) {
+  if (alpha <= 0) return;
+  ctx.save();
+  ctx.strokeStyle = INK(alpha);
+  ctx.lineWidth   = 0.6;
+  ctx.setLineDash([3, 6]);
+  ctx.beginPath();
+  ctx.moveTo(cx - halfLen, cy); ctx.lineTo(cx + halfLen, cy);
+  ctx.moveTo(cx, cy - halfLen); ctx.lineTo(cx, cy + halfLen);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.restore();
+}
+
+/** FOV boundary arcs — two arcs curving inward from the top corners */
+function drawFOV(alpha: number) {
+  if (alpha <= 0) return;
+  ctx.save();
+  ctx.strokeStyle = INK(alpha * 0.3);
+  ctx.lineWidth   = 0.8;
+  // Left arc
+  ctx.beginPath();
+  ctx.arc(-W * 0.12, H * 0.48, W * 0.52, -Math.PI * 0.28, Math.PI * 0.28);
+  ctx.stroke();
+  // Right arc
+  ctx.beginPath();
+  ctx.arc(W * 1.12, H * 0.48, W * 0.52, Math.PI - Math.PI * 0.28, Math.PI + Math.PI * 0.28);
+  ctx.stroke();
+  ctx.restore();
+}
+
+/** Small XYZ axis indicator in bottom-left */
+function drawAxis(ax: number, ay: number, len: number, alpha: number) {
+  if (alpha <= 0) return;
+  const angle = time * 0.08; // slow rotation
+  ctx.save();
+  ctx.lineWidth = 0.8;
+  const axes = [
+    { dx: Math.cos(angle),              dy: -Math.sin(angle) * 0.5, color: AMBER(alpha * 0.7),  label: 'X' },
+    { dx: Math.cos(angle + Math.PI/2),  dy: -Math.sin(angle + Math.PI/2) * 0.5, color: INK(alpha * 0.4), label: 'Y' },
+    { dx: 0,                            dy: -1,                      color: INK(alpha * 0.25), label: 'Z' },
+  ];
+  for (const a of axes) {
+    ctx.strokeStyle = a.color;
+    ctx.beginPath();
+    ctx.moveTo(ax, ay);
+    ctx.lineTo(ax + a.dx * len, ay + a.dy * len);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+/** Depth tick marks along the left edge */
+function drawDepthTicks(alpha: number) {
+  if (alpha <= 0) return;
+  ctx.save();
+  ctx.strokeStyle = INK(alpha * 0.25);
+  ctx.lineWidth   = 0.7;
+  ctx.font        = `${W * 0.007}px Inter, sans-serif`;
+  ctx.fillStyle   = INK(alpha * 0.18);
+  const count = 6;
+  for (let i = 0; i < count; i++) {
+    const y = H * 0.2 + (H * 0.6 / (count - 1)) * i;
+    const len = i % 2 === 0 ? 14 : 8;
+    ctx.beginPath(); ctx.moveTo(28, y); ctx.lineTo(28 + len, y); ctx.stroke();
+    if (i % 2 === 0) ctx.fillText(`0.${i * 2}`, 34 + len, y + 3);
+  }
+  ctx.restore();
+}
+
+// ─── Main draw loop ───────────────────────────────────────────────────────────
+function draw(ts: number) {
+  requestAnimationFrame(draw);
+
+  time = ts / 1000;
+
+  // Scroll progress
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  scrollT = maxScroll > 0 ? Math.min(1, window.scrollY / maxScroll) : 0;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Reticle — drifts slightly with scroll, pulsing scale
+  const pulse  = 1 + Math.sin(time * 0.6) * 0.04;
+  const retR   = Math.min(W, H) * 0.10 * pulse;
+  const retCX  = W * (0.58 - scrollT * 0.12);
+  const retCY  = H * (0.46 + scrollT * 0.06);
+  const retA   = 0.45 - scrollT * 0.10;
+  drawReticle(retCX, retCY, retR, retA);
+
+  // Expanding scan rings — always running, centred on reticle
+  const maxScanR = Math.min(W, H) * 0.40;
+  for (const ring of rings) {
+    ring.progress += ring.speed;
+    if (ring.progress > 1) ring.progress = 0;
+    drawScanRing(retCX, retCY, ring.progress, maxScanR, 0.8);
+  }
+
+  // Corner brackets — appear strongly at top, fade as you scroll
+  const bracketPad  = Math.min(W, H) * 0.06;
+  const bracketSize = Math.min(W, H) * 0.04;
+  const bracketAlpha = Math.max(0, 0.18 - scrollT * 0.18);
+  drawBrackets(bracketPad, bracketPad, W - bracketPad * 2, H - bracketPad * 2, bracketSize, bracketAlpha);
+
+  // FOV boundary arcs — visible throughout, fade slightly on scroll
+  drawFOV(0.25 - scrollT * 0.08);
+
+  // Dashed crosshair — faint, centred slightly right
+  drawCrosshair(W * 0.60, H * 0.50, Math.min(W, H) * 0.30, 0.04 + scrollT * 0.01);
+
+  // Axis indicator — grows in as you scroll deeper
+  const axisAlpha = Math.min(1, scrollT * 3) * 0.55;
+  drawAxis(W * 0.06, H * 0.88, Math.min(W, H) * 0.045, axisAlpha);
+
+  // Depth ticks — appear in lower sections
+  drawDepthTicks(Math.min(1, scrollT * 2.5) * 0.9);
+}
+
+resize();
+window.addEventListener('resize', resize);
+requestAnimationFrame(draw);
+</script>

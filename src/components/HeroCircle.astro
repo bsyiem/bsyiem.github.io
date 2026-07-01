@@ -1,0 +1,109 @@
+---
+function arc(cx: number, cy: number, r: number, a1: number, a2: number) {
+  const rad = (d: number) => (d - 90) * Math.PI / 180;
+  const x1 = +(cx + r * Math.cos(rad(a1))).toFixed(2);
+  const y1 = +(cy + r * Math.sin(rad(a1))).toFixed(2);
+  const x2 = +(cx + r * Math.cos(rad(a2))).toFixed(2);
+  const y2 = +(cy + r * Math.sin(rad(a2))).toFixed(2);
+  return `M${x1},${y1} A${r},${r} 0 ${a2-a1>180?1:0},1 ${x2},${y2}`;
+}
+const G = 10;
+const CX = 150, CY = 150, RO = 147, RI = 108;
+const outerArcs: [number,number][] = [[G,90-G],[90+G,180-G],[180+G,270-G],[270+G,360-G]];
+const ticks = [0,90,180,270].map(a => {
+  const r = (a - 90) * Math.PI / 180;
+  return {
+    x1: +(CX + RO      * Math.cos(r)).toFixed(1), y1: +(CY + RO      * Math.sin(r)).toFixed(1),
+    x2: +(CX + (RO+18) * Math.cos(r)).toFixed(1), y2: +(CY + (RO+18) * Math.sin(r)).toFixed(1),
+  };
+});
+
+const REVEAL_R = 180;
+---
+
+<!-- Fills the entire hc-zone column -->
+<div
+  id="hc-root"
+  class="absolute inset-0 overflow-hidden pointer-events-none select-none"
+  style="z-index: 2;"
+  aria-hidden="true"
+>
+  <!-- Ghost: headset faintly visible at rest -->
+  <img
+    src="/assets/images/wordcloud_headset.png"
+    alt=""
+    class="absolute"
+    style="width:110%;height:110%;top:-5%;left:-5%;object-fit:contain;opacity:0.11;pointer-events:none;"
+  />
+
+  <!-- Vivid: full colour, revealed by cursor circle -->
+  <img
+    id="hc-vivid"
+    src="/assets/images/wordcloud_headset.png"
+    alt=""
+    class="absolute"
+    style="width:110%;height:110%;top:-5%;left:-5%;object-fit:contain;clip-path:circle(0px at 50% 50%);pointer-events:none;"
+  />
+
+  <!-- Reticle SVG -->
+  <svg
+    id="hc-svg"
+    viewBox="0 0 300 300" width="300" height="300"
+    fill="none" overflow="visible"
+    style="position:absolute; top:0; left:0; opacity:0; transition:opacity 0.2s ease; pointer-events:none;"
+  >
+    {outerArcs.map(([a1,a2]) => (
+      <path d={arc(CX,CY,RO,a1,a2)} stroke="rgba(192,98,42,0.9)" stroke-width="1.3" stroke-linecap="round"/>
+    ))}
+    <circle cx={CX} cy={CY} r={RI} stroke="rgba(17,17,16,0.12)" stroke-width="0.7" stroke-dasharray="4 8"/>
+    {ticks.map(t => (
+      <line x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke="rgba(192,98,42,0.65)" stroke-width="1" stroke-linecap="round"/>
+    ))}
+    <line x1={CX-RI+10} y1={CY} x2={CX+RI-10} y2={CY} stroke="rgba(17,17,16,0.06)" stroke-width="0.6" stroke-dasharray="3 7"/>
+    <line x1={CX} y1={CY-RI+10} x2={CX} y2={CY+RI-10} stroke="rgba(17,17,16,0.06)" stroke-width="0.6" stroke-dasharray="3 7"/>
+    <circle cx={CX} cy={CY} r="2.5" fill="rgba(192,98,42,0.9)"/>
+  </svg>
+</div>
+
+<script define:vars={{ REVEAL_R }}>
+  const zone  = document.getElementById('hc-zone');
+  const svg   = document.getElementById('hc-svg');
+  const vivid = document.getElementById('hc-vivid');
+  if (!zone || !svg || !vivid) throw new Error('HeroCircle: missing elements');
+
+  const HALF = 150;
+  let lastX = 0, lastY = 0, active = false;
+
+  function onMove(e) {
+    const zoneRect  = zone.getBoundingClientRect();
+    const vividRect = vivid.getBoundingClientRect();
+
+    // SVG reticle — coords relative to the zone column
+    const zoneX = e.clientX - zoneRect.left;
+    const zoneY = e.clientY - zoneRect.top;
+    lastX = zoneX; lastY = zoneY;
+    svg.style.transform = `translate(${zoneX - HALF}px, ${zoneY - HALF}px)`;
+
+    // clip-path — coords relative to the vivid <img> element
+    const imgX = e.clientX - vividRect.left;
+    const imgY = e.clientY - vividRect.top;
+    vivid.style.transition = 'none';
+    vivid.style.clipPath = `circle(${REVEAL_R}px at ${imgX}px ${imgY}px)`;
+
+    if (!active) { svg.style.opacity = '1'; active = true; }
+  }
+
+  function deactivate() {
+    svg.style.opacity = '0';
+    const vividRect = vivid.getBoundingClientRect();
+    const zoneRect  = zone.getBoundingClientRect();
+    const imgX = lastX + zoneRect.left - vividRect.left;
+    const imgY = lastY + zoneRect.top  - vividRect.top;
+    vivid.style.transition = 'clip-path 0.4s ease';
+    vivid.style.clipPath = `circle(0px at ${imgX}px ${imgY}px)`;
+    active = false;
+  }
+
+  zone.addEventListener('mousemove', onMove);
+  zone.addEventListener('mouseleave', deactivate);
+</script>

@@ -1,0 +1,76 @@
+---
+import HeroCircle from './HeroCircle.astro';
+---
+<section id="hero-section" class="relative flex flex-col pt-14" style="height: 100svh;">
+
+  <!-- Two-column grid: name 35% | wordcloud 65% -->
+  <div class="flex-1 grid lg:grid-cols-[35%_65%] overflow-hidden">
+
+    <!-- Left: name, vertically centred. container-type lets cqi units scale to this column's width -->
+    <div class="flex flex-col justify-center px-4 lg:px-8 gap-6" style="container-type: inline-size;">
+
+      <p class="text-[0.65rem] tracking-widest2 uppercase text-muted
+                opacity-0 animate-[rise_0.6s_0.1s_ease_forwards]">
+        Human-Computer Interaction x Artificial Intelligence
+      </p>
+
+      <h1 aria-label="Brandon Victor Syiem" class="leading-[0.88] select-none">
+        <span class="block font-display font-light text-ink tracking-tight
+                     opacity-0 animate-[rise_0.7s_0.25s_ease_forwards]"
+              style="font-size: clamp(3rem, 28cqi, 14rem);">
+          Brandon
+        </span>
+        <span class="block font-display italic font-light text-ink/20 tracking-tight
+                     opacity-0 animate-[rise_0.7s_0.38s_ease_forwards]"
+              style="font-size: clamp(3rem, 30cqi, 14rem);">
+          Victor
+        </span>
+        <span class="block font-display font-light text-ink tracking-tight
+                     opacity-0 animate-[rise_0.7s_0.51s_ease_forwards]"
+              style="font-size: clamp(3rem, 28cqi, 14rem);">
+          Syiem
+        </span>
+      </h1>
+
+    </div>
+
+    <!-- Right: wordcloud, centred both axes -->
+    <div id="hc-zone" class="hidden lg:flex items-center justify-center relative">
+      <HeroCircle />
+    </div>
+
+  </div>
+
+  <!-- Full-width bottom bar -->
+  <div class="border-t border-border px-8 lg:px-12 py-4
+              flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4
+              opacity-0 animate-[rise_0.6s_0.7s_ease_forwards]">
+    <p class="text-muted text-xs leading-relaxed max-w-xs">
+      HCI Researcher — shaping user behaviours, experiences and work
+      practices through XR and AI.
+    </p>
+    <div class="flex gap-6">
+      <a href="/publications"
+        class="text-[0.7rem] tracking-widest uppercase text-ink border-b border-ink pb-px
+               hover:text-accent hover:border-accent transition-colors duration-200">
+        Publications
+      </a>
+      <a href="mailto:brandon.syiem@sydney.edu.au"
+        class="text-[0.7rem] tracking-widest uppercase text-muted hover:text-ink transition-colors duration-200">
+        Contact ↗
+      </a>
+      <a href="/assets/pdfs/resume/current_cv.pdf" target="_blank"
+        class="text-[0.7rem] tracking-widest uppercase text-muted hover:text-ink transition-colors duration-200">
+        CV ↗
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>

@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { publications, allTopics, allYears, allVenueTypes } from '../../data/publications';
+
+const venueTypeLabel: Record<string, string> = {
+  journal:    'Journal',
+  conference: 'Conference',
+  workshop:   'Workshop / EA',
+};
+---
+<BaseLayout title="Publications — Brandon Syiem">
+  <div class="max-w-6xl mx-auto px-8 pt-32 pb-24">
+
+    <header class="mb-14 border-b border-border pb-10">
+      <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Research Output</p>
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <h1 class="font-display text-5xl sm:text-6xl font-light">Publications</h1>
+        <a href="/publications/highlights"
+          class="text-[0.7rem] tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px self-start sm:self-auto">
+          View Highlights ↗
+        </a>
+      </div>
+    </header>
+
+    <!-- Filters -->
+    <div id="filters" class="mb-10 flex flex-wrap gap-y-4 gap-x-6">
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-[0.65rem] tracking-widest2 uppercase text-muted w-10">Year</span>
+        <button class="filter-btn is-active" data-filter="year" data-value="all">All</button>
+        {allYears.map(y => (
+          <button class="filter-btn" data-filter="year" data-value={String(y)}>{y}</button>
+        ))}
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-[0.65rem] tracking-widest2 uppercase text-muted w-10">Type</span>
+        <button class="filter-btn is-active" data-filter="type" data-value="all">All</button>
+        {allVenueTypes.map(t => (
+          <button class="filter-btn" data-filter="type" data-value={t}>{venueTypeLabel[t]}</button>
+        ))}
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-[0.65rem] tracking-widest2 uppercase text-muted w-10">Topic</span>
+        <button class="filter-btn is-active" data-filter="topic" data-value="all">All</button>
+        {allTopics.map(t => (
+          <button class="filter-btn" data-filter="topic" data-value={t}>{t}</button>
+        ))}
+      </div>
+    </div>
+
+    <p id="pub-count" class="text-muted text-xs tracking-wide mb-2">{publications.length} papers</p>
+
+    <!-- List -->
+    <div class="divide-y divide-border" id="pub-list">
+      {publications.map((pub, i) => (
+        <div
+          class="pub-card py-7 grid grid-cols-12 gap-4 group"
+          data-year={pub.year}
+          data-type={pub.venueType}
+          data-topics={pub.topics.join(',')}
+        >
+          <!-- Index -->
+          <div class="col-span-1 pt-0.5 hidden sm:block">
+            <span class="text-[0.65rem] text-muted">{String(i + 1).padStart(2,'0')}</span>
+          </div>
+
+          <!-- Main -->
+          <div class="col-span-12 sm:col-span-9">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class={`text-[0.6rem] tracking-widest uppercase px-2 py-0.5 font-medium ${
+                pub.venueType === 'journal'    ? 'tag-journal' :
+                pub.venueType === 'conference' ? 'tag-conference' :
+                                                 'tag-workshop'
+              }`}>
+                {pub.venueShort}
+              </span>
+              {pub.award && (
+                <span class="text-[0.6rem] tracking-widest uppercase text-amber-700">🏆 {pub.award}</span>
+              )}
+            </div>
+            <p class="text-ink font-medium leading-snug mb-1 group-hover:text-accent transition-colors duration-200">
+              {pub.title}
+            </p>
+            <p class="text-muted text-sm mb-3" set:html={pub.authors.replace(
+              /Brandon\s+(?:Victor\s+)?(?:V\.\s+)?Syiem/g,
+              '<strong class="text-ink font-medium">$&</strong>'
+            )} />
+            <div class="flex flex-wrap gap-1.5">
+              {pub.topics.map(t => (
+                <span class="text-[0.6rem] tracking-wide text-muted border border-border px-2 py-0.5">{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div class="col-span-12 sm:col-span-2 flex sm:flex-col gap-3 sm:items-end">
+            {pub.doi && (
+              <a href={pub.doi} target="_blank"
+                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
+                DOI
+              </a>
+            )}
+            {pub.pdf && (
+              <a href={pub.pdf} target="_blank"
+                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
+                PDF
+              </a>
+            )}
+            {pub.video && (
+              <a href={`https://www.youtube.com/watch?v=${pub.video}`} target="_blank"
+                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
+                Video
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .filter-btn {
+    @apply text-[0.65rem] tracking-widest uppercase px-2.5 py-1 border border-border
+           text-muted hover:text-ink hover:border-ink/30 transition-colors cursor-pointer;
+  }
+  .filter-btn.is-active {
+    @apply bg-ink text-bg border-ink;
+  }
+</style>
+
+<script>
+  type State = { year: string; type: string; topic: string };
+  const state: State = { year: 'all', type: 'all', topic: 'all' };
+
+  function apply() {
+    const cards = document.querySelectorAll<HTMLElement>('.pub-card');
+    let n = 0;
+    cards.forEach(c => {
+      const ok =
+        (state.year  === 'all' || c.dataset.year  === state.year) &&
+        (state.type  === 'all' || c.dataset.type  === state.type) &&
+        (state.topic === 'all' || (c.dataset.topics ?? '').split(',').includes(state.topic));
+      c.style.display = ok ? '' : 'none';
+      if (ok) n++;
+    });
+    document.getElementById('pub-count')!.textContent = `${n} paper${n !== 1 ? 's' : ''}`;
+  }
+
+  document.querySelectorAll<HTMLElement>('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter as keyof State;
+      state[f] = btn.dataset.value ?? 'all';
+      document.querySelectorAll<HTMLElement>(`.filter-btn[data-filter="${f}"]`)
+        .forEach(b => b.classList.toggle('is-active', b === btn));
+      apply();
+    });
+  });
+</script>

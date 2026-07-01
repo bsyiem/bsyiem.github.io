@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import { publications } from '../data/publications';
+
+const recent = publications.filter(p => p.year >= 2024).slice(0, 5);
+---
+<BaseLayout title="Brandon Syiem — HCI Researcher">
+  <Hero />
+
+  <!-- About -->
+  <section class="max-w-6xl mx-auto px-8 lg:px-12 py-28">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-16">
+
+      <!-- Pull quote — spans most of the width -->
+      <div class="lg:col-span-8">
+        <blockquote class="font-display italic font-light text-[clamp(1.6rem,3.2vw,3rem)] leading-[1.25] text-ink">
+          "My vision is to enhance user capabilities through technological solutions
+          that intelligently leverage human physiology, psychology, and behaviours."
+        </blockquote>
+      </div>
+
+      <!-- Photo + position — right column -->
+      <div class="lg:col-span-4 flex flex-col gap-6">
+        <img
+          src="/assets/images/brandon_nobg.png"
+          alt="Brandon Syiem"
+          class="w-40 h-40 object-cover object-top rounded-full border border-border"
+          style="filter: drop-shadow(0 2px 12px rgba(0,0,0,0.08));"
+        />
+        <div class="space-y-1 text-sm">
+          <p class="text-ink font-medium">Postdoctoral Research Fellow</p>
+          <p class="text-muted">The University of Sydney</p>
+          <p class="text-muted text-xs mt-2">Sup. <a href="https://www.eduardovelloso.com" target="_blank" class="link-accent">Prof. Eduardo Velloso</a></p>
+        </div>
+        <div class="space-y-1 text-xs text-muted">
+          <p>PhD · The University of Melbourne, 2023</p>
+          <p>PostDoc · Queensland University of Technology</p>
+          <p>PostDoc · The University of Melbourne</p>
+        </div>
+      </div>
+
+      <!-- Body copy — underneath pull quote -->
+      <div class="lg:col-span-8 text-muted leading-relaxed space-y-4">
+        <p>
+          I am an HCI researcher fascinated by how we can shape user behaviours, experiences,
+          and work practices through novel and intelligent technologies. My research investigates
+          new implementations, design and use of eXtended Reality (XR) and Artificial Intelligence
+          (AI) to enhance individual, social and collaborative experiences.
+        </p>
+        <div class="flex flex-wrap gap-6 pt-2">
+          <a href="https://scholar.google.com/citations?user=NLv_1gMAAAAJ&hl=en" target="_blank" class="link-accent text-sm">Google Scholar ↗</a>
+          <a href="https://www.linkedin.com/in/brandon-victor-syiem-605455a8/" target="_blank" class="link-accent text-sm">LinkedIn ↗</a>
+          <a href="https://www.researchgate.net/profile/Brandon-Syiem" target="_blank" class="link-accent text-sm">ResearchGate ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section break -->
+  <div class="border-t border-border mx-8 lg:mx-12"></div>
+
+  <!-- Recent Publications -->
+  <section class="max-w-6xl mx-auto px-8 lg:px-12 py-24">
+
+    <div class="flex items-baseline justify-between mb-14">
+      <h2 class="font-display font-light text-4xl">Recent Work</h2>
+      <a href="/publications"
+        class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
+        Full list ↗
+      </a>
+    </div>
+
+    <div class="divide-y divide-border">
+      {recent.map((pub) => (
+        <div class="py-8 flex gap-8 group">
+          <!-- Year -->
+          <span class="text-[0.65rem] text-muted tabular-nums pt-1 w-8 shrink-0">{pub.year}</span>
+
+          <!-- Content -->
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class={`text-[0.6rem] tracking-widest uppercase px-2 py-0.5 font-medium ${
+                pub.venueType === 'journal'    ? 'tag-journal' :
+                pub.venueType === 'conference' ? 'tag-conference' :
+                                                 'tag-workshop'
+              }`}>
+                {pub.venueShort}
+              </span>
+              {pub.award && (
+                <span class="text-[0.6rem] tracking-widest uppercase text-amber-700 font-medium">
+                  🏆 {pub.award}
+                </span>
+              )}
+            </div>
+            <p class="text-ink font-medium leading-snug mb-1 group-hover:text-accent transition-colors duration-200">
+              {pub.title}
+            </p>
+            <p class="text-muted text-sm" set:html={pub.authors.replace(
+              /Brandon\s+(?:Victor\s+)?(?:V\.\s+)?Syiem/g,
+              '<strong class="text-ink font-medium">$&</strong>'
+            )} />
+          </div>
+
+          <!-- Links -->
+          <div class="flex flex-col gap-2 shrink-0 items-end">
+            {pub.doi && (
+              <a href={pub.doi} target="_blank"
+                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
+                DOI
+              </a>
+            )}
+            {pub.pdf && (
+              <a href={pub.pdf} target="_blank"
+                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
+                PDF
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </section>
+</BaseLayout>
