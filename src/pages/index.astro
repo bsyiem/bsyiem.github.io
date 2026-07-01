@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { publications } from '../data/publications';
 
-const recent = publications.filter(p => p.year >= 2024).slice(0, 5);
+const highlights = publications.filter(p => p.featured);
 ---
 <BaseLayout title="Brandon Syiem — HCI Researcher">
   <Hero />
@@ -61,64 +61,100 @@ const recent = publications.filter(p => p.year >= 2024).slice(0, 5);
   <!-- Section break -->
   <div class="border-t border-border mx-8 lg:mx-12"></div>
 
-  <!-- Recent Publications -->
+  <!-- Highlights -->
   <section class="max-w-6xl mx-auto px-8 lg:px-12 py-24">
 
     <div class="flex items-baseline justify-between mb-14">
-      <h2 class="font-display font-light text-4xl">Recent Work</h2>
+      <h2 class="font-display font-light text-4xl">Highlights</h2>
       <a href="/publications"
         class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
         Full list ↗
       </a>
     </div>
 
-    <div class="divide-y divide-border">
-      {recent.map((pub) => (
-        <div class="py-8 flex gap-8 group">
-          <!-- Year -->
-          <span class="text-[0.65rem] text-muted tabular-nums pt-1 w-8 shrink-0">{pub.year}</span>
+    <div class="space-y-20">
+      {highlights.map(pub => (
+        <article class="border-b border-border pb-20 last:border-0 last:pb-0">
 
-          <!-- Content -->
-          <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center gap-2 mb-2">
-              <span class={`text-[0.6rem] tracking-widest uppercase px-2 py-0.5 font-medium ${
-                pub.venueType === 'journal'    ? 'tag-journal' :
-                pub.venueType === 'conference' ? 'tag-conference' :
-                                                 'tag-workshop'
-              }`}>
-                {pub.venueShort}
+          <!-- Venue + award -->
+          <div class="flex flex-wrap items-center gap-2 mb-4">
+            <span class={`text-[0.6rem] tracking-widest uppercase px-2 py-0.5 font-medium ${
+              pub.venueType === 'journal'    ? 'tag-journal' :
+              pub.venueType === 'conference' ? 'tag-conference' :
+                                               'tag-workshop'
+            }`}>
+              {pub.venueShort}
+            </span>
+            {pub.award && (
+              <span class="text-[0.6rem] tracking-widest uppercase text-amber-700 font-medium">
+                🏆 {pub.award}
               </span>
-              {pub.award && (
-                <span class="text-[0.6rem] tracking-widest uppercase text-amber-700 font-medium">
-                  🏆 {pub.award}
-                </span>
-              )}
-            </div>
-            <p class="text-ink font-medium leading-snug mb-1 group-hover:text-accent transition-colors duration-200">
-              {pub.title}
-            </p>
-            <p class="text-muted text-sm" set:html={pub.authors.replace(
-              /Brandon\s+(?:Victor\s+)?(?:V\.\s+)?Syiem/g,
-              '<strong class="text-ink font-medium">$&</strong>'
-            )} />
+            )}
           </div>
 
+          <!-- Title -->
+          <h3 class="font-display text-2xl sm:text-3xl font-light leading-snug text-ink mb-3">
+            {pub.title}
+          </h3>
+
+          <!-- Authors -->
+          <p class="text-muted text-sm mb-5" set:html={pub.authors.replace(
+            /Brandon\s+(?:Victor\s+)?(?:V\.\s+)?Syiem/g,
+            '<strong class="text-ink font-medium">$&</strong>'
+          )} />
+
           <!-- Links -->
-          <div class="flex flex-col gap-2 shrink-0 items-end">
+          <div class="flex flex-wrap gap-4 mb-8">
             {pub.doi && (
               <a href={pub.doi} target="_blank"
                 class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
-                DOI
+                {pub.venueShort} ↗
               </a>
             )}
             {pub.pdf && (
               <a href={pub.pdf} target="_blank"
                 class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
-                PDF
+                PDF ↗
               </a>
             )}
           </div>
-        </div>
+
+          <!-- Video -->
+          {pub.video && (
+            <div class="mb-8 aspect-video bg-surface border border-border overflow-hidden">
+              <iframe
+                width="100%" height="100%"
+                src={`https://www.youtube-nocookie.com/embed/${pub.video}`}
+                title={pub.title}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              />
+            </div>
+          )}
+
+          <!-- Images (only if no video) -->
+          {!pub.video && pub.images && pub.images.length > 0 && (
+            <div class={`mb-8 gap-2 ${
+              pub.images.length === 1 ? 'block' :
+              pub.images.length === 2 ? 'grid grid-cols-2 items-stretch' :
+                                        'grid grid-cols-3 items-stretch'
+            }`}>
+              {pub.images.map(src => (
+                <div class="border border-border overflow-hidden h-full flex items-center justify-center bg-white">
+                  <img src={src} alt={pub.title} class="w-full h-full object-contain" loading="lazy" />
+                </div>
+              ))}
+            </div>
+          )}
+
+          <!-- Abstract -->
+          {pub.abstract && (
+            <p class="text-muted leading-relaxed text-sm">{pub.abstract}</p>
+          )}
+
+        </article>
       ))}
     </div>
 

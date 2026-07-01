@@ -15,10 +15,6 @@ const venueTypeLabel: Record<string, string> = {
       <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Research Output</p>
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <h1 class="font-display text-5xl sm:text-6xl font-light">Publications</h1>
-        <a href="/publications/highlights"
-          class="text-[0.7rem] tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px self-start sm:self-auto">
-          View Highlights ↗
-        </a>
       </div>
     </header>
 
@@ -118,24 +114,17 @@ const venueTypeLabel: Record<string, string> = {
 
     </div>
 
-    <p id="pub-count" class="text-muted text-xs tracking-wide mb-2">{publications.length} papers</p>
-
     <!-- List -->
     <div class="divide-y divide-border" id="pub-list">
-      {publications.map((pub, i) => (
+      {publications.map((pub) => (
         <div
           class="pub-card py-7 grid grid-cols-12 gap-4 group"
           data-year={pub.year}
           data-type={pub.venueType}
           data-topics={pub.topics.join(',')}
         >
-          <!-- Index -->
-          <div class="col-span-1 pt-0.5 hidden sm:block">
-            <span class="text-[0.65rem] text-muted">{String(i + 1).padStart(2,'0')}</span>
-          </div>
-
           <!-- Main -->
-          <div class="col-span-12 sm:col-span-9">
+          <div class="col-span-12 sm:col-span-10">
             <div class="flex flex-wrap items-center gap-2 mb-2">
               <span class={`text-[0.6rem] tracking-widest uppercase px-2 py-0.5 font-medium ${
                 pub.venueType === 'journal'    ? 'tag-journal' :
@@ -303,7 +292,6 @@ const venueTypeLabel: Record<string, string> = {
     const lo = years[parseInt(loEl.value)];
     const hi = years[parseInt(hiEl.value)];
     const cards = document.querySelectorAll('.pub-card');
-    let n = 0;
     cards.forEach(c => {
       const y = parseInt(c.dataset.year);
       const ok =
@@ -311,9 +299,7 @@ const venueTypeLabel: Record<string, string> = {
         (state.type  === 'all' || c.dataset.type  === state.type) &&
         (state.topic === 'all' || (c.dataset.topics ?? '').split(',').includes(state.topic));
       c.style.display = ok ? '' : 'none';
-      if (ok) n++;
     });
-    document.getElementById('pub-count').textContent = `${n} paper${n !== 1 ? 's' : ''}`;
   }
 
   document.querySelectorAll('.filter-btn').forEach(btn => {
