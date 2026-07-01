@@ -23,7 +23,7 @@ const { title, description = 'HCI researcher — XR, AI, and human behaviour' } 
           Brandon Syiem
         </a>
         <ul class="flex items-center gap-6 lg:gap-8">
-          <li><a href="/publications" class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors">Publications</a></li>
+          <li class="hidden md:block"><a href="/publications" class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors">Publications</a></li>
           <li class="hidden md:block"><a href="/photography"  class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors">Photography</a></li>
           <li class="hidden md:block"><a href="/activities"   class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors">Activities</a></li>
           <li>
@@ -49,6 +49,10 @@ const { title, description = 'HCI researcher — XR, AI, and human behaviour' } 
          class="fixed inset-x-0 top-14 bottom-0 z-40 bg-bg
                 flex flex-col px-8 py-10 gap-1
                 opacity-0 pointer-events-none transition-opacity duration-300">
+      <a href="/publications"
+         class="font-display text-4xl font-light text-ink hover:text-accent transition-colors py-5 border-b border-border">
+        Publications
+      </a>
       <a href="/photography"
          class="font-display text-4xl font-light text-ink hover:text-accent transition-colors py-5 border-b border-border">
         Photography
