@@ -25,7 +25,7 @@ export const publications: Publication[] = [
     venueType: "conference",
     doi: "https://doi.org/10.1145/3772318.3790821",
     pdf: "/assets/pdfs/papers/syiem2026better.pdf",
-    topics: ["Methodology"],
+    topics: ["Methodology", "Modelling"],
     images: ["/assets/images/publications/syiem2026better_1.jpg", "/assets/images/publications/syiem2026better_2.jpg"],
     featured: true,
     abstract: "Despite the widespread use of ordinal measures in HCI, such as Likert-items, there is little consensus among HCI researchers on the statistical methods used for analysing such data. Both parametric and non-parametric methods have been extensively used within the discipline, with limited reflection on their assumptions and appropriateness for such analyses. In this paper, we examine recent HCI works that report statistical analyses of ordinal measures. We highlight prevalent methods used, discuss their limitations and spotlight key assumptions and oversights that diminish the insights drawn from these methods. Finally, we champion and detail the use of cumulative link (mixed) models (CLM/CLMM) for analysing ordinal data. Further, we provide practical worked examples of applying CLM/CLMMs using R to published open-sourced datasets. This work contributes towards a better understanding of the statistical methods used to analyse ordinal data in HCI and helps to consolidate practices for future work.",
@@ -164,7 +164,7 @@ export const publications: Publication[] = [
     doi: "https://doi.org/10.1016/j.cexr.2023.100037",
     pdf: "/assets/pdfs/papers/khorasani2023hands.pdf",
     images: ["/assets/images/publications/khorasani2023hands.jpg"],
-    topics: ["Extended Reality", "Education", "Embodiment"],
+    topics: ["Extended Reality", "Education"],
     abstract: "Studies suggest that Sense of Embodiment (SoE) enabled by VR promotes embodied and active learning. However, it is unclear what features of VR learning environments tap into the concept of embodied learning. For example, interaction techniques, movement and purely observational scenarios in VR can all play a role in facilitating embodied learning. To understand how these mechanisms impact learning, we conducted 2 studies with a total of 64 participants who had no prior experience in the training task. Participants were taught how to use a table saw in 4 conditions and were tested on their task performance in a fully interactive VR assessment. The conditions were analyzed in pairs; 2 conditions with different interaction techniques, 2 conditions with differing ability to move and a cross-study analysis comparing conditions with purely observational learning to interactive learning. We used a mixed methods approach and found that some types of \"hands-on\" interactions can have a detrimental impact on learning and that observational learning can be as impactful as a fully interactive experience.",
   },
   {
@@ -187,7 +187,7 @@ export const publications: Publication[] = [
     doi: "https://doi.org/10.1145/3544548.3581011",
     pdf: "/assets/pdfs/papers/yu2023modelling.pdf",
     video: "pyQG36Vzqco",
-    topics: ["Interaction Design", "User Modelling"],
+    topics: ["Interaction Design", "Modelling"],
     abstract: "Temporal target selection requires users to wait and trigger the selection input within a bounded time window, with a selection cursor that is expected to be delayed. This task conceptualizes, for example, a variety of game scenarios such as determining the timing of shooting a projectile towards a moving object. In this work, we explore models that predict when users typically perform a selection (i.e., user selection distribution) and their selection error rates in such tasks. We hypothesize that users react to temporal factors including distance, width, and delay as how they treat the corresponding variables in spatial target selection. The derived models are evaluated in a controlled experiment and an MTurk-based online study. Our research contributes new knowledge on user behavior in temporal target selection tasks and its potential connection with its spatial correspondence.",
   },
   {
@@ -226,7 +226,7 @@ export const publications: Publication[] = [
     venue: "International Journal of Computer Applications",
     venueShort: "IJCA 2014",
     venueType: "journal",
-    topics: ["Social Networks", "Data Analysis"],
+    topics: ["Social Networks", "Data Mining"],
   },
 ];
 

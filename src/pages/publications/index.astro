@@ -11,7 +11,7 @@ const venueTypeLabel: Record<string, string> = {
 <BaseLayout title="Publications — Brandon Syiem">
   <div class="max-w-6xl mx-auto px-8 pt-32 pb-24">
 
-    <header class="mb-14 border-b border-border pb-10">
+    <header class="mb-8 border-b border-border pb-10">
       <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Research Output</p>
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <h1 class="font-display text-5xl sm:text-6xl font-light">Publications</h1>
@@ -23,28 +23,99 @@ const venueTypeLabel: Record<string, string> = {
     </header>
 
     <!-- Filters -->
-    <div id="filters" class="mb-10 flex flex-wrap gap-y-4 gap-x-6">
-      <div class="flex items-center gap-2 flex-wrap">
-        <span class="text-[0.65rem] tracking-widest2 uppercase text-muted w-10">Year</span>
-        <button class="filter-btn is-active" data-filter="year" data-value="all">All</button>
-        {allYears.map(y => (
-          <button class="filter-btn" data-filter="year" data-value={String(y)}>{y}</button>
-        ))}
+    <div id="filters" class="mb-10 flex flex-col gap-3">
+
+      <!-- Row 1: Year (left) | Type (right) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+
+        <!-- Year column -->
+        <div class="flex flex-col items-center">
+          <span class="text-[0.72rem] tracking-widest2 uppercase text-muted self-start">Year</span>
+          <div class="flex-1 flex items-center">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2">
+              <span class="text-[0.6rem] uppercase tracking-widest text-muted w-4">Lo</span>
+              <input id="year-lo" type="range" step="1" class="year-range w-56" />
+              <span id="year-lo-label" class="text-[0.65rem] tabular-nums text-ink w-8"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[0.6rem] uppercase tracking-widest text-muted w-4">Hi</span>
+              <input id="year-hi" type="range" step="1" class="year-range w-56" />
+              <span id="year-hi-label" class="text-[0.65rem] tabular-nums text-ink w-8"></span>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Type column -->
+        <div class="flex flex-col gap-2 items-center">
+          <span class="text-[0.72rem] tracking-widest2 uppercase text-muted self-start">Type</span>
+          <div class="flex items-center gap-5">
+
+            <!-- Hub-and-spoke SVG (no labels, solid colours, 120° spacing) -->
+            <!-- Hub: (30,50)  R=33
+                 Journal    240° → (13.5, 21.4)
+                 Conference   0° → (63,   50  )
+                 Workshop   120° → (13.5, 78.6) -->
+            <svg id="type-graph" viewBox="0 0 75 100" width="75" height="100"
+                 class="select-none overflow-visible flex-shrink-0">
+              <!-- Spokes -->
+              <line id="spoke-journal"    x1="30" y1="50" x2="14" y2="21"
+                    stroke="#b45309" stroke-width="1.5" opacity="0.3"/>
+              <line id="spoke-conference" x1="30" y1="50" x2="63" y2="50"
+                    stroke="#44403c" stroke-width="1.5" opacity="0.3"/>
+              <line id="spoke-workshop"   x1="30" y1="50" x2="14" y2="79"
+                    stroke="#be123c" stroke-width="1.5" opacity="0.3"/>
+              <!-- Hub: All -->
+              <g id="node-all" data-value="all" class="type-node" style="cursor:pointer">
+                <circle cx="30" cy="50" r="10" fill="#111110"/>
+              </g>
+              <!-- Journal (amber) — 240° -->
+              <g id="node-journal" data-value="journal" class="type-node" style="cursor:pointer">
+                <circle cx="14" cy="21" r="8" fill="#b45309"/>
+              </g>
+              <!-- Conference (stone) — 0° -->
+              <g id="node-conference" data-value="conference" class="type-node" style="cursor:pointer">
+                <circle cx="63" cy="50" r="8" fill="#44403c"/>
+              </g>
+              <!-- Workshop (rose) — 120° -->
+              <g id="node-workshop" data-value="workshop" class="type-node" style="cursor:pointer">
+                <circle cx="14" cy="79" r="8" fill="#be123c"/>
+              </g>
+            </svg>
+
+            <!-- Legend -->
+            <div class="flex flex-col gap-2.5">
+              <div class="legend-item flex items-center gap-2 cursor-pointer" data-type="journal">
+                <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#b45309"></span>
+                <span class="text-[0.6rem] tracking-widest uppercase text-muted">Journal</span>
+              </div>
+              <div class="legend-item flex items-center gap-2 cursor-pointer" data-type="conference">
+                <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#44403c"></span>
+                <span class="text-[0.6rem] tracking-widest uppercase text-muted">Conference</span>
+              </div>
+              <div class="legend-item flex items-center gap-2 cursor-pointer" data-type="workshop">
+                <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#be123c"></span>
+                <span class="text-[0.6rem] tracking-widest uppercase text-muted">Workshop</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
-      <div class="flex items-center gap-2 flex-wrap">
-        <span class="text-[0.65rem] tracking-widest2 uppercase text-muted w-10">Type</span>
-        <button class="filter-btn is-active" data-filter="type" data-value="all">All</button>
-        {allVenueTypes.map(t => (
-          <button class="filter-btn" data-filter="type" data-value={t}>{venueTypeLabel[t]}</button>
-        ))}
+
+      <!-- Row 2: Topic (full width) -->
+      <div class="flex flex-col gap-2">
+        <span class="text-[0.72rem] tracking-widest2 uppercase text-muted">Topic</span>
+        <div class="flex items-center gap-2 flex-wrap">
+          <button class="filter-btn is-active" data-filter="topic" data-value="all">All</button>
+          {allTopics.map(t => (
+            <button class="filter-btn" data-filter="topic" data-value={t}>{t}</button>
+          ))}
+        </div>
       </div>
-      <div class="flex items-center gap-2 flex-wrap">
-        <span class="text-[0.65rem] tracking-widest2 uppercase text-muted w-10">Topic</span>
-        <button class="filter-btn is-active" data-filter="topic" data-value="all">All</button>
-        {allTopics.map(t => (
-          <button class="filter-btn" data-filter="topic" data-value={t}>{t}</button>
-        ))}
-      </div>
+
     </div>
 
     <p id="pub-count" class="text-muted text-xs tracking-wide mb-2">{publications.length} papers</p>
@@ -127,31 +198,129 @@ const venueTypeLabel: Record<string, string> = {
   .filter-btn.is-active {
     @apply bg-ink text-bg border-ink;
   }
+
+  .year-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 1px;
+    background: #d4d4d0;
+    outline: none;
+    cursor: pointer;
+  }
+  .year-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #111110;
+    cursor: pointer;
+  }
+  .year-range::-moz-range-thumb {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #111110;
+    border: none;
+    cursor: pointer;
+  }
 </style>
 
-<script>
-  type State = { year: string; type: string; topic: string };
-  const state: State = { year: 'all', type: 'all', topic: 'all' };
+<script define:vars={{ allYears }}>
+  const years = [...allYears].reverse(); // ascending: oldest first
+  const N = years.length - 1;
 
+  const loEl      = document.getElementById('year-lo');
+  const hiEl      = document.getElementById('year-hi');
+  const loLabel   = document.getElementById('year-lo-label');
+  const hiLabel   = document.getElementById('year-hi-label');
+
+  // Initialise
+  loEl.min = hiEl.min = '0';
+  loEl.max = hiEl.max = String(N);
+  loEl.value = '0';
+  hiEl.value = String(N);
+  loLabel.textContent = years[0];
+  hiLabel.textContent = years[N];
+
+  loEl.addEventListener('input', () => {
+    if (parseInt(loEl.value) > parseInt(hiEl.value)) loEl.value = hiEl.value;
+    loLabel.textContent = years[parseInt(loEl.value)];
+    apply();
+  });
+
+  hiEl.addEventListener('input', () => {
+    if (parseInt(hiEl.value) < parseInt(loEl.value)) hiEl.value = loEl.value;
+    hiLabel.textContent = years[parseInt(hiEl.value)];
+    apply();
+  });
+
+  // ── Type graph ─────────────────────────────────────────────────
+  const typeColors = {
+    journal:    '#b45309',
+    conference: '#44403c',
+    workshop:   '#be123c',
+  };
+
+  const state = { type: 'all', topic: 'all' };
+
+  function setTypeActive(value) {
+    state.type = value;
+
+    // Hub dims when a specific type is selected
+    const hub = document.querySelector('#node-all circle');
+    hub.setAttribute('fill', value === 'all' ? '#111110' : '#999');
+
+    // Outer nodes + spokes
+    ['journal','conference','workshop'].forEach(t => {
+      const g     = document.getElementById(`node-${t}`);
+      const spoke = document.getElementById(`spoke-${t}`);
+      const active = value === 'all' || value === t;
+      g.style.opacity     = active ? '1' : '0.2';
+      spoke.setAttribute('opacity', value === t ? '0.9' : value === 'all' ? '0.3' : '0.08');
+    });
+
+    // Legend
+    document.querySelectorAll('.legend-item').forEach(item => {
+      const active = value === 'all' || item.dataset.type === value;
+      item.style.opacity = active ? '1' : '0.3';
+    });
+
+    apply();
+  }
+
+  document.querySelectorAll('.type-node').forEach(node => {
+    node.addEventListener('click', () => setTypeActive(node.dataset.value));
+  });
+
+  document.querySelectorAll('.legend-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const t = item.dataset.type;
+      setTypeActive(state.type === t ? 'all' : t);
+    });
+  });
+
+  // ── Topic filter ────────────────────────────────────────────────
   function apply() {
-    const cards = document.querySelectorAll<HTMLElement>('.pub-card');
+    const lo = years[parseInt(loEl.value)];
+    const hi = years[parseInt(hiEl.value)];
+    const cards = document.querySelectorAll('.pub-card');
     let n = 0;
     cards.forEach(c => {
+      const y = parseInt(c.dataset.year);
       const ok =
-        (state.year  === 'all' || c.dataset.year  === state.year) &&
+        y >= lo && y <= hi &&
         (state.type  === 'all' || c.dataset.type  === state.type) &&
         (state.topic === 'all' || (c.dataset.topics ?? '').split(',').includes(state.topic));
       c.style.display = ok ? '' : 'none';
       if (ok) n++;
     });
-    document.getElementById('pub-count')!.textContent = `${n} paper${n !== 1 ? 's' : ''}`;
+    document.getElementById('pub-count').textContent = `${n} paper${n !== 1 ? 's' : ''}`;
   }
 
-  document.querySelectorAll<HTMLElement>('.filter-btn').forEach(btn => {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const f = btn.dataset.filter as keyof State;
+      const f = btn.dataset.filter;
       state[f] = btn.dataset.value ?? 'all';
-      document.querySelectorAll<HTMLElement>(`.filter-btn[data-filter="${f}"]`)
+      document.querySelectorAll(`.filter-btn[data-filter="${f}"]`)
         .forEach(b => b.classList.toggle('is-active', b === btn));
       apply();
     });
