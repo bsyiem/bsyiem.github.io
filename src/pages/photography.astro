@@ -200,6 +200,8 @@ const photos = readdirSync(photoDir)
   html.film-mode .border-border { border-color: #1e1e1e !important; }
 
   #view-toggle { transition: color 0.3s ease, border-color 0.3s ease; }
+  html.film-mode #view-toggle { color: #aaa !important; border-color: #555 !important; }
+  html.film-mode #view-toggle:hover { color: #e5e5e3 !important; border-color: #aaa !important; }
 </style>
 
 <script define:vars={{ photos }}>
