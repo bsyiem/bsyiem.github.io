@@ -23,7 +23,7 @@ const highlights = publications.filter(p => p.featured);
       <!-- Photo + position — right column -->
       <div class="lg:col-span-4 flex flex-col gap-6">
         <img
-          src="/assets/images/brandon_nobg.png"
+          src="/assets/images/brandon.jpg"
           alt="Brandon Syiem"
           class="w-40 h-40 object-cover object-top rounded-full border border-border"
           style="filter: drop-shadow(0 2px 12px rgba(0,0,0,0.08));"
@@ -32,7 +32,7 @@ const highlights = publications.filter(p => p.featured);
           <p class="text-ink font-medium">Postdoctoral Research Fellow</p>
           <p class="text-muted">The University of Sydney</p>
         </div>
-        <div class="space-y-1 text-xs text-muted">
+        <div class="space-y-1 text-sm text-muted">
           <p>PhD · The University of Melbourne, 2023</p>
           <p>PostDoc · Queensland University of Technology</p>
           <p>PostDoc · The University of Melbourne</p>
@@ -63,7 +63,7 @@ const highlights = publications.filter(p => p.featured);
     <div class="flex items-baseline justify-between mb-14">
       <h2 class="font-display font-light text-4xl">Highlights</h2>
       <a href="/publications"
-        class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
+        class="text-xs tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
         Full list ↗
       </a>
     </div>
@@ -74,7 +74,7 @@ const highlights = publications.filter(p => p.featured);
 
           <!-- Venue + award -->
           <div class="flex flex-wrap items-center gap-2 mb-4">
-            <span class={`text-[0.6rem] tracking-widest uppercase px-2 py-0.5 font-medium ${
+            <span class={`text-xs tracking-widest uppercase px-2 py-0.5 font-medium ${
               pub.venueType === 'journal'    ? 'tag-journal' :
               pub.venueType === 'conference' ? 'tag-conference' :
                                                'tag-workshop'
@@ -82,7 +82,7 @@ const highlights = publications.filter(p => p.featured);
               {pub.venueShort}
             </span>
             {pub.award && (
-              <span class="text-[0.6rem] tracking-widest uppercase text-amber-700 font-medium">
+              <span class="text-xs tracking-widest uppercase text-amber-700 font-medium">
                 🏆 {pub.award}
               </span>
             )}
@@ -103,13 +103,13 @@ const highlights = publications.filter(p => p.featured);
           <div class="flex flex-wrap gap-4 mb-8">
             {pub.doi && (
               <a href={pub.doi} target="_blank"
-                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
+                class="text-xs tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
                 {pub.venueShort} ↗
               </a>
             )}
             {pub.pdf && (
               <a href={pub.pdf} target="_blank"
-                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
+                class="text-xs tracking-widest uppercase text-muted hover:text-ink border-b border-border pb-px transition-colors">
                 PDF ↗
               </a>
             )}

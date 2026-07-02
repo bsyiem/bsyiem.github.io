@@ -13,11 +13,11 @@ const photos = readdirSync(photoDir)
 
   <div class="max-w-6xl mx-auto px-8 pt-32 pb-10">
     <header class="mb-14 border-b border-border pb-10">
-      <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Visual</p>
+      <p class="text-xs tracking-widest2 uppercase text-muted mb-4">Visual</p>
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <h1 class="font-display text-5xl sm:text-6xl font-light">Photography</h1>
         <button id="view-toggle"
-          class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink border border-border px-3 py-1.5 transition-colors self-start sm:self-auto">
+          class="text-xs tracking-widest uppercase text-muted hover:text-ink border border-border px-3 py-1.5 transition-colors self-start sm:self-auto">
           Film View
         </button>
       </div>
@@ -56,7 +56,7 @@ const photos = readdirSync(photoDir)
   <div id="lightbox"
     class="fixed inset-0 z-[200] bg-bg/97 hidden flex-col items-center justify-center backdrop-blur-sm">
     <div class="absolute top-6 right-8 flex items-center gap-6">
-      <span id="lb-counter" class="text-[0.65rem] tracking-widest uppercase text-muted"></span>
+      <span id="lb-counter" class="text-xs tracking-widest uppercase text-muted"></span>
       <button id="lb-close" class="text-muted hover:text-ink transition-colors text-xl leading-none">&times;</button>
     </div>
     <button id="lb-prev"

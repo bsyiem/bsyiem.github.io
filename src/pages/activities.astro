@@ -34,7 +34,7 @@ const activities = [
   <div class="max-w-4xl mx-auto px-8 pt-32 pb-24">
 
     <header class="mb-14 border-b border-border pb-10">
-      <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Extra</p>
+      <p class="text-xs tracking-widest2 uppercase text-muted mb-4">Extra</p>
       <h1 class="font-display text-5xl sm:text-6xl font-light">Activities</h1>
     </header>
 
@@ -42,7 +42,7 @@ const activities = [
       {activities.map(group => (
         <div class="grid grid-cols-12 gap-6">
           <div class="col-span-2">
-            <p class="text-[0.65rem] tracking-widest2 uppercase text-muted pt-0.5">{group.year}</p>
+            <p class="text-xs tracking-widest2 uppercase text-muted pt-0.5">{group.year}</p>
           </div>
           <ul class="col-span-10 space-y-4">
             {group.items.map(item => (

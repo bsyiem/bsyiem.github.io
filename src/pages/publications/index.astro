@@ -12,7 +12,7 @@ const venueTypeLabel: Record<string, string> = {
   <div class="max-w-6xl mx-auto px-8 pt-32 pb-24">
 
     <header class="mb-8 border-b border-border pb-10">
-      <p class="text-[0.7rem] tracking-widest2 uppercase text-muted mb-4">Research Output</p>
+      <p class="text-xs tracking-widest2 uppercase text-muted mb-4">Research Output</p>
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <h1 class="font-display text-5xl sm:text-6xl font-light">Publications</h1>
       </div>
@@ -26,18 +26,18 @@ const venueTypeLabel: Record<string, string> = {
 
         <!-- Year column -->
         <div class="flex flex-col items-center">
-          <span class="text-[0.72rem] tracking-widest2 uppercase text-muted self-start">Year</span>
+          <span class="text-xs tracking-widest2 uppercase text-muted self-start">Year</span>
           <div class="flex-1 flex items-center">
           <div class="flex flex-col gap-3">
             <div class="flex items-center gap-2">
-              <span class="text-[0.6rem] uppercase tracking-widest text-muted w-4">Lo</span>
+              <span class="text-xs uppercase tracking-widest text-muted w-4">Lo</span>
               <input id="year-lo" type="range" step="1" class="year-range w-56" />
-              <span id="year-lo-label" class="text-[0.65rem] tabular-nums text-ink w-8"></span>
+              <span id="year-lo-label" class="text-sm tabular-nums text-ink w-10"></span>
             </div>
             <div class="flex items-center gap-2">
-              <span class="text-[0.6rem] uppercase tracking-widest text-muted w-4">Hi</span>
+              <span class="text-xs uppercase tracking-widest text-muted w-4">Hi</span>
               <input id="year-hi" type="range" step="1" class="year-range w-56" />
-              <span id="year-hi-label" class="text-[0.65rem] tabular-nums text-ink w-8"></span>
+              <span id="year-hi-label" class="text-sm tabular-nums text-ink w-10"></span>
             </div>
           </div>
           </div>
@@ -45,7 +45,7 @@ const venueTypeLabel: Record<string, string> = {
 
         <!-- Type column -->
         <div class="flex flex-col gap-2 items-center">
-          <span class="text-[0.72rem] tracking-widest2 uppercase text-muted self-start">Type</span>
+          <span class="text-xs tracking-widest2 uppercase text-muted self-start">Type</span>
           <div class="flex items-center gap-5">
 
             <!-- Hub-and-spoke SVG (no labels, solid colours, 120° spacing) -->
@@ -86,19 +86,19 @@ const venueTypeLabel: Record<string, string> = {
             <div class="flex flex-col gap-2.5">
               <div class="legend-item flex items-center gap-2 cursor-pointer" data-type="journal">
                 <span class="w-2.5 h-2.5 flex-shrink-0" style="background:#b45309"></span>
-                <span class="text-[0.6rem] tracking-widest uppercase text-muted">Journal</span>
+                <span class="text-xs tracking-widest uppercase text-muted">Journal</span>
               </div>
               <div class="legend-item flex items-center gap-2 cursor-pointer" data-type="conference">
                 <svg width="12" height="11" viewBox="0 0 12 11" class="flex-shrink-0">
                   <polygon points="11,5.5 8.5,9.8 3.5,9.8 1,5.5 3.5,1.2 8.5,1.2" fill="#44403c"/>
                 </svg>
-                <span class="text-[0.6rem] tracking-widest uppercase text-muted">Conference</span>
+                <span class="text-xs tracking-widest uppercase text-muted">Conference</span>
               </div>
               <div class="legend-item flex items-center gap-2 cursor-pointer" data-type="workshop">
                 <svg width="12" height="11" viewBox="0 0 12 11" class="flex-shrink-0">
                   <polygon points="6,0 12,11 0,11" fill="#be123c"/>
                 </svg>
-                <span class="text-[0.6rem] tracking-widest uppercase text-muted">Workshop</span>
+                <span class="text-xs tracking-widest uppercase text-muted">Workshop</span>
               </div>
             </div>
 
@@ -109,7 +109,7 @@ const venueTypeLabel: Record<string, string> = {
 
       <!-- Row 2: Topic (full width) -->
       <div class="flex flex-col gap-2">
-        <span class="text-[0.72rem] tracking-widest2 uppercase text-muted">Topic</span>
+        <span class="text-xs tracking-widest2 uppercase text-muted">Topic</span>
         <div class="flex items-center gap-2 flex-wrap">
           <button class="filter-btn is-active" data-filter="topic" data-value="all">All</button>
           {allTopics.map(t => (
@@ -132,7 +132,7 @@ const venueTypeLabel: Record<string, string> = {
           <!-- Main -->
           <div class="col-span-12 sm:col-span-10">
             <div class="flex flex-wrap items-center gap-2 mb-2">
-              <span class={`text-[0.6rem] tracking-widest uppercase px-2 py-0.5 font-medium ${
+              <span class={`text-xs tracking-widest uppercase px-2 py-0.5 font-medium ${
                 pub.venueType === 'journal'    ? 'tag-journal' :
                 pub.venueType === 'conference' ? 'tag-conference' :
                                                  'tag-workshop'
@@ -140,7 +140,7 @@ const venueTypeLabel: Record<string, string> = {
                 {pub.venueShort}
               </span>
               {pub.award && (
-                <span class="text-[0.6rem] tracking-widest uppercase text-amber-700">🏆 {pub.award}</span>
+                <span class="text-xs tracking-widest uppercase text-amber-700">🏆 {pub.award}</span>
               )}
             </div>
             <p class="text-ink font-medium leading-snug mb-1 group-hover:text-accent transition-colors duration-200">
@@ -152,7 +152,7 @@ const venueTypeLabel: Record<string, string> = {
             )} />
             <div class="flex flex-wrap gap-1.5">
               {pub.topics.map(t => (
-                <span class="text-[0.6rem] tracking-wide text-muted border border-border px-2 py-0.5">{t}</span>
+                <span class="text-xs tracking-wide text-muted border border-border px-2 py-0.5">{t}</span>
               ))}
             </div>
           </div>
@@ -161,19 +161,19 @@ const venueTypeLabel: Record<string, string> = {
           <div class="col-span-12 sm:col-span-2 flex sm:flex-col gap-3 sm:items-end">
             {pub.doi && (
               <a href={pub.doi} target="_blank"
-                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
+                class="text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
                 DOI
               </a>
             )}
             {pub.pdf && (
               <a href={pub.pdf} target="_blank"
-                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
+                class="text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
                 PDF
               </a>
             )}
             {pub.video && (
               <a href={`https://www.youtube.com/watch?v=${pub.video}`} target="_blank"
-                class="text-[0.65rem] tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
+                class="text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors border-b border-border pb-px">
                 Video
               </a>
             )}
@@ -187,7 +187,7 @@ const venueTypeLabel: Record<string, string> = {
 
 <style>
   .filter-btn {
-    @apply text-[0.65rem] tracking-widest uppercase px-2.5 py-1 border border-border
+    @apply text-xs tracking-widest uppercase px-2.5 py-1 border border-border
            text-muted hover:text-ink hover:border-ink/30 transition-colors cursor-pointer;
   }
   .filter-btn.is-active {
