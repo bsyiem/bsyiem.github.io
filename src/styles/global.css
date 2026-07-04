@@ -48,8 +48,8 @@
     @apply text-accent/60 mx-3 select-none;
   }
 
-  /* Pill tag */
-  .tag-journal    { @apply bg-amber-50   text-amber-800  border border-amber-200/60; }
-  .tag-conference { @apply bg-stone-100  text-stone-700  border border-stone-200; }
-  .tag-workshop   { @apply bg-rose-50    text-rose-700   border border-rose-200/60; }
+  /* Pill tag — direct values to avoid JIT purge of amber/stone/rose utilities */
+  .tag-journal    { background: #fffbeb; color: #92400e; border: 1px solid rgba(253,230,138,0.6); }
+  .tag-conference { background: #f5f5f4; color: #44403c; border: 1px solid #e7e5e4; }
+  .tag-workshop   { background: #fff1f2; color: #be123c; border: 1px solid rgba(254,205,211,0.6); }
 }

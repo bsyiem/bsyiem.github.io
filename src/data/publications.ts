@@ -233,6 +233,8 @@ export const publications: Publication[] = [
   },
 ];
 
+publications.sort((a, b) => b.year - a.year);
+
 export const allTopics = [...new Set(publications.flatMap(p => p.topics))].sort();
 export const allYears  = [...new Set(publications.map(p => p.year))].sort((a, b) => b - a);
 export const allVenueTypes: Publication['venueType'][] = ['journal', 'conference', 'workshop'];
