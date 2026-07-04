@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
@@ -13,7 +15,6 @@ const { title, description = 'HCI researcher — XR, AI, and human behaviour' } 
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/assets/images/brandon_nobg.png" />
     <title>{title}</title>
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
 
