@@ -43,7 +43,7 @@ const supSummaryText = [
     ? items.reduce((sum, s) => sum + (s.count ?? 1), 0)
     : items.length;
   return `${label} (${count})`;
-}).filter((v): v is string => v !== null).join(', ');
+}).filter((v): v is string => v !== null).join(' · ');
 
 const reviewShortText = reviewing
   .filter(r => r.twoPage === true && r.include !== false)
