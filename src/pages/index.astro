@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { publications } from '../data/publications';
+import { profile } from '../data/profile';
 
 const highlights = publications.filter(p => p.featured);
 ---
@@ -15,39 +16,34 @@ const highlights = publications.filter(p => p.featured);
       <!-- Pull quote — spans most of the width -->
       <div class="lg:col-span-8">
         <blockquote class="font-display italic font-light text-[clamp(1.6rem,3.2vw,3rem)] leading-[1.25] text-ink">
-          {/* "I believe that to effectively design technology for humans, I must first understand human design. My research is an unending endeavour to develop that understanding, and to test it through realised technologies." */}
-          "To design technology for humans, I believe I must first understand human design. My research is an unending endeavour to do both."
+          "{profile.quote}"
         </blockquote>
       </div>
 
       <!-- Photo + position — right column -->
       <div class="lg:col-span-4 flex flex-col gap-6">
         <img
-          src="/assets/images/brandon.jpg"
-          alt="Brandon Syiem"
+          src={profile.photo}
+          alt={profile.name.display}
           class="w-40 h-40 object-cover object-top rounded-full border border-border"
           style="filter: drop-shadow(0 2px 12px rgba(0,0,0,0.08));"
         />
         <div class="space-y-1 text-sm">
-          <p class="text-ink font-medium">Postdoctoral Research Fellow</p>
-          <p class="text-muted">The University of Sydney</p>
+          <p class="text-ink font-medium">{profile.title}</p>
+          <p class="text-muted">{profile.institution}</p>
         </div>
         <div class="space-y-1 text-sm text-muted">
-          <p>PhD · The University of Melbourne, 2023</p>
-          <p>PostDoc · Queensland University of Technology</p>
-          <p>PostDoc · The University of Melbourne</p>
+          {profile.previousPositions.map(p => <p>{p}</p>)}
         </div>
       </div>
 
       <!-- Body copy — underneath pull quote -->
       <div class="lg:col-span-8 text-muted leading-relaxed space-y-4">
-        <p>
-          I am an HCI researcher fascinated by how human psychology, physiology, and behaviour can inform intelligent technological solutions. My research draws on those insights to investigate how eXtended Reality (XR) and Artificial Intelligence (AI) can be designed and implemented to enhance individual, social, and collaborative experiences.
-        </p>
+        <p>{profile.bio}</p>
         <div class="flex flex-wrap gap-6 pt-2">
-          <a href="https://scholar.google.com/citations?user=NLv_1gMAAAAJ&hl=en" target="_blank" class="link-accent text-sm">Google Scholar ↗</a>
-          <a href="https://www.linkedin.com/in/brandon-victor-syiem-605455a8/" target="_blank" class="link-accent text-sm">LinkedIn ↗</a>
-          <a href="https://www.researchgate.net/profile/Brandon-Syiem" target="_blank" class="link-accent text-sm">ResearchGate ↗</a>
+          <a href={profile.socials.scholar} target="_blank" class="link-accent text-sm">Google Scholar ↗</a>
+          <a href={profile.socials.linkedin} target="_blank" class="link-accent text-sm">LinkedIn ↗</a>
+          <a href={profile.socials.researchgate} target="_blank" class="link-accent text-sm">ResearchGate ↗</a>
         </div>
       </div>
 

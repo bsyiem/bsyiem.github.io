@@ -13,6 +13,10 @@ export type Publication = {
   award?: string;
   featured?: boolean;
   abstract?: string;
+  coreRank?: string;
+  scimagoRank?: string;
+  include?: boolean;
+  twoPage?: boolean;
 };
 
 export const publications: Publication[] = [
@@ -28,6 +32,9 @@ export const publications: Publication[] = [
     topics: ["Methodology", "Modelling"],
     images: ["/assets/images/publications/syiem2026better_1.jpg", "/assets/images/publications/syiem2026better_2.jpg"],
     featured: true,
+    coreRank: "A*",
+    include: true,
+    twoPage: true,
     abstract: "Despite the widespread use of ordinal measures in HCI, such as Likert-items, there is little consensus among HCI researchers on the statistical methods used for analysing such data. Both parametric and non-parametric methods have been extensively used within the discipline, with limited reflection on their assumptions and appropriateness for such analyses. In this paper, we examine recent HCI works that report statistical analyses of ordinal measures. We highlight prevalent methods used, discuss their limitations and spotlight key assumptions and oversights that diminish the insights drawn from these methods. Finally, we champion and detail the use of cumulative link (mixed) models (CLM/CLMM) for analysing ordinal data. Further, we provide practical worked examples of applying CLM/CLMMs using R to published open-sourced datasets. This work contributes towards a better understanding of the statistical methods used to analyse ordinal data in HCI and helps to consolidate practices for future work.",
   },
   {
@@ -42,6 +49,9 @@ export const publications: Publication[] = [
     topics: ["Extended Reality", "Cognition"],
     images: ["/assets/images/publications/lai2026searching.jpg"],
     featured: true,
+    coreRank: "A*",
+    include: true,
+    twoPage: true,
     abstract: "Visual search is a core component of mixed reality (MR) interactions, influenced by the complexities of MR application contexts. In this paper, we investigate how prevalent factors in MR influence visual search performance and spatial regularity memory — including the physical environment complexity, secondary task presence, virtual content depth and spatial layout configurations. Contrary to prior work, we found that the secondary auditory task did not have a significant main effect on visual search performance, while significantly elevating higher perceived workload measures in all conditions. Complex environments and varied virtual elements depths significantly hinder visual search, but did not significantly increase perceived workload measures. Finally, participants did not explicitly recognize repeated spatial configurations of virtual elements, but performed significantly better when searching repeated spatial configurations, suggesting implicit memory of spatial regularities. Our work presents novel insights on visual search and highlights key considerations when designing MR for different application contexts.",
   },
   {
@@ -56,6 +66,9 @@ export const publications: Publication[] = [
     video: "iV9pwDFQSg8",
     topics: ["Extended Reality", "Collaboration", "Education"],
     featured: true,
+    scimagoRank: "Q1",
+    include: true,
+    twoPage: true,
     abstract: "Communicating spatial information is challenging using solely verbal or written language, and is often supported by non-verbal gestures and illustrative drawings. However, the growing need for communicating increasingly complex spatial information, coupled with the rise of remote collaboration, presents challenges that current screen-based solutions are ill-equipped to address. Virtual Reality (VR) offers capabilities to support both non-verbal gestures and complex visual aids, through embodied avatars and 3D virtual representations. However, the novelty of creating, referencing, and viewing 3D drawings in VR may influence the interlocutors' actions, speech and communication performance. We conducted a mixed-methods within-subject study with dyads to investigate the effects of drawing dimension (2D or 3D drawings) on spatial dialogue behaviours in VR. We found no significant effects of drawing dimension on communication performance and workload, but found significantly different interlocutor actions and speech. We discuss relevant implications and highlight considerations unique to the different communication strategies observed during 2D and 3D drawing use for supporting spatial dialogue in VR.",
   },
   {
@@ -67,6 +80,9 @@ export const publications: Publication[] = [
     venueType: "conference",
     doi: "https://doi.org/10.1145/3764687.376992",
     topics: ["Extended Reality", "Literature Review"],
+    coreRank: "B",
+    include: true,
+    twoPage: false,
   },
   {
     year: 2025,
@@ -77,6 +93,9 @@ export const publications: Publication[] = [
     venueType: "workshop",
     doi: "https://doi.org/10.1145/3706599.370672",
     topics: ["Extended Reality", "Collaboration"],
+    coreRank: "A*",
+    include: true,
+    twoPage: false,
   },
   {
     year: 2025,
@@ -89,6 +108,9 @@ export const publications: Publication[] = [
     pdf: "/assets/pdfs/papers/syiem2024systematic.pdf",
     images: ["/assets/images/publications/syiem2024systematic.jpg"],
     topics: ["Extended Reality", "Collaboration", "Education"],
+    scimagoRank: "Q1",
+    include: true,
+    twoPage: true,
     abstract: "Scientific sense-making in STEM fields is a complex, yet essential activity, that greatly benefits from collaborations. However, challenges associated with collaboration, such as the geographic separation of experts, access to specialised equipment, and meaningful data representation, often hinder this process. Solutions to collaborative challenges have been extensively explored in CSCW and HCI literature. Among such solutions, immersive systems offer novel data visualisations, interactions, and representations that can support collaborative sense-making in STEM fields. Recognising the increasing interest from HCI researchers on the intersection of collaboration and immersive systems, we conduct a systematic review to answer pertinent questions regarding the research landscape, the design and implementation of collaborative immersive systems for STEM sense-making. We find that current research leans towards synchronous collaborations, AR technology, and sense-making for learning in science domains. We further discuss prevalent trends and considerations observed in our findings, to inform future research directions.",
   },
   {
@@ -103,6 +125,9 @@ export const publications: Publication[] = [
     video: "Rjt968MGxqI",
     topics: ["Extended Reality", "AI Agents", "Cognition"],
     featured: true,
+    scimagoRank: "Q1",
+    include: true,
+    twoPage: true,
     abstract: "Recent work on augmented reality (AR) has explored the use of adaptive agents to overcome attentional issues that negatively impact task performance. However, despite positive technical evaluations, adaptive agents have shown no significant improvements to user task performance in AR. Furthermore, previous works have primarily evaluated such agents using abstract tasks. In this paper, we develop an agent that observes user behaviour and performs appropriate actions to mitigate attentional issues in a realistic sense-making task in AR. We employ mixed methods to evaluate our agent in a between-subject experiment (N=60) to understand the agent's effect on user task performance and behaviour. While we find no significant improvements in task performance, our analysis revealed that users' preferences and trust in the agent affected their receptiveness of the agent's recommendations. We discuss the pitfalls of autonomous agents and highlight the need to shift from designing better Human–AI interactions to better Human–AI collaborations.",
   },
   {
@@ -117,6 +142,9 @@ export const publications: Publication[] = [
     images: ["/assets/images/publications/irlitti2024volumetric.jpg"],
     topics: ["Extended Reality", "Collaboration"],
     featured: true,
+    coreRank: "A*",
+    include: true,
+    twoPage: true,
     abstract: "Volumetric telepresence aims to create a shared space, allowing people in local and remote settings to collaborate seamlessly. Prior telepresence examples typically have asymmetrical designs, with volumetric capture in one location and objects in one format. In this paper, we present a volumetric telepresence mixed reality system that supports real-time, symmetrical, multi-user, partially distributed interactions, using objects in multiple formats, across multiple locations. We align two volumetric environments around a common spatial feature to create a shared workspace for remote and co-located people using objects in three formats: physical, virtual, and volumetric. We conducted a study with 18 participants over 6 sessions, evaluating how telepresence workspaces support spatial coordination and hybrid communication for co-located and remote users undertaking collaborative tasks. Our findings demonstrate the successful integration of remote spaces, effective use of proxemics and deixis to support negotiation, and strategies to manage interactivity in hybrid workspaces.",
   },
   {
@@ -131,6 +159,9 @@ export const publications: Publication[] = [
     images: ["/assets/images/publications/syiem2024augmented.jpg"],
     topics: ["Extended Reality", "Interaction Design", "Public Engagement"],
     featured: true,
+    coreRank: "A*",
+    include: true,
+    twoPage: true,
     abstract: "Augmented Reality (AR) offers unique opportunities for contributing to zoos' objectives of public engagement and education about animal and conservation issues. However, the diversity of animal exhibits pose challenges in designing AR applications that are not encountered in more controlled environments, such as museums. To support the design of AR applications that meaningfully engage the public with zoo objectives, we first conducted two scoping reviews to interrogate previous work on AR and broader technology use at zoos. We then conducted a workshop with zoo representatives to understand the challenges and opportunities in using AR to achieve zoo objectives. Additionally, we conducted a field trip to a public zoo to identify exhibit characteristics that impacts AR application design. We synthesise the findings from these studies into a framework that enables the design of diverse AR experiences. We illustrate the utility of the framework by presenting two concepts for feasible AR applications.",
   },
   {
@@ -145,6 +176,9 @@ export const publications: Publication[] = [
     video: "_jFqzPX5Fvs",
     topics: ["Extended Reality", "Interaction Design"],
     featured: true,
+    scimagoRank: "Q1",
+    include: true,
+    twoPage: false,
     abstract: "We propose Reflected Reality: a new dimension for augmented reality that expands the augmented physical space into mirror reflections. By synchronously tracking the physical space in front of the mirror and the reflection behind it using an AR headset and an optional smart mirror component, reflected reality enables novel AR interactions that allow users to use their physical and reflected bodies to find and interact with virtual objects. We propose a design space for AR interaction with mirror reflections, and instantiate it using a prototype system featuring a HoloLens 2 and a smart mirror. We explore the design space along the following dimensions: the user's perspective of input, the spatial frame of reference, and the direction of the mirror space relative to the physical space. Using our prototype, we visualise a use case scenario that traverses the design space to demonstrate its interaction affordances in a practical context. To understand how users perceive the intuitiveness and ease of reflected reality interaction, we conducted an exploratory and a formal user evaluation studies to characterise user performance of AR interaction tasks in reflected reality.",
   },
   {
@@ -156,6 +190,9 @@ export const publications: Publication[] = [
     venueType: "conference",
     doi: "https://doi.org/10.1145/3638380.363838",
     topics: ["Extended Reality", "Education", "Data Mining"],
+    coreRank: "B",
+    include: true,
+    twoPage: false,
   },
   {
     year: 2023,
@@ -168,6 +205,9 @@ export const publications: Publication[] = [
     pdf: "/assets/pdfs/papers/khorasani2023hands.pdf",
     images: ["/assets/images/publications/khorasani2023hands.jpg"],
     topics: ["Extended Reality", "Education"],
+    scimagoRank: "Unranked",
+    include: true,
+    twoPage: false,
     abstract: "Studies suggest that Sense of Embodiment (SoE) enabled by VR promotes embodied and active learning. However, it is unclear what features of VR learning environments tap into the concept of embodied learning. For example, interaction techniques, movement and purely observational scenarios in VR can all play a role in facilitating embodied learning. To understand how these mechanisms impact learning, we conducted 2 studies with a total of 64 participants who had no prior experience in the training task. Participants were taught how to use a table saw in 4 conditions and were tested on their task performance in a fully interactive VR assessment. The conditions were analyzed in pairs; 2 conditions with different interaction techniques, 2 conditions with differing ability to move and a cross-study analysis comparing conditions with purely observational learning to interactive learning. We used a mixed methods approach and found that some types of \"hands-on\" interactions can have a detrimental impact on learning and that observational learning can be as impactful as a fully interactive experience.",
   },
   {
@@ -179,6 +219,9 @@ export const publications: Publication[] = [
     venueType: "journal",
     doi: "https://doi.org/10.1109/ACCESS.2023.3305118",
     topics: ["Extended Reality", "BCI", "Cognition"],
+    scimagoRank: "Q1",
+    include: true,
+    twoPage: false,
   },
   {
     year: 2023,
@@ -191,6 +234,9 @@ export const publications: Publication[] = [
     pdf: "/assets/pdfs/papers/yu2023modelling.pdf",
     video: "pyQG36Vzqco",
     topics: ["Interaction Design", "Modelling"],
+    coreRank: "A*",
+    include: true,
+    twoPage: false,
     abstract: "Temporal target selection requires users to wait and trigger the selection input within a bounded time window, with a selection cursor that is expected to be delayed. This task conceptualizes, for example, a variety of game scenarios such as determining the timing of shooting a projectile towards a moving object. In this work, we explore models that predict when users typically perform a selection (i.e., user selection distribution) and their selection error rates in such tasks. We hypothesize that users react to temporal factors including distance, width, and delay as how they treat the corresponding variables in spatial target selection. The derived models are evaluated in a controlled experiment and an MTurk-based online study. Our research contributes new knowledge on user behavior in temporal target selection tasks and its potential connection with its spatial correspondence.",
   },
   {
@@ -206,6 +252,9 @@ export const publications: Publication[] = [
     topics: ["Extended Reality", "Cognition"],
     award: "Best Paper Award",
     featured: true,
+    coreRank: "A*",
+    include: true,
+    twoPage: true,
     abstract: "Attentional tunneling describes a phenomenon in Augmented Reality (AR) where users excessively focus on virtual content while neglecting their physical surroundings. This leads to the concern that users could neglect hazardous situations when using AR applications. However, studies have often confounded the role of the virtual content with the role of the associated task in inducing attentional tunneling. In this paper, we disentangle the impact of the associated task and of the virtual content on the attentional tunneling effect by measuring reaction times to events in two user studies. We found that presenting virtual content did not significantly increase user reaction times to events, but adding a task to the content did. This work contributes towards our understanding of the attentional tunneling effect on handheld AR devices, and highlights the need to consider both task and context when evaluating AR application usage.",
   },
   {
@@ -220,6 +269,9 @@ export const publications: Publication[] = [
     video: "McdegMpBT1w",
     topics: ["Extended Reality", "Cognition", "Public Engagement"],
     featured: true,
+    coreRank: "A*",
+    include: true,
+    twoPage: false,
     abstract: "Studies using augmented reality (AR) technology have suggested that users focus excessively on the virtual content in the AR environment at the expense of the physical world around them. This has implications related to the design of installations that aim to incorporate the user's physical environment as part of the AR experience. To better understand how user attention is managed in an AR environment, we present an observational study of Rewild Our Planet, a multi-modal installation that combined video, audio, a human docent and mobile AR to promote awareness about environmental issues. We found that, while AR was successful in engaging visitors, it drew attention away from other modalities within the installation. This impacts the work of the human docent and affects how visitors absorb information presented in the installation. Based on these observations, we present guidelines to inform the design of future AR-supported installations with the aim of minimizing or taking advantage of the observed attentional issues.",
   },
   {
@@ -230,6 +282,9 @@ export const publications: Publication[] = [
     venueShort: "IJCA 2014",
     venueType: "journal",
     topics: ["Social Networks", "Data Mining"],
+    scimagoRank: "Q4",
+    include: true,
+    twoPage: false,
   },
 ];
 

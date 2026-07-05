@@ -1,0 +1,724 @@
+---
+import { education } from '../data/education';
+import { experience } from '../data/experience';
+import { publications } from '../data/publications';
+import { underPreparation } from '../data/underPreparation';
+import { grants } from '../data/grants';
+import { awards } from '../data/awards';
+import { reviewing } from '../data/reviewing';
+import { talks } from '../data/talks';
+import { activities } from '../data/activities';
+import { supervision } from '../data/supervision';
+import { projects } from '../data/projects';
+import { skills } from '../data/skills';
+import { profile } from '../data/profile';
+
+const confPubs     = publications.filter(p => p.venueType === 'conference');
+const journalPubs  = publications.filter(p => p.venueType === 'journal');
+const workshopPubs = publications.filter(p => p.venueType === 'workshop');
+
+const supGroups = [
+  { label: 'PhD',              items: supervision.filter(s => s.level === 'PhD') },
+  { label: 'Masters',          items: supervision.filter(s => s.level === "Master's") },
+  { label: 'Bachelors',        items: supervision.filter(s => s.level === "Bachelor's") },
+  { label: 'Research Interns', items: supervision.filter(s => s.level === 'Research Internship') },
+].filter(g => g.items.length > 0);
+
+// 2-page summary strings
+const fundingIncluded = grants.filter(g => g.include !== false);
+const fundingTotal = fundingIncluded.reduce((sum, g) => sum + parseInt(g.amount.replace(/[^0-9]/g, ''), 10), 0);
+const fundingYears  = fundingIncluded.map(g => g.year);
+const fundingSummaryText = `A$${fundingTotal.toLocaleString()} across ${fundingIncluded.length} grants (${Math.min(...fundingYears)}–${Math.max(...fundingYears)})`;
+
+const supSummaryText = [
+  { label: 'PhD',              lvl: 'PhD' },
+  { label: "Master's",         lvl: "Master's" },
+  { label: "Bachelor's",       lvl: "Bachelor's" },
+  { label: 'Research Interns', lvl: 'Research Internship' },
+].map(({ label, lvl }) => {
+  const items = supervision.filter(s => s.level === lvl && s.include !== false);
+  if (!items.length) return null;
+  const count = lvl === 'Research Internship'
+    ? items.reduce((sum, s) => sum + (s.count ?? 1), 0)
+    : items.length;
+  return `${label} (${count})`;
+}).filter((v): v is string => v !== null).join(', ');
+
+const reviewShortText = reviewing
+  .filter(r => r.twoPage === true && r.include !== false)
+  .map(r => r.short.trim())
+  .join(' · ');
+
+const awardShortText = awards
+  .filter(a => a.twoPage === true && a.include !== false)
+  .map(a => a.title)
+  .join(' · ');
+
+function bold(authors: string): string {
+  return authors
+    .replace(/Brandon Victor Syiem/g, '<b>Brandon Victor Syiem</b>')
+    .replace(/Brandon V\.\s*Syiem/g, '<b>Brandon V. Syiem</b>');
+}
+
+function rank(p: typeof publications[0]): string {
+  if (p.coreRank)    return `CORE ${p.coreRank}`;
+  if (p.scimagoRank) return `SCIMAGO ${p.scimagoRank}`;
+  return '';
+}
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Brandon Victor Syiem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #111;
+      --muted:  #555;
+      --faint:  #999;
+      --rule:   #d4d4d4;
+      --accent: #C0622A;
+      --bg:     #fff;
+    }
+
+    html { font-optical-sizing: auto; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: #edede9;
+    }
+
+    /* ── Toolbar ────────────────────────────────────────────────── */
+    #toolbar {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 0.5rem 0.65rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.06);
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.025em;
+    }
+    .tb-label { color: var(--faint); padding: 0 0.25rem; font-size: 11px; }
+    .tb-sep   { width: 1px; height: 16px; background: #e0e0e0; margin: 0 0.1rem; }
+    .tb-btn, .tb-print {
+      display: inline-flex; align-items: center; gap: 0.25rem;
+      padding: 0.3rem 0.65rem; border-radius: 6px;
+      border: 1px solid transparent; cursor: pointer;
+      font: inherit; text-decoration: none;
+      transition: background 0.12s, color 0.12s;
+    }
+    .tb-btn { background: transparent; color: var(--muted); }
+    .tb-btn:hover { background: #f5f5f3; color: var(--ink); }
+    .tb-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .tb-print {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+    .tb-print:hover { background: #a85420; }
+
+    /* ── Page ───────────────────────────────────────────────────── */
+    .cv-wrap {
+      max-width: 800px;
+      margin: 2.5rem auto 9rem;
+      background: var(--bg);
+      padding: 3.5rem 3.75rem;
+      box-shadow: 0 2px 48px rgba(0,0,0,0.07);
+    }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .cv-name {
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .cv-rule {
+      display: block; width: 2.5rem; height: 2px;
+      background: var(--accent); margin: 0.65rem 0 0.8rem;
+    }
+    .cv-position  { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+    .cv-inst      { font-size: 0.8125rem; color: var(--muted); margin-top: 0.1rem; }
+    .cv-contact {
+      display: flex; flex-wrap: wrap; gap: 0.2rem 1rem;
+      margin-top: 0.75rem; font-size: 0.75rem; color: var(--faint);
+    }
+    .cv-contact a { color: var(--faint); text-decoration: none; }
+    .cv-contact a:hover { color: var(--accent); text-decoration: underline; }
+
+    /* ── Section ─────────────────────────────────────────────────── */
+    .cv-section { margin-top: 2.1rem; }
+    .cv-section.hidden { display: none; }
+    .cv-section-head {
+      display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.9rem;
+    }
+    .cv-section-head h2 {
+      font-size: 0.625rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink); white-space: nowrap;
+    }
+    .cv-section-head::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+
+    /* ── Generic entry ───────────────────────────────────────────── */
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 1.5rem;
+      margin-bottom: 1rem;
+      page-break-inside: avoid;
+    }
+    .cv-entry.hidden { display: none; }
+    .cv-entry-main { min-width: 0; }
+    .cv-entry-date {
+      font-size: 0.75rem; color: var(--faint);
+      white-space: nowrap; text-align: right; padding-top: 2px;
+    }
+    .cv-entry-role { font-weight: 600; font-size: 0.8125rem; }
+    .cv-entry-org  { font-size: 0.8125rem; color: var(--muted); margin-top: 0.05rem; }
+    .cv-entry-details { grid-column: 1 / -1; margin-top: 0.3rem; }
+    .cv-entry-details ul { list-style: none; }
+    .cv-entry-details li {
+      font-size: 0.8rem; color: var(--muted);
+      padding-left: 1rem; position: relative; margin-bottom: 0.15rem;
+    }
+    .cv-entry-details li::before { content: '–'; position: absolute; left: 0; color: var(--rule); }
+
+    /* ── Publications ────────────────────────────────────────────── */
+    .cv-pub-group { margin-bottom: 1.25rem; }
+    .cv-pub-group.hidden { display: none; }
+    .cv-pub-group-label {
+      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--faint);
+      margin-bottom: 0.5rem; padding-left: 1.75rem;
+    }
+    .cv-pub {
+      display: grid; grid-template-columns: 1.75rem 1fr;
+      column-gap: 0.25rem; margin-bottom: 0.7rem; page-break-inside: avoid;
+    }
+    .cv-pub.hidden { display: none; }
+    .cv-pub-num  { font-size: 0.75rem; color: var(--faint); padding-top: 1px; text-align: right; }
+    .cv-pub-body { font-size: 0.8rem; line-height: 1.55; color: var(--muted); }
+    .cv-pub-body b { color: var(--ink); font-weight: 600; }
+    .cv-pub-title  { color: var(--ink); font-weight: 500; font-size: 0.8125rem; }
+    .cv-pub-meta {
+      margin-top: 0.15rem; display: flex; flex-wrap: wrap;
+      align-items: baseline; gap: 0.2rem 0.6rem;
+    }
+    .cv-pub-venue { font-style: italic; color: var(--muted); }
+    .cv-pub-doi a { color: var(--faint); font-size: 0.75rem; text-decoration: none; }
+    .cv-pub-doi a:hover { color: var(--accent); }
+    .cv-badge {
+      display: inline-block; font-size: 0.625rem; font-weight: 600;
+      letter-spacing: 0.05em; padding: 0.05rem 0.35rem;
+      border-radius: 3px; line-height: 1.6;
+    }
+    .cv-badge-rank     { background: #f8ede6; color: var(--accent); }
+    .cv-badge-award    { background: #fef9c3; color: #854d0e; }
+    .cv-badge-accepted { background: #ecfdf5; color: #166534; }
+    .cv-badge-ur       { background: #f3f4f6; color: var(--faint); }
+
+    /* ── Reviewing ────────────────────────────────────────────────── */
+    .cv-review-grid {
+      display: flex; flex-wrap: wrap; gap: 0.3rem 0;
+    }
+    .cv-review-item {
+      font-size: 0.8rem; color: var(--muted);
+      padding-right: 1.25rem;
+    }
+    .cv-review-item.hidden { display: none; }
+    .cv-review-note { font-size: 0.75rem; color: var(--faint); }
+
+    /* ── Supervision ─────────────────────────────────────────────── */
+    .cv-sup-group {
+      display: grid; grid-template-columns: 7.5rem 1fr;
+      column-gap: 0.75rem; margin-bottom: 0.45rem; align-items: start;
+    }
+    .cv-sup-group.hidden { display: none; }
+    .cv-sup-level { font-weight: 600; font-size: 0.8rem; color: var(--ink); padding-top: 1px; }
+    .cv-sup-item {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 0.75rem; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.2rem;
+      page-break-inside: avoid;
+    }
+    .cv-sup-item.hidden { display: none; }
+    .cv-sup-title  { flex: 1; }
+    .cv-sup-status { font-size: 0.72rem; font-weight: 500; white-space: nowrap; color: var(--faint); }
+    .cv-sup-status.is-current { color: var(--accent); }
+
+    /* ── Skills ───────────────────────────────────────────────────── */
+    .cv-skills-row {
+      display: grid; grid-template-columns: 5.5rem 1fr;
+      gap: 0.25rem 0.75rem; margin-bottom: 0.4rem; font-size: 0.8rem;
+    }
+    .cv-skills-label { font-weight: 600; color: var(--ink); }
+    .cv-skills-val   { color: var(--muted); }
+
+    /* ── Short-mode summary lines ───────────────────────────────── */
+    .cv-short-summary { font-size: 0.8rem; color: var(--muted); }
+    .cv-short-summary.hidden { display: none; }
+
+    /* ── Print ────────────────────────────────────────────────────── */
+    @media print {
+      @page { size: A4; margin: 14mm 20mm 12mm; }
+      body {
+        background: #fff;
+        font-size: 10pt;
+        /* Force the browser to print background colours and images as-is */
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      #toolbar { display: none !important; }
+      .cv-wrap {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      .cv-name    { font-size: 22pt; }
+      .cv-section { margin-top: 12pt; }
+      a { color: inherit !important; text-decoration: none !important; }
+      .cv-entry { page-break-inside: avoid; }
+      .cv-pub   { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div id="toolbar">
+  <span class="tb-label">CV</span>
+  <button class="tb-btn active" data-mode="full">Full</button>
+  <button class="tb-btn" data-mode="short">2-Page</button>
+  <div class="tb-sep"></div>
+  <button class="tb-print" onclick="window.print()">&#x2399;&nbsp;Print / Save PDF</button>
+</div>
+
+<div class="cv-wrap">
+
+  <!-- Header -->
+  <header>
+    <h1 class="cv-name">{profile.name.full}</h1>
+    <span class="cv-rule"></span>
+    <p class="cv-position">{profile.title}</p>
+    <p class="cv-inst">{profile.department} &middot; {profile.institution} &middot; {profile.location}</p>
+    <div class="cv-contact">
+      <a href={`mailto:${profile.contact.email}`}>{profile.contact.email.replace('@', '[at]')}</a>
+      <a href={profile.contact.website} target="_blank">{profile.contact.website.replace('https://', '')}</a>
+      <a href={profile.socials.scholar} target="_blank">Google Scholar</a>
+      <a href={profile.socials.researchgate} target="_blank">ResearchGate</a>
+      <a href={profile.socials.linkedin} target="_blank">LinkedIn</a>
+    </div>
+  </header>
+
+  <!-- Education -->
+  <section class="cv-section" id="s-education">
+    <div class="cv-section-head"><h2>Education</h2></div>
+    {education.map(e => (
+      <div class="cv-entry" data-twopage={e.twoPage ? 'true' : 'false'} data-include={e.include ? 'true' : 'false'}>
+        <div class="cv-entry-main">
+          <div class="cv-entry-role">{e.degree}</div>
+          <div class="cv-entry-org">{e.institution}, {e.location}</div>
+        </div>
+        <div class="cv-entry-date">{e.period}</div>
+        <div class="cv-entry-details">
+          <ul>{e.details.map(d => <li>{d}</li>)}</ul>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Professional Experience -->
+  <section class="cv-section" id="s-experience">
+    <div class="cv-section-head"><h2>Professional Experience</h2></div>
+    {experience.map(e => (
+      <div class="cv-entry" data-twopage={e.twoPage ? 'true' : 'false'} data-include={e.include ? 'true' : 'false'}>
+        <div class="cv-entry-main">
+          <div class="cv-entry-role">{e.role}</div>
+          <div class="cv-entry-org">{e.institution}, {e.location}</div>
+        </div>
+        <div class="cv-entry-date">{e.period}</div>
+        <div class="cv-entry-details">
+          <ul>{e.details.map(d => <li>{d}</li>)}</ul>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Publications -->
+  <section class="cv-section" id="s-publications">
+    <div class="cv-section-head"><h2 id="pub-heading">Publications</h2></div>
+
+    <!-- Conference papers -->
+    <div class="cv-pub-group" id="pg-conference">
+      <div class="cv-pub-group-label">Refereed Conference Papers</div>
+      {confPubs.map(p => {
+        const r = rank(p);
+        return (
+          <div class="cv-pub" data-twopage={(p.twoPage ?? false) ? 'true' : 'false'} data-include={(p.include ?? true) ? 'true' : 'false'}>
+            <div class="cv-pub-num"></div>
+            <div class="cv-pub-body">
+              <span set:html={bold(p.authors)} />.&nbsp;
+              <span class="cv-pub-title">{p.title}.</span>
+              <div class="cv-pub-meta">
+                <span class="cv-pub-venue">{p.venue} ({p.venueShort})</span>
+                <span>{p.year}.</span>
+                {p.doi && (
+                  <span class="cv-pub-doi">
+                    <a href={p.doi} target="_blank">{p.doi.replace('https://doi.org/', 'doi:')}</a>
+                  </span>
+                )}
+                {p.award && <span class="cv-badge cv-badge-award">{p.award}</span>}
+                {r && <span class="cv-badge cv-badge-rank">{r}</span>}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Journal articles -->
+    <div class="cv-pub-group" id="pg-journal">
+      <div class="cv-pub-group-label">Journal Articles</div>
+      {journalPubs.map(p => {
+        const r = rank(p);
+        return (
+          <div class="cv-pub" data-twopage={(p.twoPage ?? false) ? 'true' : 'false'} data-include={(p.include ?? true) ? 'true' : 'false'}>
+            <div class="cv-pub-num"></div>
+            <div class="cv-pub-body">
+              <span set:html={bold(p.authors)} />.&nbsp;
+              <span class="cv-pub-title">{p.title}.</span>
+              <div class="cv-pub-meta">
+                <span class="cv-pub-venue">{p.venue} ({p.venueShort})</span>
+                <span>{p.year}.</span>
+                {p.doi && (
+                  <span class="cv-pub-doi">
+                    <a href={p.doi} target="_blank">{p.doi.replace('https://doi.org/', 'doi:')}</a>
+                  </span>
+                )}
+                {p.award && <span class="cv-badge cv-badge-award">{p.award}</span>}
+                {r && <span class="cv-badge cv-badge-rank">{r}</span>}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Workshop papers -->
+    <div class="cv-pub-group" id="pg-workshop">
+      <div class="cv-pub-group-label">Workshop Papers</div>
+      {workshopPubs.map(p => {
+        const r = rank(p);
+        return (
+          <div class="cv-pub" data-twopage={(p.twoPage ?? false) ? 'true' : 'false'} data-include={(p.include ?? true) ? 'true' : 'false'}>
+            <div class="cv-pub-num"></div>
+            <div class="cv-pub-body">
+              <span set:html={bold(p.authors)} />.&nbsp;
+              <span class="cv-pub-title">{p.title}.</span>
+              <div class="cv-pub-meta">
+                <span class="cv-pub-venue">{p.venue} ({p.venueShort})</span>
+                <span>{p.year}.</span>
+                {p.doi && (
+                  <span class="cv-pub-doi">
+                    <a href={p.doi} target="_blank">{p.doi.replace('https://doi.org/', 'doi:')}</a>
+                  </span>
+                )}
+                {p.award && <span class="cv-badge cv-badge-award">{p.award}</span>}
+                {r && <span class="cv-badge cv-badge-rank">{r}</span>}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Forthcoming publications -->
+    <div class="cv-pub-group" id="pg-under-review" data-full-only="true">
+      <div class="cv-pub-group-label">Forthcoming Publications</div>
+      {underPreparation.map(p => (
+        <div class="cv-pub" data-twopage={p.twoPage ? 'true' : 'false'} data-include={p.include !== false ? 'true' : 'false'}>
+          <div class="cv-pub-num"></div>
+          <div class="cv-pub-body">
+            <span set:html={bold(p.authors)} />.&nbsp;
+            <span class="cv-pub-title">{p.title}.</span>
+            <div class="cv-pub-meta">
+              {p.venueType !== 'TBD'
+                ? <span class="cv-pub-venue">{p.venue} ({p.venueShort})</span>
+                : <span class="cv-pub-venue">Venue to be decided</span>
+              }
+              {p.status === 'accepted'
+                ? <span class="cv-badge cv-badge-accepted">Accepted / In Press</span>
+                : <span class="cv-badge cv-badge-ur">Under Preparation</span>
+              }
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Select Research Projects -->
+  <section class="cv-section" id="s-projects">
+    <div class="cv-section-head"><h2>Select Research Projects</h2></div>
+    {projects.map(p => (
+      <div class="cv-entry" data-twopage={p.twoPage ? 'true' : 'false'} data-include={p.include ? 'true' : 'false'}>
+        <div class="cv-entry-main">
+          <div class="cv-entry-role">{p.title}</div>
+          <div class="cv-entry-details" style="margin-top:0.3rem">
+            <div style="font-size:0.8rem;color:var(--muted);margin-bottom:0.3rem">{p.description}</div>
+            <ul>{p.contributions.map(c => <li>{c}</li>)}</ul>
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Funding -->
+  <section class="cv-section" id="s-funding">
+    <div class="cv-section-head"><h2>Funding</h2></div>
+    <div id="funding-short-summary" class="cv-short-summary hidden">{fundingSummaryText}</div>
+    {grants.map(g => (
+      <div class="cv-entry" data-twopage={g.twoPage ? 'true' : 'false'} data-include={g.include ? 'true' : 'false'}>
+        <div class="cv-entry-main">
+          <div class="cv-entry-role">{g.title}</div>
+          <div class="cv-entry-org">{g.funder} &middot; {g.scheme}</div>
+        </div>
+        <div class="cv-entry-date">
+          {g.year}<br />
+          <span style="font-weight:600;color:var(--ink)">{g.amount}</span>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Student Supervision -->
+  <section class="cv-section" id="s-supervision">
+    <div class="cv-section-head"><h2>Student Project Supervision</h2></div>
+    <div id="supervision-short-summary" class="cv-short-summary hidden">{supSummaryText}</div>
+    {supGroups.map(group => (
+      <div class="cv-sup-group">
+        <div class="cv-sup-level">{group.label}</div>
+        <div>
+          {group.items.map(s => (
+            <div class="cv-sup-item" data-twopage={s.twoPage ? 'true' : 'false'} data-include={s.include ? 'true' : 'false'}>
+              <span class="cv-sup-title">
+                {s.count ? `${s.count} student${s.count > 1 ? 's' : ''}, ${s.title}` : s.title}
+              </span>
+              <span class={`cv-sup-status${s.status === 'current' ? ' is-current' : ''}`}>
+                {s.status === 'current' ? 'Current' : 'Completed'}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Awards -->
+  <section class="cv-section" id="s-awards">
+    <div class="cv-section-head"><h2>Awards and Distinctions</h2></div>
+    <div id="awards-short-summary" class="cv-short-summary hidden">{awardShortText}</div>
+    {awards.map(a => (
+      <div class="cv-entry" data-twopage={a.twoPage ? 'true' : 'false'} data-include={a.include ? 'true' : 'false'}>
+        <div class="cv-entry-main">
+          <div class="cv-entry-role">{a.title}</div>
+          <div class="cv-entry-org">{a.details}</div>
+        </div>
+        {a.year && <div class="cv-entry-date">{a.year}</div>}
+      </div>
+    ))}
+  </section>
+
+  <!-- Reviewing -->
+  <section class="cv-section" id="s-reviewing">
+    <div class="cv-section-head"><h2>Reviewing Experience</h2></div>
+    <div id="reviewing-short-summary" class="cv-short-summary hidden">{reviewShortText}</div>
+    <div class="cv-review-grid">
+      {reviewing.map(r => (
+        <div class="cv-review-item" data-twopage={r.twoPage ? 'true' : 'false'} data-include={r.include ? 'true' : 'false'}>
+          {r.venue} ({r.short})
+          {r.notes && r.notes.map(n => (
+            <span class="cv-review-note"> &middot; {n}</span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Talks -->
+  <section class="cv-section" id="s-talks">
+    <div class="cv-section-head"><h2>Academic Talks</h2></div>
+    {talks.map(t => (
+      <div class="cv-entry" data-twopage={t.twoPage ? 'true' : 'false'} data-include={t.include ? 'true' : 'false'}>
+        <div class="cv-entry-main">
+          <div class="cv-entry-role">{t.title}</div>
+          <div class="cv-entry-org">{t.venue}</div>
+          {t.details && (
+            <div class="cv-entry-details" style="margin-top:0.2rem">
+              <ul><li>{t.details}</li></ul>
+            </div>
+          )}
+        </div>
+        <div class="cv-entry-date">{t.year}</div>
+      </div>
+    ))}
+  </section>
+
+  <!-- Activities -->
+  <section class="cv-section" id="s-activities">
+    <div class="cv-section-head"><h2>Other Certifications and Activities</h2></div>
+    {activities.map(a => (
+      <div class="cv-entry" data-twopage={a.twoPage ? 'true' : 'false'} data-include={a.include ? 'true' : 'false'}>
+        <div class="cv-entry-main">
+          <div class="cv-entry-role">{a.title}</div>
+        </div>
+        {a.year && <div class="cv-entry-date">{a.year}</div>}
+      </div>
+    ))}
+  </section>
+
+  <!-- Skills -->
+  <section class="cv-section" id="s-skills">
+    <div class="cv-section-head"><h2>Research Skills and Tools</h2></div>
+    {skills.research.map(s => (
+      <div style="font-size:0.8rem;color:var(--muted);padding-left:1rem;position:relative;margin-bottom:0.3rem">
+        <span style="position:absolute;left:0;color:var(--rule)">–</span>{s}
+      </div>
+    ))}
+    <div style="margin-top:0.9rem">
+      <div class="cv-skills-row">
+        <span class="cv-skills-label">Proficient</span>
+        <span class="cv-skills-val">{skills.proficient.join(', ')}</span>
+      </div>
+      <div class="cv-skills-row">
+        <span class="cv-skills-label">Familiar</span>
+        <span class="cv-skills-val">{skills.familiar.join(', ')}</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  type Mode = 'full' | 'short';
+
+  function applyMode(mode: Mode) {
+    const isShort = mode === 'short';
+
+    // ── General entry show/hide ──────────────────────────────────
+    document.querySelectorAll<HTMLElement>('[data-twopage]').forEach(el => {
+      const keep = isShort
+        ? el.dataset.twopage === 'true'
+        : el.dataset.include !== 'false';
+      el.classList.toggle('hidden', !keep);
+    });
+
+    // ── Education & Experience: hide detail bullets in short mode ─
+    document.querySelectorAll<HTMLElement>(
+      '#s-education .cv-entry-details, #s-experience .cv-entry-details'
+    ).forEach(el => el.classList.toggle('hidden', isShort));
+
+    // ── Publication heading ──────────────────────────────────────
+    const pubHead = document.getElementById('pub-heading');
+    if (pubHead) pubHead.textContent = isShort ? 'Select Publications' : 'Publications';
+
+    // ── Funding: single summary line in short mode ───────────────
+    const fundShort = document.getElementById('funding-short-summary');
+    document.querySelectorAll<HTMLElement>('#s-funding .cv-entry').forEach(el => {
+      el.classList.toggle('hidden', isShort || el.dataset.include === 'false');
+    });
+    fundShort?.classList.toggle('hidden', !isShort);
+
+    // ── Supervision: single summary line in short mode ───────────
+    const supShort = document.getElementById('supervision-short-summary');
+    document.querySelectorAll<HTMLElement>('#s-supervision .cv-sup-group').forEach(el => {
+      if (isShort) el.classList.add('hidden');
+    });
+    supShort?.classList.toggle('hidden', !isShort);
+
+    // ── Awards: single line of titles in short mode ──────────────
+    const awardShort = document.getElementById('awards-short-summary');
+    document.querySelectorAll<HTMLElement>('#s-awards .cv-entry').forEach(el => {
+      el.classList.toggle('hidden', isShort || el.dataset.include === 'false');
+    });
+    awardShort?.classList.toggle('hidden', !isShort);
+
+    // ── Reviewing: single line of short names in short mode ──────
+    const revShort = document.getElementById('reviewing-short-summary');
+    document.querySelectorAll<HTMLElement>('#s-reviewing .cv-review-item').forEach(el => {
+      el.classList.toggle('hidden', isShort || el.dataset.include === 'false');
+    });
+    revShort?.classList.toggle('hidden', !isShort);
+
+    // ── Collapse pub-groups with no visible pubs ─────────────────
+    document.querySelectorAll('.cv-pub-group').forEach(group => {
+      if (group.classList.contains('hidden')) return;
+      const anyVisible = group.querySelectorAll('.cv-pub:not(.hidden)').length > 0;
+      group.classList.toggle('hidden', !anyVisible);
+    });
+
+    // ── Collapse supervision level-groups (full mode only) ───────
+    if (!isShort) {
+      document.querySelectorAll('.cv-sup-group').forEach(group => {
+        const anyVisible = group.querySelectorAll('.cv-sup-item:not(.hidden)').length > 0;
+        group.classList.toggle('hidden', !anyVisible);
+      });
+    }
+
+    // ── Hide sections with no visible content ────────────────────
+    document.querySelectorAll('.cv-section').forEach(section => {
+      const anyVisible =
+        section.querySelectorAll(
+          '.cv-entry:not(.hidden), .cv-pub:not(.hidden), .cv-review-item:not(.hidden), .cv-sup-item:not(.hidden), .cv-short-summary:not(.hidden)'
+        ).length > 0
+        || section.id === 's-skills';
+      section.classList.toggle('hidden', !anyVisible);
+    });
+
+    // ── Renumber publications ────────────────────────────────────
+    let n = 0;
+    document.querySelectorAll<HTMLElement>('.cv-pub:not(.hidden)').forEach(pub => {
+      const numEl = pub.querySelector<HTMLElement>('.cv-pub-num');
+      if (numEl) { n++; numEl.textContent = `${n}.`; }
+    });
+
+    // ── Toolbar state ────────────────────────────────────────────
+    document.querySelectorAll<HTMLButtonElement>('.tb-btn[data-mode]').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.mode === mode);
+    });
+
+    // ── Update URL ───────────────────────────────────────────────
+    const url = new URL(window.location.href);
+    if (isShort) url.searchParams.set('short', '');
+    else         url.searchParams.delete('short');
+    history.replaceState(null, '', url);
+  }
+
+  // Toolbar buttons
+  document.querySelectorAll<HTMLButtonElement>('.tb-btn[data-mode]').forEach(btn => {
+    btn.addEventListener('click', () => applyMode(btn.dataset.mode as Mode));
+  });
+
+  // Init from URL param
+  const initShort = new URL(window.location.href).searchParams.has('short');
+  applyMode(initShort ? 'short' : 'full');
+</script>
+</body>
+</html>

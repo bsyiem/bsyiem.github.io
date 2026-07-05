@@ -1,11 +1,12 @@
 ---
 import '../styles/global.css';
+import { profile } from '../data/profile';
 
 interface Props {
   title: string;
   description?: string;
 }
-const { title, description = 'HCI researcher — XR, AI, and human behaviour' } = Astro.props;
+const { title, description = profile.metaDescription } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -28,7 +29,7 @@ const { title, description = 'HCI researcher — XR, AI, and human behaviour' } 
           <li class="hidden md:block"><a href="/photography"  class="text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors">Photography</a></li>
           <li class="hidden md:block"><a href="/activities"   class="text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors">Activities</a></li>
           <li>
-            <a href="/assets/pdfs/resume/current_cv.pdf" target="_blank"
+            <a href="/cv" target="_blank"
               class="text-xs tracking-widest uppercase text-ink border border-ink px-3 py-1.5 hover:bg-ink hover:text-bg transition-colors duration-200">
               CV ↗
             </a>
@@ -90,14 +91,14 @@ const { title, description = 'HCI researcher — XR, AI, and human behaviour' } 
     <footer class="border-t border-border mt-32 py-14 bg-ink text-bg">
       <div class="max-w-none px-8 lg:px-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
-          <p class="font-display text-xl font-light mb-1">Brandon Victor Syiem</p>
-          <p class="text-bg/40 text-xs tracking-wide">Postdoctoral Research Fellow · University of Sydney</p>
+          <p class="font-display text-xl font-light mb-1">{profile.name.full}</p>
+          <p class="text-bg/40 text-xs tracking-wide">{profile.title} · {profile.institution}</p>
         </div>
         <ul class="flex gap-6 text-xs tracking-wide text-bg/50">
-          <li><a href="mailto:brandon.syiem@sydney.edu.au"  class="hover:text-bg transition-colors">Email</a></li>
-          <li><a href="https://scholar.google.com/citations?user=NLv_1gMAAAAJ&hl=en" target="_blank" class="hover:text-bg transition-colors">Scholar</a></li>
-          <li><a href="https://www.linkedin.com/in/brandon-victor-syiem-605455a8/" target="_blank" class="hover:text-bg transition-colors">LinkedIn</a></li>
-          <li><a href="https://www.researchgate.net/profile/Brandon-Syiem" target="_blank" class="hover:text-bg transition-colors">ResearchGate</a></li>
+          <li><a href={`mailto:${profile.contact.email}`} class="hover:text-bg transition-colors">Email</a></li>
+          <li><a href={profile.socials.scholar} target="_blank" class="hover:text-bg transition-colors">Scholar</a></li>
+          <li><a href={profile.socials.linkedin} target="_blank" class="hover:text-bg transition-colors">LinkedIn</a></li>
+          <li><a href={profile.socials.researchgate} target="_blank" class="hover:text-bg transition-colors">ResearchGate</a></li>
         </ul>
       </div>
     </footer>
