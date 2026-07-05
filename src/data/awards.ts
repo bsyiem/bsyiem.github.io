@@ -22,7 +22,7 @@ export const awards: AwardEntry[] = [
     twoPage: true,
   },
   {
-    title: 'Top Bachelor Graduate — 3rd ranked in state',
+    title: 'Top Bachelor Graduate (3rd ranked in state)',
     year: 2014,
     details: 'Bachelor of Technology (Information Technology), North Eastern Hill University',
     include: true,
