@@ -12,7 +12,7 @@ export const skills: SkillsData = {
   ],
   proficient: [
     'Unity', 'Python', 'R', 'Java', 'C', 'C#', 'JavaScript',
-    'Java Spring', 'Hibernate',  'Julia', 'RxInfer',
+    'Java Spring', 'Hibernate',  'Julia', 'RxInfer', 
   ],
   familiar: [
     'Keras', 'TensorFlow', 'C++', 'PHP', 'SQL (MySQL, PostgreSQL)',
