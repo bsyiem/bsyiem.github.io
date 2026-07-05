@@ -11,11 +11,11 @@ export const skills: SkillsData = {
     'Experience writing ethics applications for human subjects research',
   ],
   proficient: [
-    'Unity', 'Java', 'JavaScript', 'Java Spring', 'Hibernate',
-    'C', 'C#', 'Python', 'R', '.NET Core', '.NET Framework',
+    'Unity', 'Python', 'R', 'Java', 'C', 'C#', 'JavaScript',
+    'Java Spring', 'Hibernate',  'Julia', 'RxInfer',
   ],
   familiar: [
     'Keras', 'TensorFlow', 'C++', 'PHP', 'SQL (MySQL, PostgreSQL)',
-    'Haskell', 'Prolog', 'Apache Hadoop', 'CSS', 'Go',
+    'Haskell', 'Prolog', 'Apache Hadoop', 'CSS', 'Go', '.NET'
   ],
 };
