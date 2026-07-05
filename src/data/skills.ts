@@ -7,7 +7,7 @@ export type SkillsData = {
 export const skills: SkillsData = {
   research: [
     'Quantitative methods (experimental design, parametric and non-parametric statistical analysis, equivalence testing)',
-    'Qualitative methods (interviews, questionnaires, rapid ethnography, data analysis using the general inductive approach)',
+    'Qualitative methods (interviews, questionnaires, rapid ethnography, general inductive approach)',
     'Experience writing ethics applications for human subjects research',
   ],
   proficient: [
