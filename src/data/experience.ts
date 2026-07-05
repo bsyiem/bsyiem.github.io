@@ -96,8 +96,8 @@ export const experience: ExperienceEntry[] = [
     location: 'Shillong, India',
     period: 'February 2018 – May 2018',
     details: [
-      'Subject coordinator: Artificial Intelligence',
-      'Subject co-coordinator: Computer System Programming',
+      'Teaching and Subject coordination: Artificial Intelligence',
+      'Teaching and Subject coordination: Computer System Programming',
     ],
     include: true,
     twoPage: false,
