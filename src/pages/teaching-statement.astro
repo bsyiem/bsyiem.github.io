@@ -1,0 +1,190 @@
+---
+import { teachingStatement } from '../data/teachingStatement';
+import { profile } from '../data/profile';
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching Statement — Brandon Victor Syiem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #111;
+      --muted:  #555;
+      --faint:  #999;
+      --rule:   #d4d4d4;
+      --accent: #C0622A;
+      --bg:     #fff;
+    }
+
+    html { font-optical-sizing: auto; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: #edede9;
+    }
+
+    /* ── Toolbar ────────────────────────────────────────────────── */
+    #toolbar {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 0.5rem 0.65rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.06);
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.025em;
+    }
+    .tb-label { color: var(--faint); padding: 0 0.25rem; font-size: 11px; }
+    .tb-print {
+      display: inline-flex; align-items: center; gap: 0.25rem;
+      padding: 0.3rem 0.65rem; border-radius: 6px;
+      border: 1px solid var(--accent); cursor: pointer;
+      font: inherit; text-decoration: none;
+      background: var(--accent); color: #fff;
+      transition: background 0.12s;
+    }
+    .tb-print:hover { background: #a85420; }
+
+    /* ── Page ───────────────────────────────────────────────────── */
+    .cv-wrap {
+      max-width: 800px;
+      margin: 2.5rem auto 9rem;
+      background: var(--bg);
+      padding: 3.5rem 3.75rem;
+      box-shadow: 0 2px 48px rgba(0,0,0,0.07);
+    }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .cv-name {
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .cv-rule {
+      display: block; width: 2.5rem; height: 2px;
+      background: var(--accent); margin: 0.65rem 0 0.8rem;
+    }
+    .cv-position  { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+    .cv-inst      { font-size: 0.8125rem; color: var(--muted); margin-top: 0.1rem; }
+    .cv-contact {
+      display: flex; flex-wrap: wrap; gap: 0.2rem 1rem;
+      margin-top: 0.75rem; font-size: 0.75rem; color: var(--faint);
+    }
+    .cv-contact a { color: var(--faint); text-decoration: none; }
+    .cv-contact a:hover { color: var(--accent); text-decoration: underline; }
+
+    .ts-doc-title {
+      margin-top: 2rem;
+      font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ── Statement body ─────────────────────────────────────────── */
+    .ts-intro { margin-top: 1rem; }
+
+    .ts-section { margin-top: 1.9rem; }
+    .ts-section-head {
+      display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.8rem;
+    }
+    .ts-section-head h2 {
+      font-size: 0.625rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink); white-space: nowrap;
+    }
+    .ts-section-head::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule);
+    }
+
+    .ts-para {
+      font-size: 0.8375rem;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+    .ts-para:last-child { margin-bottom: 0; }
+    .ts-intro .ts-para { color: var(--ink); }
+
+    /* ── Print ────────────────────────────────────────────────────── */
+    @media print {
+      @page { size: A4; margin: 14mm 20mm 12mm; }
+      body {
+        background: #fff;
+        font-size: 10pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      #toolbar { display: none !important; }
+      .cv-wrap {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      .cv-name { font-size: 22pt; }
+      .ts-section { margin-top: 14pt; }
+      .ts-para { orphans: 3; widows: 3; }
+      .ts-section-head { page-break-after: avoid; }
+      a { color: inherit !important; text-decoration: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div id="toolbar">
+  <span class="tb-label">Teaching Statement</span>
+  <button class="tb-print" onclick="window.print()">&#x2399;&nbsp;Print / Save PDF</button>
+</div>
+
+<div class="cv-wrap">
+
+  <!-- Header -->
+  <header>
+    <h1 class="cv-name">{profile.name.full}</h1>
+    <span class="cv-rule"></span>
+    <p class="cv-position">{profile.title}</p>
+    <p class="cv-inst">{profile.department} &middot; {profile.institution} &middot; {profile.location}</p>
+    <div class="cv-contact">
+      <a href={`mailto:${profile.contact.email}`}>{profile.contact.email.replace('@', '[at]')}</a>
+      <a href={profile.contact.website} target="_blank">{profile.contact.website.replace('https://', '')}</a>
+      <a href={profile.socials.scholar} target="_blank">Google Scholar</a>
+    </div>
+    <p class="ts-doc-title">Teaching Statement</p>
+  </header>
+
+  <!-- Intro -->
+  <div class="ts-intro">
+    {teachingStatement.intro.map(p => <p class="ts-para">{p}</p>)}
+  </div>
+
+  <!-- Sections -->
+  {teachingStatement.sections.filter(s => s.include).map(section => (
+    <section class="ts-section">
+      <div class="ts-section-head"><h2>{section.heading}</h2></div>
+      {section.paragraphs.map(p => <p class="ts-para">{p}</p>)}
+    </section>
+  ))}
+
+</div>
+
+</body>
+</html>
