@@ -35,14 +35,14 @@ export const teachingStatement: {
       heading: 'Leadership and Community',
       include: true,
       paragraphs: [
-        `I believe mentoring extends beyond advising individuals to cultivating environments where researchers at every stage feel supported, challenged, and connected. At Unimelb and the University of Sydney, I have jointly organised research hackathons, workshops, and summer schools, led research seminar series, and supported the daily operations of HCI laboratories. These communities are where students first present unfinished ideas, receive generous criticism, and learn that research is a collective practice, and I intend to keep building them wherever I work.`,
+        `I believe mentoring extends beyond advising individuals to cultivating environments where researchers at every stage feel supported, challenged, and connected. As a means of fostering such environments, I have jointly organised research hackathons, workshops, and summer schools, led research seminar series, and supported the daily operations of HCI laboratories at both Unimelb and the University of Sydney.`,
       ],
     },
     {
       heading: 'Teaching Interests',
       include: true,
       paragraphs: [
-        `I am eager to teach courses at the intersection of computing and human experience, including HCI, mixed reality systems, and human AI interaction. Drawing on my research and my experience with IGB388, I would particularly like to develop a course on designing and evaluating immersive experiences, taking students from ideation through prototyping to empirical evaluation with human participants. I would also welcome the opportunity to design a seminar connecting probabilistic models of human behaviour, including active inference, to the design of intelligent interactive systems. Alongside these, I remain committed to foundational teaching in programming, algorithms, and data structures, where the challenge of making abstract concepts tangible is one I continue to find genuinely rewarding.`,
+        `I am eager to teach courses at the intersection of computing and human experience, including those related to immersive technologies, human centred research and methodology, and human AI interaction. I would welcome the opportunity to design a seminar connecting probabilistic models of human behaviour, including active inference, to the design of intelligent interactive systems. More broadly, I would enjoy growing this into a full course that draws together statistics, human behaviour, and computational modelling for the design and evaluation of HCI systems. Alongside this, I remain committed to foundational teaching in programming, algorithms, and data structures.`,
       ],
     },
   ],
