@@ -16,6 +16,7 @@ export const experience: ExperienceEntry[] = [
     period: 'May 2024 – Present',
     details: [
       'Distributed Collaboration in Mixed Reality: Lead, supervise and support research in designing and developing collaborative mixed reality systems to enhance diverse work practices.',
+      'Lab Operations: Manage the human-centred computing lab, including design decisions, equipment procurement, access, demonstrations, and stakeholder liaison.',
       'Supervisor: Prof. Eduardo Velloso',
     ],
     include: true,
@@ -108,8 +109,8 @@ export const experience: ExperienceEntry[] = [
     location: 'Shillong, India',
     period: '2015 and 2018',
     details: [
-      'Gazetted Entitlement Management Project: Full stack development using JSP, PostgreSQL and jQuery. (Jun 2018 – Dec 2018)',
-      'Land Registration Project: Full stack development using Java Spring, Spring Security and Hibernate. (Jul 2015 – Nov 2015)',
+      'Gazetted Entitlement Management Project: Full stack development with secure deployment on nationally accessible servers, using JSP, PostgreSQL and jQuery. (Jun 2018 – Dec 2018)',
+      'Land Registration Project: Full stack development with secure deployment on nationally accessible servers, using Java Spring, Spring Security and Hibernate. (Jul 2015 – Nov 2015)',
     ],
     include: true,
     twoPage: false,
