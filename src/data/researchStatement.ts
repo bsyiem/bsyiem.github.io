@@ -18,7 +18,7 @@ export const researchStatement: {
       heading: 'Research Vision',
       include: true,
       paragraphs: [
-        `My research vision extends this philosophy to adaptive systems in HCI. Concretely, I ask how intelligent HCI systems can be created to improve performance and support users in novel contexts, where data scarcity restricts standard machine learning approaches, uncertainty prohibits traditional analytical methods, and user trust determines system effectiveness. To this end, my research proposes an alternative to machine learning, inspired by leading theories of brain function, for designing and developing adaptive systems. Specifically, I envision these systems through the lens of the active inference framework, modelling them on current theories of human behaviour.`,
+        `My research vision extends this philosophy to adaptive systems in HCI. Concretely, I ask how we can improve user experience and task performance through intelligent and explainable HCI systems that can quickly adapt to diverse novel contexts. Such contexts provide limited data and consequently present a greater degree of uncertainty for traditional machine learning and analytical approaches. My approach is to draw upon the active inference framework (AIF), which is a unifying theory of how the human brain functions. AIF not only enables us to construct theoretical models of human action and perception, but also provides the means by which such models can be computationally realised.`,
       ],
     },
     {
