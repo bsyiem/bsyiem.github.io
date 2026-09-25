@@ -10,7 +10,7 @@ export const reviewing: ReviewEntry[] = [
   {
     venue: 'Human Factors in Computing Systems',
     short: 'CHI',
-    notes: ['Special Recognitions for Outstanding Reviews', 'Associate Chair (2024)'],
+    notes: ['Special Recognitions for Outstanding Reviews', 'Associate Chair (2024, 2026)'],
     include: true,
     twoPage: true,
   },
