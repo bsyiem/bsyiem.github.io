@@ -10,7 +10,7 @@ export type SupervisionEntry = {
 
 export const supervision: SupervisionEntry[] = [
   {
-    level: 'PhD',
+    level: 'PhD', //Aochen Jiao, USyd
     role: 'Co-supervisor',
     title: 'Intention-based Avatar Retargetting in Heterogeneous Mixed Reality Physical Spaces',
     status: 'current',
@@ -18,7 +18,7 @@ export const supervision: SupervisionEntry[] = [
     twoPage: true,
   },
   {
-    level: 'PhD',
+    level: 'PhD', //Wendi Yu, USyd
     role: 'Co-supervisor',
     title: 'Intelligent Blending of Distributed Physical Spaces for Remote Collaboration in Mixed Reality',
     status: 'current',
@@ -26,7 +26,15 @@ export const supervision: SupervisionEntry[] = [
     twoPage: true,
   },
   {
-    level: "Master's",
+    level: "Master's", //Nima Sabzeh, USyd
+    role: 'Co-supervisor',
+    title: 'Grounding Object References in Collaborative Mixed Reality',
+    status: 'completed',
+    include: true,
+    twoPage: false,
+  },
+  {
+    level: "Master's", //Lefan Lai, USyd
     role: 'Co-supervisor',
     title: 'Influence of Multi-Tasking in Mixed Reality on Contextual Blindness',
     status: 'completed',
@@ -34,7 +42,7 @@ export const supervision: SupervisionEntry[] = [
     twoPage: false,
   },
   {
-    level: "Master's",
+    level: "Master's", //Beier Li, Unimelb
     role: 'Co-supervisor',
     title: 'Augmented Reality Target Selection and Searching in the Mirror',
     status: 'completed',
@@ -42,7 +50,7 @@ export const supervision: SupervisionEntry[] = [
     twoPage: false,
   },
   {
-    level: "Master's",
+    level: "Master's", //Nickolas Putra, Unimelb
     role: 'Co-supervisor',
     title: 'Effects of Immersion and Active Experimentation on Learning in Virtual Reality',
     status: 'completed',
