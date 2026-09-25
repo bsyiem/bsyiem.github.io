@@ -1,6 +1,9 @@
 ---
-import { researchStatement } from '../data/researchStatement';
+import { researchStatement, citations } from '../data/researchStatement';
 import { profile } from '../data/profile';
+import { publications } from '../data/publications';
+
+const references = citations.map(doi => publications.find(p => p.doi === doi)).filter(p => p !== undefined);
 ---
 <!doctype html>
 <html lang="en">
@@ -123,6 +126,30 @@ import { profile } from '../data/profile';
     .ts-para:last-child { margin-bottom: 0; }
     .ts-intro .ts-para { color: var(--ink); }
 
+    /* ── References ─────────────────────────────────────────────── */
+    .ts-refs {
+      list-style: none;
+      counter-reset: ref;
+    }
+    .ts-refs li {
+      counter-increment: ref;
+      position: relative;
+      padding-left: 1.6rem;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .ts-refs li:last-child { margin-bottom: 0; }
+    .ts-refs li::before {
+      content: '[' counter(ref) ']';
+      position: absolute;
+      left: 0;
+      color: var(--faint);
+    }
+    .ts-refs a { color: inherit; text-decoration: none; }
+    .ts-refs a:hover { color: var(--accent); text-decoration: underline; }
+
     /* ── Print ────────────────────────────────────────────────────── */
     @media print {
       @page { size: A4; margin: 14mm 20mm 12mm; }
@@ -183,6 +210,21 @@ import { profile } from '../data/profile';
       {section.paragraphs.map(p => <p class="ts-para">{p}</p>)}
     </section>
   ))}
+
+  <!-- References -->
+  {references.length > 0 && (
+    <section class="ts-section">
+      <div class="ts-section-head"><h2>References</h2></div>
+      <ol class="ts-refs">
+        {references.map(ref => (
+          <li>
+            {ref.authors}. &ldquo;{ref.title}.&rdquo; <em>{ref.venue}</em>, {ref.year}.
+            {ref.doi && <> <a href={ref.doi} target="_blank">{ref.doi}</a></>}
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
 
 </div>
 

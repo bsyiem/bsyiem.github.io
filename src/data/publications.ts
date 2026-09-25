@@ -22,6 +22,18 @@ export type Publication = {
 export const publications: Publication[] = [
   {
     year: 2026,
+    title: "Grand Challenges for Distributed Mixed Reality Collaboration: A Research Agenda",
+    authors: "Jens Emil Grønbæk, Adélaïde Genay, Andrew Irlitti, Brandon Victor Syiem, Jarrod Knibbe, Emily Wong, Tiare Feuchtner, Tinghui Li, Zhongyi Bai, Eduardo Velloso",
+    venue: "Foundations and Trends in Human-Computer Interaction",
+    venueShort: "FnT HCI 2026",
+    venueType: "journal",
+    doi: "https://doi.org/10.1108/FTHCI-08-2025-0109",
+    topics: ["Extended Reality", "Collaboration"],
+    include: true,
+    twoPage: false,
+  },
+  {
+    year: 2026,
     title: "Better Assumptions, Stronger Conclusions: The Case for Ordinal Regression in HCI",
     authors: "Brandon Victor Syiem, Eduardo Velloso",
     venue: "Proceedings of the CHI Conference on Human Factors in Computing Systems",

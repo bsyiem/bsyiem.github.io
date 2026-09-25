@@ -30,14 +30,4 @@ export const underPreparation: UnderPreparationEntry[] = [
     include: true,
     twoPage: false,
   },
-  {
-    authors: 'Jens Emil Grønbæk, Adélaïde Genay, Andrew Irlitti, Brandon Victor Syiem, Jarrod Knibbe, Emily Wong, Tiare Feuchtner, Tinghui Li, Zhongyi Bai, Eduardo Velloso',
-    title: 'Grand Challenges for Distributed Mixed Reality Collaboration: A Research Agenda',
-    venue: 'Foundations and Trends in Human-Computer Interaction',
-    venueShort: 'FnT HCI',
-    venueType: 'journal',
-    status: 'accepted',
-    include: true,
-    twoPage: false,
-  },
 ];
