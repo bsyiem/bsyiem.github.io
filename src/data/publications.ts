@@ -218,7 +218,7 @@ export const publications: Publication[] = [
     pdf: "/assets/pdfs/papers/khorasani2023hands.pdf",
     images: ["/assets/images/publications/khorasani2023hands.jpg"],
     topics: ["Extended Reality", "Education"],
-    scimagoRank: "Unranked",
+    scimagoRank: "Q1",
     include: true,
     twoPage: false,
     abstract: "Studies suggest that Sense of Embodiment (SoE) enabled by VR promotes embodied and active learning. However, it is unclear what features of VR learning environments tap into the concept of embodied learning. For example, interaction techniques, movement and purely observational scenarios in VR can all play a role in facilitating embodied learning. To understand how these mechanisms impact learning, we conducted 2 studies with a total of 64 participants who had no prior experience in the training task. Participants were taught how to use a table saw in 4 conditions and were tested on their task performance in a fully interactive VR assessment. The conditions were analyzed in pairs; 2 conditions with different interaction techniques, 2 conditions with differing ability to move and a cross-study analysis comparing conditions with purely observational learning to interactive learning. We used a mixed methods approach and found that some types of \"hands-on\" interactions can have a detrimental impact on learning and that observational learning can be as impactful as a fully interactive experience.",
