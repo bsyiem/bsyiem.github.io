@@ -29,6 +29,7 @@ export const publications: Publication[] = [
     venueType: "journal",
     doi: "https://doi.org/10.1108/FTHCI-08-2025-0109",
     topics: ["Extended Reality", "Collaboration"],
+    scimagoRank: "Q1",
     include: true,
     twoPage: false,
   },
