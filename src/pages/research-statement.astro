@@ -126,6 +126,9 @@ const references = citations.map(doi => publications.find(p => p.doi === doi)).f
     .ts-para:last-child { margin-bottom: 0; }
     .ts-intro .ts-para { color: var(--ink); }
 
+    /* ── Subsections ────────────────────────────────────────────── */
+    .ts-subsection { margin-top: 1.3rem; }
+
     /* ── References ─────────────────────────────────────────────── */
     .ts-refs {
       list-style: none;
@@ -208,6 +211,12 @@ const references = citations.map(doi => publications.find(p => p.doi === doi)).f
     <section class="ts-section">
       <div class="ts-section-head"><h2>{section.heading}</h2></div>
       {section.paragraphs.map(p => <p class="ts-para">{p}</p>)}
+      {section.subsections?.filter(sub => sub.include).map(sub => (
+        <div class="ts-subsection">
+          <p class="ts-para"><strong>{sub.heading}.</strong> {sub.paragraphs[0]}</p>
+          {sub.paragraphs.slice(1).map(p => <p class="ts-para">{p}</p>)}
+        </div>
+      ))}
     </section>
   ))}
 
