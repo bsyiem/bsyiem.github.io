@@ -39,7 +39,7 @@ export const researchStatement: {
       heading: 'Research Vision',
       include: true,
       paragraphs: [
-        `My vision is to alter how we conceptualise and create adaptive AI systems, shifting from a data-centric to a theory-driven approach. To this end, I aim to model adaptive systems informed by theories of human psychology, physiology, and behaviour. My recent published work better characterises [4, 5] and models [6] human processes in diverse HCI contexts. My current work translates this knowledge into working adaptive systems that address existing challenges in HCI through a unifying framework in computational neuroscience called Active Inference (AIF). AIF explains the action and perception of intelligent beings through generative models that minimise surprise, demonstrating enormous potential for creating intelligent systems, but remaining challenging to formalise and implement.`,
+        `My vision is to alter how we conceptualise and create adaptive AI systems, shifting from a data-centric to a theory-driven approach. To this end, I aim to model adaptive systems informed by theories of human psychology, physiology, and behaviour. My recent published work in 2026 better characterises [4, 5] and models [6] human processes in diverse HCI contexts. My current work translates this knowledge into working adaptive systems that address existing challenges in HCI through a unifying framework in computational neuroscience called Active Inference (AIF). AIF explains the action and perception of intelligent beings through generative models that minimise surprise, demonstrating enormous potential for creating intelligent systems, but remaining challenging to formalise and implement.`,
       ],
     },
     {
