@@ -22,7 +22,7 @@ export const citations: string[] = [
   'https://doi.org/10.1145/3772318.3790821', // [6] Better Assumptions, Stronger Conclusions... (CHI 2026)
   'https://doi.org/10.1108/FTHCI-08-2025-0109', // [7] Grand Challenges for Distributed Mixed Reality Collaboration (FnT HCI 2026)
   'https://doi.org/10.1080/0144929X.2024.2441963', // [8] A Systematic Exploration of Collaborative Immersive Systems for Sense-making in STEM (BIT 2025)
-  'https://doi.org/10.1145/3706599.370672', // [9] Scaling Distributed Collaboration in Mixed Reality (CHI EA 2025)
+  'https://doi.org/10.1145/3706599.3706722', // [9] Scaling Distributed Collaboration in Mixed Reality (CHI EA 2025)
   'https://doi.org/10.1145/3613904.3642814', // [10] Volumetric Hybrid Workspaces (CHI 2024)
 ];
 
