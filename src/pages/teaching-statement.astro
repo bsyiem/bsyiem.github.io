@@ -84,12 +84,12 @@ import { profile } from '../data/profile';
     }
     .cv-position  { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
     .cv-inst      { font-size: 0.8125rem; color: var(--muted); margin-top: 0.1rem; }
-    .cv-contact {
-      display: flex; flex-wrap: wrap; gap: 0.2rem 1rem;
-      margin-top: 0.75rem; font-size: 0.75rem; color: var(--faint);
+    .cv-name-row {
+      display: flex; flex-wrap: wrap; align-items: baseline;
+      justify-content: space-between; gap: 0.25rem 1rem;
     }
-    .cv-contact a { color: var(--faint); text-decoration: none; }
-    .cv-contact a:hover { color: var(--accent); text-decoration: underline; }
+    .cv-email { font-size: 0.75rem; color: var(--faint); text-decoration: none; }
+    .cv-email:hover { color: var(--accent); text-decoration: underline; }
 
     .ts-doc-title {
       margin-top: 2rem;
@@ -159,15 +159,13 @@ import { profile } from '../data/profile';
 
   <!-- Header -->
   <header>
-    <h1 class="cv-name">{profile.name.full}</h1>
+    <div class="cv-name-row">
+      <h1 class="cv-name">{profile.name.full}</h1>
+      <a class="cv-email" href={`mailto:${profile.contact.email}`}>{profile.contact.email.replace('@', '[at]')}</a>
+    </div>
     <span class="cv-rule"></span>
     <p class="cv-position">{profile.title}</p>
     <p class="cv-inst">{profile.department} &middot; {profile.institution} &middot; {profile.location}</p>
-    <div class="cv-contact">
-      <a href={`mailto:${profile.contact.email}`}>{profile.contact.email.replace('@', '[at]')}</a>
-      <a href={profile.contact.website} target="_blank">{profile.contact.website.replace('https://', '')}</a>
-      <a href={profile.socials.scholar} target="_blank">Google Scholar</a>
-    </div>
     <p class="ts-doc-title">Teaching Statement</p>
   </header>
 
