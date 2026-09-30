@@ -79,14 +79,15 @@ import { profile } from '../data/profile';
       color: var(--ink);
     }
     .cv-rule {
-      display: block; width: 2.5rem; height: 2px;
-      background: var(--accent); margin: 0.65rem 0 0.8rem;
+      display: block; flex-shrink: 0; width: 2.5rem; height: 2px;
+      background: var(--accent);
     }
     .cv-position  { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
     .cv-inst      { font-size: 0.8125rem; color: var(--muted); margin-top: 0.1rem; }
-    .cv-position-row {
-      display: flex; flex-wrap: wrap; align-items: baseline;
-      justify-content: space-between; gap: 0.25rem 1rem;
+    .cv-rule-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      justify-content: space-between; /* flex-start: email sits just after the line */
+      margin: 0.65rem 0 0.8rem;
     }
     .cv-email { font-size: 0.75rem; color: var(--faint); text-decoration: none; }
     .cv-email:hover { color: var(--accent); text-decoration: underline; }
@@ -160,11 +161,11 @@ import { profile } from '../data/profile';
   <!-- Header -->
   <header>
     <h1 class="cv-name">{profile.name.full}</h1>
-    <span class="cv-rule"></span>
-    <div class="cv-position-row">
-      <p class="cv-position">{profile.title}</p>
+    <div class="cv-rule-row">
+      <span class="cv-rule"></span>
       <a class="cv-email" href={`mailto:${profile.contact.email}`}>{profile.contact.email.replace('@', '[at]')}</a>
     </div>
+    <p class="cv-position">{profile.title}</p>
     <p class="cv-inst">{profile.department} &middot; {profile.institution} &middot; {profile.location}</p>
     <p class="ts-doc-title">Teaching Statement</p>
   </header>
