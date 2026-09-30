@@ -84,7 +84,7 @@ import { profile } from '../data/profile';
     }
     .cv-position  { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
     .cv-inst      { font-size: 0.8125rem; color: var(--muted); margin-top: 0.1rem; }
-    .cv-name-row {
+    .cv-position-row {
       display: flex; flex-wrap: wrap; align-items: baseline;
       justify-content: space-between; gap: 0.25rem 1rem;
     }
@@ -159,12 +159,12 @@ import { profile } from '../data/profile';
 
   <!-- Header -->
   <header>
-    <div class="cv-name-row">
-      <h1 class="cv-name">{profile.name.full}</h1>
+    <h1 class="cv-name">{profile.name.full}</h1>
+    <span class="cv-rule"></span>
+    <div class="cv-position-row">
+      <p class="cv-position">{profile.title}</p>
       <a class="cv-email" href={`mailto:${profile.contact.email}`}>{profile.contact.email.replace('@', '[at]')}</a>
     </div>
-    <span class="cv-rule"></span>
-    <p class="cv-position">{profile.title}</p>
     <p class="cv-inst">{profile.department} &middot; {profile.institution} &middot; {profile.location}</p>
     <p class="ts-doc-title">Teaching Statement</p>
   </header>
