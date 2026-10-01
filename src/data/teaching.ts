@@ -86,7 +86,7 @@ export const teaching: TeachingGroup[] = [
     entries: [
       {
         title: 'Artificial Intelligence',
-        role: 'Lecturer',
+        role: 'Lecturer and Subject Coordinator',
         year: '2018',
         include: true,
         twoPage: true,

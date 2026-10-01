@@ -98,7 +98,7 @@ export const experience: ExperienceEntry[] = [
     period: 'February 2018 – May 2018',
     details: [
       'Teaching and Subject coordination: Artificial Intelligence',
-      'Teaching and Subject coordination: Computer System Programming',
+      'Teaching: Computer System Programming',
     ],
     include: true,
     twoPage: false,

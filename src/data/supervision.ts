@@ -35,7 +35,7 @@ export const supervision: SupervisionEntry[] = [
   },
   {
     level: "Master's", //Lefan Lai, USyd
-    role: 'Co-supervisor',
+    role: 'Supervisor',
     title: 'Influence of Multi-Tasking in Mixed Reality on Contextual Blindness',
     status: 'completed',
     include: true,
