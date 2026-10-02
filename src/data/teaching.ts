@@ -36,7 +36,7 @@ export const teaching: TeachingGroup[] = [
         code: 'INFO90003',
         title: 'Designing Novel Interactions',
         role: 'Tutor',
-        year: '2019-2020',
+        year: '2019–2020',
         include: true,
         twoPage: true,
       },

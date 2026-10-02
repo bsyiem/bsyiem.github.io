@@ -10,7 +10,7 @@ export type EducationEntry = {
 
 export const education: EducationEntry[] = [
   {
-    degree: 'Ph.D in Human Computer Interaction',
+    degree: 'PhD in Human-Computer Interaction',
     institution: 'The University of Melbourne',
     location: 'Melbourne, Australia',
     period: 'February 2019 – April 2023',
