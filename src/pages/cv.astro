@@ -2,7 +2,7 @@
 import { education } from '../data/education';
 import { experience } from '../data/experience';
 import { publications } from '../data/publications';
-import { underPreparation } from '../data/underPreparation';
+import { forthcomingPublications } from '../data/forthcomingPublications';
 import { grants } from '../data/grants';
 import { awards } from '../data/awards';
 import { reviewing } from '../data/reviewing';
@@ -346,9 +346,6 @@ function rank(p: typeof publications[0]): string {
     <div class="cv-contact">
       <a href={`mailto:${profile.contact.email}`}>{profile.contact.email.replace('@', '[at]')}</a>
       <a href={profile.contact.website} target="_blank">{profile.contact.website.replace('https://', '')}</a>
-      <a href={profile.socials.scholar} target="_blank">Google Scholar</a>
-      <a href={profile.socials.researchgate} target="_blank">ResearchGate</a>
-      <a href={profile.socials.linkedin} target="_blank">LinkedIn</a>
     </div>
   </header>
 
@@ -477,7 +474,7 @@ function rank(p: typeof publications[0]): string {
     <!-- Forthcoming publications -->
     <div class="cv-pub-group" id="pg-under-review" data-full-only="true">
       <div class="cv-pub-group-label">Forthcoming Publications</div>
-      {underPreparation.map(p => (
+      {forthcomingPublications.map(p => (
         <div class="cv-pub" data-twopage={p.twoPage ? 'true' : 'false'} data-include={p.include !== false ? 'true' : 'false'}>
           <div class="cv-pub-num"></div>
           <div class="cv-pub-body">

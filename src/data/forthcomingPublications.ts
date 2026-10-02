@@ -1,4 +1,4 @@
-export type UnderPreparationEntry = {
+export type ForthcomingPublication = {
   authors: string;
   title: string;
   venue: string;
@@ -9,17 +9,7 @@ export type UnderPreparationEntry = {
   twoPage: boolean;
 };
 
-export const underPreparation: UnderPreparationEntry[] = [
-  {
-    authors: 'Wendi Yu, Brandon Victor Syiem, Eduardo Velloso',
-    title: 'ArchiSeg: Interactive 3D Segmentation in Mixed Reality for Architectural Design',
-    venue: 'To be Decided',
-    venueShort: 'TBD',
-    venueType: 'TBD',
-    status: 'in-preparation',
-    include: false,
-    twoPage: false,
-  },
+export const forthcomingPublications: ForthcomingPublication[] = [
   {
     authors: 'Wendi Yu, Zhongyi Bai, Hongyu Zhou, Brandon Victor Syiem, Eduardo Velloso',
     title: 'LEMuR: Language Embedded 3D Segmentation and Object Tracking for Mixed Reality',
