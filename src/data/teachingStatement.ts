@@ -42,7 +42,7 @@ export const teachingStatement: {
       heading: 'Leadership and Community',
       include: true,
       paragraphs: [
-        `I believe mentoring extends beyond advising individuals to cultivating environments where researchers at every stage feel supported, challenged, and connected. As a means of fostering such environments, I have jointly organised research hackathons, workshops, and summer schools, led research seminar series, and supported the daily operations of HCI laboratories at both Unimelb and USyd.`,
+        `I believe mentoring extends beyond advising individuals to cultivating environments where researchers at every stage feel supported, challenged, and connected. As a means of fostering such environments, I have jointly organised research hackathons, workshops, and summer schools, led research seminar series, and managed the daily operations of the human-centred computing lab at USyd.`,
       ],
     },
     {
