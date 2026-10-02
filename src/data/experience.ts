@@ -93,7 +93,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     role: 'Lecturer',
-    institution: 'North Eastern Hill University',
+    institution: 'North-Eastern Hill University',
     location: 'Shillong, India',
     period: 'February 2018 – May 2018',
     details: [

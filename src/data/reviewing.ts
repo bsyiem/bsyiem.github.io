@@ -16,7 +16,7 @@ export const reviewing: ReviewEntry[] = [
   },
   {
     venue: 'Mobile Human-Computer Interaction',
-    short: 'MobileHCI ',
+    short: 'MobileHCI',
     notes: ['Associate Chair (2026)'],
     include: true,
     twoPage: true,

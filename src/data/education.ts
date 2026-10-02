@@ -36,7 +36,7 @@ export const education: EducationEntry[] = [
   },
   {
     degree: 'Bachelor of Technology (Information Technology)',
-    institution: 'North Eastern Hill University',
+    institution: 'North-Eastern Hill University',
     location: 'Shillong, India',
     period: 'August 2010 – July 2014',
     details: [

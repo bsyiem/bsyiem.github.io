@@ -5,6 +5,8 @@ export type ForthcomingPublication = {
   venueShort: string;
   venueType: 'journal' | 'conference' | 'workshop' | 'TBD';
   status: 'in-preparation' | 'accepted';
+  coreRank?: string;
+  scimagoRank?: string;
   include: boolean;
   twoPage: boolean;
 };
@@ -17,6 +19,7 @@ export const forthcomingPublications: ForthcomingPublication[] = [
     venueShort: 'IMWUT',
     venueType: 'journal',
     status: 'accepted',
+    scimagoRank: 'Q1',
     include: true,
     twoPage: false,
   },
