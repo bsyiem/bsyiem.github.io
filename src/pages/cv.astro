@@ -20,8 +20,8 @@ const workshopPubs = publications.filter(p => p.venueType === 'workshop');
 
 const supGroups = [
   { label: 'PhD',              items: supervision.filter(s => s.level === 'PhD') },
-  { label: 'Masters',          items: supervision.filter(s => s.level === "Master's") },
-  { label: 'Bachelors',        items: supervision.filter(s => s.level === "Bachelor's") },
+  { label: "Master's",         items: supervision.filter(s => s.level === "Master's") },
+  { label: "Bachelor's",       items: supervision.filter(s => s.level === "Bachelor's") },
   { label: 'Research Interns', items: supervision.filter(s => s.level === 'Research Internship') },
 ].filter(g => g.items.length > 0);
 
