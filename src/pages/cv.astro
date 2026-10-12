@@ -471,6 +471,7 @@ function rank(p: { coreRank?: string; scimagoRank?: string }): string {
     </div>
 
     <!-- Forthcoming publications -->
+    {forthcomingPublications.some(p => p.include !== false) && (
     <div class="cv-pub-group" id="pg-under-review" data-full-only="true">
       <div class="cv-pub-group-label">Forthcoming Publications</div>
       {forthcomingPublications.map(p => (
@@ -491,6 +492,7 @@ function rank(p: { coreRank?: string; scimagoRank?: string }): string {
         </div>
       ))}
     </div>
+    )}
   </section>
 
   <!-- Select Research Projects -->

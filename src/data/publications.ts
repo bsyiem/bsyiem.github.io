@@ -22,6 +22,19 @@ export type Publication = {
 export const publications: Publication[] = [
   {
     year: 2026,
+    title: "LEMuR: Language Embedded 3D Segmentation and Object Tracking for Mixed Reality",
+    authors: "Wendi Yu, Zhongyi Bai, Hongyu Zhou, Brandon Victor Syiem, Eduardo Velloso",
+    venue: "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies",
+    venueShort: "IMWUT 2026",
+    venueType: "journal",
+    doi: "https://doi.org/10.1145/3831951",
+    topics: ["Extended Reality", "Computer Vision"],
+    scimagoRank: "Q1",
+    include: true,
+    twoPage: false,
+  },
+  {
+    year: 2026,
     title: "Grand Challenges for Distributed Mixed Reality Collaboration: A Research Agenda",
     authors: "Jens Emil Grønbæk, Adélaïde Genay, Andrew Irlitti, Brandon Victor Syiem, Jarrod Knibbe, Emily Wong, Tiare Feuchtner, Tinghui Li, Zhongyi Bai, Eduardo Velloso",
     venue: "Foundations and Trends in Human-Computer Interaction",
@@ -295,7 +308,6 @@ export const publications: Publication[] = [
     venueShort: "IJCA 2014",
     venueType: "journal",
     topics: ["Social Networks", "Data Mining"],
-    scimagoRank: "Q4",
     include: true,
     twoPage: false,
   },
