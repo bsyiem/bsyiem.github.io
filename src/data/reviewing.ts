@@ -10,14 +10,14 @@ export const reviewing: ReviewEntry[] = [
   {
     venue: 'Human Factors in Computing Systems',
     short: 'CHI',
-    notes: ['Special Recognitions for Outstanding Reviews', 'Associate Chair (2024, 2026)'],
+    notes: ['Special Recognitions for Outstanding Reviews', 'Associate Chair (2025, 2027)'],
     include: true,
     twoPage: true,
   },
   {
     venue: 'Mobile Human-Computer Interaction',
     short: 'MobileHCI',
-    notes: ['Associate Chair (2026)'],
+    notes: ['Associate Editor (2026)'],
     include: true,
     twoPage: true,
   },
